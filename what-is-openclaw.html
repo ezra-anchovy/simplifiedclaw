@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is OpenClaw? | Simplified Claw</title>
-    <meta name="description" content="Discover OpenClaw: The open-source standard for autonomous AI agent infrastructure. Learn why enterprises are choosing OpenClaw for their AI strategy.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Platform | Simplified Claw</title>
+    <meta name="description" content="Discover OpenClaw: The open-source standard for autonomous AI agent infrastructure.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-:root {
+        :root {
             --bg: #09090b;
             --bg-elevated: #18181b;
             --border: #27272a;
@@ -33,7 +31,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Typography */
         h1, h2, h3 {
             font-weight: 600;
             letter-spacing: -0.04em;
@@ -44,9 +41,7 @@
         h2 { font-size: 1.75rem; }
         h3 { font-size: 1.125rem; }
 
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
 
         .label {
             font-family: 'JetBrains Mono', monospace;
@@ -57,7 +52,6 @@
             color: var(--text-tertiary);
         }
 
-        /* Layout */
         .container {
             max-width: 1120px;
             margin: 0 auto;
@@ -68,7 +62,6 @@
             padding: 180px 0;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -123,306 +116,18 @@
             border-radius: 6px !important;
         }
 
-        /* Hero */
         .hero {
-            padding: 200px 0 180px;
+            padding: 200px 0 100px;
             text-align: center;
         }
 
-        .hero h1 {
-            margin-bottom: 24px;
-        }
-
+        .hero h1 { margin-bottom: 24px; }
         .hero h1 span { color: var(--accent); }
-
         .hero p {
             font-size: 1.125rem;
             color: var(--text-secondary);
-            max-width: 580px;
-            margin: 0 auto 40px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 0.875rem;
-            text-decoration: none;
-            transition: all 0.15s;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-primary:hover { background: var(--accent-muted); }
-
-        .btn-secondary {
-            background: var(--bg-elevated);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover { border-color: var(--text-tertiary); }
-
-        /* Real Artifact Section */
-        .artifact-section {
-            background: var(--bg);
-            border-top: 1px solid var(--border);
-        }
-
-        .artifact-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .artifact-header .label {
-            margin-bottom: 16px;
-            display: block;
-            color: var(--accent);
-        }
-
-        .artifact-frame {
-            border: 1px solid var(--border);
-            overflow: hidden;
-            background: var(--bg-elevated);
-        }
-
-        .artifact-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .artifact-caption {
-            padding: 16px 20px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .artifact-caption span {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-tertiary);
-        }
-
-        /* TMRC Section */
-        .tmrc-section {
-            background: var(--bg);
-            border-top: 1px solid var(--border);
-        }
-
-        .tmrc-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .tmrc-header .label {
-            margin-bottom: 16px;
-            display: block;
-            color: var(--accent);
-        }
-
-        .tmrc-header p {
-            color: var(--text-secondary);
-            max-width: 520px;
-            margin: 16px auto 0;
-            font-size: 0.9375rem;
-        }
-
-        .tmrc-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
-        }
-
-        .tmrc-chain {
-            background: var(--bg);
-            padding: 32px;
-        }
-
-        .chain-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 28px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .chain-icon {
-            font-size: 1.25rem;
-        }
-
-        .chain-name {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            color: var(--text);
-        }
-
-        .tier {
-            display: flex;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px dashed var(--border);
-        }
-
-        .tier:last-child { border-bottom: none; }
-
-        .tier-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.625rem;
-            font-weight: 600;
-            color: var(--text-tertiary);
-            width: 20px;
-            height: 20px;
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .tier-info { flex: 1; }
-
-        .tier-model {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8125rem;
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-
-        .tier-meta {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.5625rem;
-            font-weight: 500;
-            padding: 2px 6px;
-            border: 1px solid var(--border);
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-
-        .tag.nvidia { color: #76B900; border-color: #76B90040; }
-        .tag.cerebras { color: #FF6B35; border-color: #FF6B3540; }
-        .tag.mistral { color: #FF7000; border-color: #FF700040; }
-        .tag.groq { color: #F55036; border-color: #F5503640; }
-        .tag.ollama { color: #7C8DB0; border-color: #7C8DB040; }
-        .tag.lmstudio { color: #A78BFA; border-color: #A78BFA40; }
-        .tag.terminal { color: var(--text-tertiary); background: var(--bg-elevated); }
-        .tag.degraded { color: #FBBF24; border-color: #FBBF2440; }
-
-        .tier.terminal { opacity: 0.5; }
-
-        /* Switching Logic */
-        .switching-section {
-            background: var(--bg-elevated);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 80px 0;
-        }
-
-        .switching-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-        }
-
-        .switch-rule {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 16px;
-            background: var(--bg);
-            border: 1px solid var(--border);
-        }
-
-        .switch-trigger {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.6875rem;
-            font-weight: 600;
-            color: #ef4444;
-            padding: 4px 8px;
-            background: #ef444410;
-            border: 1px solid #ef444430;
-            white-space: nowrap;
-        }
-
-        .switch-arrow {
-            color: var(--text-tertiary);
-            font-size: 0.75rem;
-        }
-
-        .switch-action {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        /* Trust Bar */
-        .trust-bar {
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .trust-bar .label {
-            text-align: center;
-            margin-bottom: 40px;
-            display: block;
-        }
-
-        .trust-grid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 48px;
-            flex-wrap: wrap;
-        }
-
-        .trust-name {
-            font-size: 0.9375rem;
-            font-weight: 500;
-            color: var(--text-tertiary);
-            transition: color 0.15s;
-        }
-
-        .trust-name:hover { color: var(--text); }
-
-        /* Features */
-        .features {
-            border-top: 1px solid var(--border);
-        }
-
-        .features-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .features-header .label {
-            margin-bottom: 16px;
-            display: block;
-            color: var(--accent);
+            max-width: 650px;
+            margin: 0 auto;
         }
 
         .features-grid {
@@ -438,113 +143,20 @@
             padding: 48px;
         }
 
-        .feature h3 {
-            margin-bottom: 12px;
+        .feature h3 { margin-bottom: 16px; }
+        .feature p { color: var(--text-secondary); font-size: 0.9375rem; }
+
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .feature p {
-            color: var(--text-secondary);
-            font-size: 0.9375rem;
-        }
+        .content-section h2 { margin-bottom: 24px; margin-top: 64px; }
+        .content-section p { color: var(--text-secondary); margin-bottom: 24px; }
+        .content-section ul { list-style: none; margin-bottom: 24px; }
+        .content-section li { color: var(--text-secondary); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+        .content-section li::before { content: "—"; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
 
-        /* Pricing */
-        .pricing {
-            border-top: 1px solid var(--border);
-        }
-
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .pricing-header .label {
-            margin-bottom: 16px;
-            display: block;
-            color: var(--accent);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--border);
-            border: 1px solid var(--border);
-        }
-
-        .pricing-card {
-            background: var(--bg);
-            padding: 48px 40px;
-            position: relative;
-        }
-
-        .pricing-card.featured {
-            background: var(--bg-elevated);
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.5625rem;
-            font-weight: 600;
-            padding: 4px 8px;
-            background: var(--accent);
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .pricing-card h3 {
-            margin-bottom: 8px;
-        }
-
-        .pricing-card > p {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-bottom: 24px;
-        }
-
-        .price {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            margin-bottom: 4px;
-        }
-
-        .price span {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 32px 0;
-        }
-
-        .pricing-features li {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .pricing-features li::before {
-            content: "—";
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text-tertiary);
-        }
-
-        .pricing-card .btn {
-            width: 100%;
-            text-align: center;
-            display: block;
-        }
-
-        /* Footer */
         footer {
             padding: 64px 0;
             border-top: 1px solid var(--border);
@@ -557,9 +169,7 @@
         }
 
         .footer-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
+            display: flex; gap: 32px; list-style: none;
         }
 
         .footer-links a {
@@ -576,7 +186,6 @@
             color: var(--text-tertiary);
         }
 
-        /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(16px);
@@ -588,19 +197,11 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
+            .features-grid { grid-template-columns: 1fr; }
             section { padding: 120px 0; }
-            .tmrc-grid, .features-grid, .pricing-grid { grid-template-columns: 1fr; }
         }
-
-        @media (max-width: 640px) {
-            .hero { padding: 160px 0 120px; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .nav-links { display: none; }
-            .trust-grid { gap: 24px; }
-        }
-</style>
+    </style>
 </head>
 <body>
     <nav>
@@ -609,44 +210,48 @@
                 <img src="icons/lobster-emoji.svg" alt="">
                 SimplifiedClaw
             </a>
-            <ul class="nav-links">
+                        <ul class="nav-links">
                 <li><a href="what-is-openclaw.html">Platform</a></li>
+                <li><a href="roi-calculator.html">ROI Calculator</a></li>
                 <li><a href="methodology.html">Methodology</a></li>
                 <li><a href="case-studies.html">Case Studies</a></li>
                 <li><a href="security.html">Security</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="#pricing" class="nav-cta">Deploy Now</a></li>
+                <li><a href="index.html#pricing" class="nav-cta">Deploy Now</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="hero">
         <div class="container">
-            <h1 class="fade-in">What is OpenClaw?</h1>
-            <p class="fade-in ">The open-source infrastructure for the next generation of autonomous AI agents.</p>
+            <span class="label fade-in">Core Technology</span>
+            <h1 class="fade-in">What is <span>OpenClaw?</span></h1>
+            <p class="fade-in">The open-source infrastructure for the next generation of autonomous AI agents.</p>
         </div>
     </section>
 
-    <section class="content">
+    <section class="platform-content" style="padding-top: 0;">
         <div class="container">
-            <p class="fade-in"><strong>OpenClaw</strong> is a powerful, extensible framework designed to bridge the gap between Large Language Models (LLMs) and real-world enterprise workflows. While a standard chatbot can only talk, an OpenClaw agent can <strong>act</strong>.</p>
-            
-            <h2 class="fade-in">More Than Just a Chatbot</h2>
-            <p class="fade-in">Unlike typical AI wrappers, OpenClaw provides the "central nervous system" for AI agents. It handles the complex plumbing required for agents to use tools, access data, and execute multi-step plans reliably.</p>
-            
-            <h2 class="fade-in">Key Capabilities</h2>
-            <ul class="fade-in">
-                <li><strong>Tool Use:</strong> Agents can interact with any API, database, or software tool (Slack, GitHub, Jira, etc.).</li>
-                <li><strong>Multi-Agent Orchestration:</strong> Different agents can collaborate, delegate tasks, and peer-review each other's work.</li>
-                <li><strong>Persistent Memory:</strong> Agents remember context across sessions, learning from previous interactions.</li>
-                <li><strong>Self-Correction:</strong> When a tool call fails, OpenClaw agents can analyze the error and try a different approach autonomously.</li>
-            </ul>
+            <div class="content-section fade-in">
+                <p><strong>OpenClaw</strong> is a powerful, extensible framework designed to bridge the gap between Large Language Models (LLMs) and real-world enterprise workflows. While a standard chatbot can only talk, an OpenClaw agent can <strong>act</strong>.</p>
+                
+                <h2>More Than Just a Chatbot</h2>
+                <p>Unlike typical AI wrappers, OpenClaw provides the "central nervous system" for AI agents. It handles the complex plumbing required for agents to use tools, access data, and execute multi-step plans reliably.</p>
+                
+                <h2>Key Capabilities</h2>
+                <ul>
+                    <li><strong>Tool Use:</strong> Interact with any API, database, or software tool (Slack, GitHub, Jira, etc.).</li>
+                    <li><strong>Multi-Agent Orchestration:</strong> Agents collaborate, delegate, and peer-review autonomously.</li>
+                    <li><strong>Persistent Memory:</strong> Context is remembered across sessions, enabling long-term learning.</li>
+                    <li><strong>Self-Correction:</strong> Agents analyze errors and adapt their approach in real-time.</li>
+                </ul>
 
-            <h2 class="fade-in">Why OpenClaw?</h2>
-            <p class="fade-in">Enterprises choose OpenClaw because it offers <strong>control</strong> and <strong>privacy</strong>. Because it is open-source, you aren't locked into a single provider. You can run OpenClaw on your own infrastructure, using the models you trust, with complete visibility into every decision the agent makes.</p>
+                <h2>Why OpenClaw?</h2>
+                <p>Enterprises choose OpenClaw because it offers <strong>control</strong> and <strong>privacy</strong>. It is open-source, ensuring no vendor lock-in. You run it on your infrastructure, with your models, and maintain complete visibility into every decision.</p>
 
-            <h2 class="fade-in">How We Help</h2>
-            <p class="fade-in">While OpenClaw is powerful, configuring it for production-grade enterprise use is complex. <strong>Simplified Claw</strong> provides the expertise to deploy, secure, and optimize your OpenClaw infrastructure, turning a powerful framework into a strategic business asset.</p>
+                <h2>How We Help</h2>
+                <p>Configuring OpenClaw for production is complex. <strong>Simplified Claw</strong> provides the expertise to deploy, secure, and optimize your infrastructure, turning framework potential into strategic business results.</p>
+            </div>
         </div>
     </section>
 
@@ -667,8 +272,7 @@
         </div>
     </footer>
 
-    
-<script>
+    <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
