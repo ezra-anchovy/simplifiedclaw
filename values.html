@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Values & Philosophy | SimplifiedClaw</title>
+    <meta name="description" content="Our approach to AI deployment: AI is not a silver bullet. We're thought partners in deployment, not just contractors.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09090b;
+            --bg-elevated: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #f97316;
+            --accent-muted: #ea580c;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 24px; }
+        h2 { font-size: 1.5rem; margin-bottom: 16px; color: var(--accent); }
+        h3 { font-size: 1.125rem; margin-bottom: 12px; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1120px;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo img { width: 28px; height: 28px; vertical-align: middle; }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: white !important;
+            padding: 8px 16px !important;
+            border-radius: 6px !important;
+        }
+
+        main {
+            padding: 160px 0 100px;
+        }
+
+        .value-block {
+            margin-bottom: 64px;
+            padding: 32px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .value-block p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .value-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .quote {
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin: 24px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        ul li {
+            padding-left: 24px;
+            position: relative;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-tertiary);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-copy {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="icons/logo-compact.png" alt="">
+                <span>Simplified</span><span style="color: var(--accent);">Claw</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Platform</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="https://calendly.com/ezra-anchovy" class="nav-cta">Book Consult</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h1>Values & Philosophy</h1>
+            <p style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: 48px;">How we think about AI deployment—and why it matters.</p>
+
+            <div class="value-block">
+                <h2>AI Is Not a Silver Bullet</h2>
+                <p>We've watched the AI hype cycle accelerate. Every week, a new tool promises to "revolutionize" everything. Most don't.</p>
+                <p>Our position is clear: <span class="highlight">AI is a powerful tool, not a magic solution.</span> It excels at specific tasks—pattern recognition, information synthesis, repetitive operations—but it doesn't replace human judgment, domain expertise, or strategic thinking.</p>
+                <p>When we engage with clients, we start by asking: <em>What problem are you actually trying to solve?</em> Often, the answer isn't "we need AI." It's "we need better processes" or "we need clearer communication" or "we need to hire differently."</p>
+                <p>If AI isn't the right solution, we'll tell you. We'd rather lose an engagement than build something that doesn't serve you.</p>
+            </div>
+
+            <div class="value-block">
+                <h2>Thought Partners, Not Contractors</h2>
+                <p>We don't take orders and disappear into a black box. That's not how good technology gets built.</p>
+                <p>Our model is collaborative: we work <em>with</em> your team, not around them. We believe the best outcomes happen when:</p>
+                <ul>
+                    <li>Your domain experts inform our technical decisions</li>
+                    <li>Our infrastructure expertise informs your strategic planning</li>
+                    <li>Both sides challenge assumptions openly</li>
+                    <li>Knowledge transfers in both directions</li>
+                </ul>
+                <p>By the end of an engagement, your team should understand what we built, why we built it that way, and how to evolve it. Dependency is failure.</p>
+            </div>
+
+            <div class="value-block">
+                <h2>Discretion Is Non-Negotiable</h2>
+                <p>We work with organizations where information sensitivity isn't a preference—it's a requirement. Trading firms. Healthcare systems. Government contractors.</p>
+                <p>Our infrastructure is designed with this in mind:</p>
+                <ul>
+                    <li>Air-gapped deployment options for maximum isolation</li>
+                    <li>No data leaves your environment without explicit authorization</li>
+                    <li>Audit trails for every system interaction</li>
+                    <li>Security reviews at every stage of deployment</li>
+                </ul>
+                <p>We don't talk about who we work with. We don't use client logos without permission. We don't share implementation details. Ever.</p>
+            </div>
+
+            <div class="value-block">
+                <h2>Production Is the Only Metric</h2>
+                <p>Demos are easy. Proof-of-concepts are easy. Getting AI to work in a controlled environment with curated data? That's the simple part.</p>
+                <p>The hard part is production: real users, real edge cases, real scale, real consequences when things break. That's where most AI projects die.</p>
+                <p>We measure ourselves by one standard: <span class="highlight">does it work in production?</span></p>
+                <ul>
+                    <li>99.9% uptime across client deployments</li>
+                    <li>Mean time to recovery under 5 minutes</li>
+                    <li>Zero security incidents in 4+ years</li>
+                    <li>Every system we've built is still running</li>
+                </ul>
+                <p>If we build it, it works. That's the promise.</p>
+            </div>
+
+            <div class="value-block">
+                <h2>Honest Assessment Over Easy Sales</h2>
+                <p>We turn down more work than we take. Not because we're selective about clients, but because we're selective about problems.</p>
+                <div class="quote">
+                    "The most valuable thing a consultant can do is tell you what you don't want to hear."
+                </div>
+                <p>If your timeline is unrealistic, we'll say so. If your budget won't support the scope, we'll say so. If your organization isn't ready for AI, we'll help you figure out what "ready" looks like—even if it means we don't work together for another year.</p>
+                <p>Our reputation is built on outcomes, not invoices.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 64px;">
+                <p style="color: var(--text-secondary); margin-bottom: 24px;">Ready to talk?</p>
+                <a href="https://calendly.com/ezra-anchovy" style="display: inline-block; background: var(--accent); color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600;">Book a Consultation</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="index.html" class="logo">
+                <img src="icons/logo-compact.png" alt="">
+                <span>Simplified</span><span style="color: var(--accent);">Claw</span>
+            </a>
+            <ul class="footer-links">
+                <li><a href="security.html">Security</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
+            </ul>
+            <span class="footer-copy">© 2026</span>
+        </div>
+    </footer>
+</body>
+</html>
