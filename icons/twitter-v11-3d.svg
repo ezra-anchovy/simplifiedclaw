@@ -1,0 +1,45 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 3D Sphere Shading -->
+    <radialGradient id="sphere-shading" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#1e293b" />
+      <stop offset="100%" style="stop-color:#020617" />
+    </radialGradient>
+    <linearGradient id="orange-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fb923c" />
+      <stop offset="100%" style="stop-color:#ea580c" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Sphere -->
+  <circle cx="200" cy="200" r="200" fill="url(#sphere-shading)" />
+  
+  <!-- Perspective SC Monogram (Billiard Ball Style) -->
+  <g transform="translate(200, 200) rotate(-15) skewX(10)">
+    <!-- The "C" (Stretched Claw) -->
+    <path d="M 60 -110 
+             A 120 130 0 1 0 60 110 
+             L 110 140
+             A 160 170 0 1 1 110 -140 
+             Z" 
+          fill="url(#orange-grad)" 
+          transform="scale(1.1, 0.9) translate(-20, 0)" />
+    
+    <!-- The "S" (Stretched White Core) -->
+    <path d="M 15 -75 
+             L -15 -75 
+             A 25 30 0 0 0 -15 -15 
+             L 15 -15 
+             A 25 30 0 0 1 15 45 
+             L -15 45" 
+          fill="none" 
+          stroke="white" 
+          stroke-width="44" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          transform="scale(0.9, 1.1) translate(10, 15)" />
+  </g>
+  
+  <!-- Specular Highlight (The 3D "Pop") -->
+  <ellipse cx="140" cy="140" rx="60" ry="30" fill="white" opacity="0.1" transform="rotate(-45, 140, 140)" />
+</svg>

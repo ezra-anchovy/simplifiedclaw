@@ -1,0 +1,12 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="200" cy="200" r="200" fill="#09090b" />
+  <!-- C-Arc -->
+  <path d="M 280 61.44 A 160 160 0 1 0 280 338.56" fill="none" stroke="#f97316" stroke-width="52" stroke-linecap="round" />
+  <!-- S-Core with Precision Pincers -->
+  <g transform="translate(10, 0)">
+    <path d="M 240 130 L 190 130 A 35 35 0 0 0 190 200 L 210 200 A 35 35 0 0 1 210 270 L 160 270" 
+          fill="none" stroke="white" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 240 130 L 280 120 L 260 160 Z" fill="white" />
+    <path d="M 160 270 L 120 280 L 140 240 Z" fill="white" />
+  </g>
+</svg>

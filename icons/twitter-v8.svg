@@ -1,0 +1,32 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a5a8e" />
+      <stop offset="100%" style="stop-color:#0d8af9" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <circle cx="200" cy="200" r="200" fill="#0c1421" />
+  
+  <!-- "C" (Claw) - Bold outer shell -->
+  <path d="M 280 80 
+           A 140 140 0 1 0 280 320 
+           L 320 340
+           A 180 180 0 1 1 320 60 
+           Z" 
+        fill="url(#blue-grad)" />
+        
+  <!-- "S" - Balanced and properly oriented -->
+  <path d="M 180 140 
+           L 220 140 
+           A 30 30 0 0 1 220 200 
+           L 180 200 
+           A 30 30 0 0 0 180 260 
+           L 220 260" 
+        fill="none" 
+        stroke="white" 
+        stroke-width="36" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        transform="translate(0, 0)" />
+</svg>

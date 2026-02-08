@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a5a8e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d3a5f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="200" cy="200" r="195" fill="url(#grad1)"/>
+  
+  <!-- "S" with claw serifs -->
+  <path d="M 140 120 Q 100 120 100 150 Q 100 170 120 175 L 200 190 Q 230 195 230 220 Q 230 245 200 245 L 150 245 Q 130 245 130 260 L 130 270 Q 130 280 145 280 L 210 280 Q 260 280 280 250 Q 300 220 290 185 Q 280 150 240 140 L 160 125 Q 140 120 140 105 Q 140 85 165 85 L 210 85 Q 225 85 225 72 L 225 65 Q 225 55 212 55 L 155 55 Q 120 55 105 80 Q 95 95 100 110 Q 105 120 125 120 Z" 
+        fill="#ffffff" 
+        stroke="#64b5f6" 
+        stroke-width="3"/>
+  
+  <!-- "C" with claw-like opening -->
+  <path d="M 320 110 L 310 110 Q 295 110 295 125 L 295 165 Q 340 175 340 220 Q 340 265 300 285 Q 270 300 240 295 L 240 330 Q 285 335 325 310 Q 380 275 380 215 Q 380 165 345 135 Q 325 115 295 110 L 295 275 Q 270 275 270 260 L 270 125 Q 270 110 255 110 L 245 110" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="28" 
+        stroke-linecap="round"/>
+  
+  <!-- Claw accent marks -->
+  <line x1="315" y1="180" x2="330" y2="165" stroke="#64b5f6" stroke-width="4" stroke-linecap="round"/>
+  <line x1="315" y1="210" x2="330" y2="225" stroke="#64b5f6" stroke-width="4" stroke-linecap="round"/>
+  <line x1="315" y1="240" x2="330" y2="255" stroke="#64b5f6" stroke-width="4" stroke-linecap="round"/>
+</svg>

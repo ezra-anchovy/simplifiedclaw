@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="grad-v4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a5a8e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d8af9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Bold S with sharp pincer tips at top and bottom -->
+  <path d="M 240 80 
+           L 280 60 L 290 70 L 260 90
+           C 250 95, 220 100, 180 100
+           C 140 100, 110 110, 110 140
+           C 110 165, 130 175, 170 185
+           L 230 200
+           C 280 215, 310 235, 310 275
+           C 310 325, 270 360, 200 360
+           C 160 360, 130 350, 110 335
+           L 90 320 L 100 310 L 140 330
+           C 155 337, 175 342, 200 342
+           C 245 342, 280 325, 280 285
+           C 280 255, 255 245, 215 232
+           L 155 217
+           C 115 205, 80 185, 80 140
+           C 80 95, 125 82, 180 82
+           C 205 82, 225 85, 240 90
+           Z
+           M 110 335
+           L 90 350 L 80 340 L 100 320
+           Z"
+        fill="url(#grad-v4)"
+        stroke="none"/>
+</svg>

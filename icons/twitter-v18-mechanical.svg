@@ -1,5 +1,5 @@
 <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-  <!-- SimplifiedClaw V18-Final: Precision Centered Mechanical Pincers -->
+  <!-- SimplifiedClaw V18: Mechanical Precision Pincers -->
   <defs>
     <linearGradient id="orange-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#fb923c" />
@@ -10,14 +10,14 @@
   <!-- Background -->
   <circle cx="200" cy="200" r="200" fill="#09090b" />
   
-  <!-- "C" Arc (Claw) - Precision Alignment -->
+  <!-- "C" Arc (Claw) - Using BUTT linecaps to avoid sausage look -->
   <path d="M 280 80 A 155 155 0 1 0 280 320" 
         fill="none" 
         stroke="#f97316" 
         stroke-width="50" 
         stroke-linecap="butt" />
 
-  <!-- C-Pincers (Sharp, Tapered, Breaking the circle) -->
+  <!-- C-Pincers (Sharp, Tapered, Inward-Curving) -->
   <!-- Top Pincer -->
   <path d="M 280 55 
            L 330 35
@@ -29,8 +29,8 @@
            Q 345 370 330 335
            L 280 295 Z" fill="#f97316" />
         
-  <!-- "S" Core (White) - Vertically Balanced at Y=200 -->
-  <g transform="translate(10, 5)">
+  <!-- "S" Core (White) - Precise and Sharp -->
+  <g transform="translate(10, 0)">
     <path d="M 235 135 L 195 135 A 30 30 0 0 0 195 195 L 205 195 A 30 30 0 0 1 205 255 L 165 255" 
           fill="none" 
           stroke="white" 

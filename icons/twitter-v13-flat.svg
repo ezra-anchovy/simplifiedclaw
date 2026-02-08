@@ -1,0 +1,44 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 
+    SimplifiedClaw Precision Logo (V13)
+    Method: Absolute Geometric Construction
+  -->
+  
+  <!-- Outer Frame (Hidden, ensures 1:1) -->
+  <rect width="400" height="400" fill="none" />
+  
+  <!-- Background: Perfectly Centered Circle -->
+  <circle cx="200" cy="200" r="200" fill="#09090b" />
+  
+  <!-- "C" (Claw): Centered Mathematical Arc -->
+  <!-- 
+    Stroke-width 48 for boldness. 
+    Outer Radius: 160.
+    Angle: 60deg to 300deg (Open to the right).
+  -->
+  <path d="M 280 61.44 
+           A 160 160 0 1 0 280 338.56" 
+        fill="none" 
+        stroke="#f97316" 
+        stroke-width="52" 
+        stroke-linecap="round" />
+        
+  <!-- "S": Centered Precise Path -->
+  <!-- 
+    Constructed from two semi-circles and a connecting diagonal.
+    Height: 180 (from y=110 to y=290)
+    Width: 100 (from x=150 to x=250)
+  -->
+  <path d="M 240 130
+           L 190 130
+           A 35 35 0 0 0 190 200
+           L 210 200
+           A 35 35 0 0 1 210 270
+           L 160 270" 
+        fill="none" 
+        stroke="white" 
+        stroke-width="48" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        transform="translate(10, 0)" />
+</svg>

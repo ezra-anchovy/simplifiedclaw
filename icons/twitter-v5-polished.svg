@@ -1,0 +1,36 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pincer-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a5a8e" />
+      <stop offset="100%" style="stop-color:#0d8af9" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Perfect Circular Background -->
+  <circle cx="200" cy="200" r="200" fill="#0c1421" />
+  
+  <!-- Polished SC Monogram -->
+  <g transform="translate(200, 200)">
+    <!-- The "C" (Claw) - Sharp Pincer Aesthetic -->
+    <path d="M 60 -110 
+             A 125 125 0 1 0 60 110 
+             L 110 140
+             A 170 170 0 1 1 110 -140 
+             Z" 
+          fill="url(#pincer-grad)" />
+    
+    <!-- The "S" - Centered Core -->
+    <path d="M -50 -60 
+             L -20 -60 
+             A 25 25 0 0 1 -20 -10 
+             L -50 -10 
+             A 25 25 0 0 0 -50 40 
+             L -20 40" 
+          fill="none" 
+          stroke="white" 
+          stroke-width="32" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          transform="translate(10, 0)" />
+  </g>
+</svg>

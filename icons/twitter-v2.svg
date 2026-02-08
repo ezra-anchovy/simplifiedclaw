@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d8a9f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#075e6e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#grad2)"/>
+  
+  <!-- Stylized "S" forming claw shape - upper pincer -->
+  <path d="M 200 80 Q 280 80 310 120 Q 330 145 330 175 Q 330 195 320 210 L 290 250" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="35" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Upper claw tip -->
+  <path d="M 290 250 L 310 270 L 300 285" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="35" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Middle connector -->
+  <circle cx="200" cy="200" r="25" fill="#ffffff"/>
+  
+  <!-- Lower pincer -->
+  <path d="M 200 320 Q 280 320 310 280 Q 330 255 330 225 Q 330 205 320 190 L 290 150" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="35" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- Lower claw tip -->
+  <path d="M 290 150 L 310 130 L 300 115" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="35" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+  
+  <!-- "S" text on left side -->
+  <text x="90" y="220" 
+        font-family="Arial, Helvetica, sans-serif" 
+        font-size="140" 
+        font-weight="900" 
+        fill="#ffffff" 
+        text-anchor="middle">S</text>
+  
+  <!-- Accent dots for detail -->
+  <circle cx="240" cy="120" r="6" fill="#4dd0e1"/>
+  <circle cx="255" cy="140" r="6" fill="#4dd0e1"/>
+  <circle cx="255" cy="260" r="6" fill="#4dd0e1"/>
+  <circle cx="240" cy="280" r="6" fill="#4dd0e1"/>
+</svg>
