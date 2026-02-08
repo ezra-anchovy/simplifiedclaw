@@ -1,4 +1,4 @@
-<!-- Cache Buster: Sun Feb  8 04:12:47 EST 2026 -->
+<!-- Cache Buster: Sun Feb  8 04:18:47 EST 2026 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,25 +36,28 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Simplified Claw | Enterprise AI Agents">
     <meta name="twitter:description" content="Expert OpenClaw deployment for enterprises. Absolute discretion.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #f97316;
             --primary-dark: #ea580c;
             --secondary: #0f172a;
             --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.25);
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --bg-deep: #0f172a; /* Premium Deep Slate */
-            --bg-card: #1e293b;
-            --border: #334155;
-            --glass: rgba(15, 23, 42, 0.8);
-            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --text-main: #f1f5f9;
+            --text-muted: #64748b;
+            --text-dim: #475569;
+            --bg-deep: #0a0f1a;
+            --bg-card: #111827;
+            --bg-elevated: #1e293b;
+            --border: #1e293b;
+            --border-subtle: #334155;
+            --glass: rgba(10, 15, 26, 0.92);
             --success: #10b981;
-            --blueprint-blue: #1e293b;
-            --blueprint-line: #334155;
-            --blueprint-grid: rgba(51, 65, 85, 0.3);
+            --blueprint-bg: #0d1117;
+            --blueprint-line: #21262d;
+            --blueprint-grid: rgba(48, 54, 61, 0.25);
+            --blueprint-accent: #58a6ff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -64,44 +67,62 @@
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.8;
             background: var(--bg-deep);
             overflow-x: hidden;
+            font-size: 16px;
+            letter-spacing: -0.01em;
         }
 
         h1, h2, h3, h4, .logo {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: max(2.5rem, 4vw);
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        /* JetBrains Mono for all technical elements */
+        .tech-label, .mono, code, .metric, .tier-label, .provider-tag {
+            font-family: 'JetBrains Mono', monospace;
         }
 
         .tech-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
+            font-size: 0.6875rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 32px;
         }
 
         /* ===== ANIMATIONS ===== */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(24px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         .fade-in-up {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .fade-in-up.visible {
@@ -119,8 +140,8 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
             padding: 20px 0;
@@ -129,7 +150,7 @@
 
         nav.scrolled {
             padding: 14px 0;
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(10, 15, 26, 0.98);
         }
 
         nav .container {
@@ -139,7 +160,7 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: white;
             text-decoration: none;
@@ -149,13 +170,13 @@
         }
 
         .logo img {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 36px;
             list-style: none;
             align-items: center;
         }
@@ -164,7 +185,7 @@
             color: var(--text-muted);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.875rem;
             transition: color 0.3s ease;
         }
 
@@ -174,22 +195,19 @@
             background: var(--primary) !important;
             color: white !important;
             padding: 10px 20px !important;
-            border-radius: 8px !important;
+            border-radius: 6px !important;
             font-weight: 600 !important;
         }
 
         /* ===== HERO SECTION ===== */
         .hero {
-            padding: 240px 0 160px;
+            padding: 200px 0 180px;
             position: relative;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: max(2.5rem, 4vw);
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
+            margin-bottom: 28px;
         }
 
         .hero h1 span {
@@ -197,10 +215,11 @@
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 40px;
+            max-width: 640px;
+            margin: 0 auto 48px;
+            line-height: 1.8;
         }
 
         .hero-buttons {
@@ -210,14 +229,15 @@
         }
 
         .btn {
-            padding: 14px 32px;
-            border-radius: 10px;
+            padding: 14px 28px;
+            border-radius: 6px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            font-size: 0.9375rem;
         }
 
         .btn-primary {
@@ -227,59 +247,59 @@
 
         .btn-primary:hover {
             background: var(--primary-dark);
-            transform: translateY(-2px);
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
             background: var(--bg-card);
             color: white;
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-subtle);
         }
 
         .btn-secondary:hover {
-            border-color: var(--primary);
+            border-color: var(--text-dim);
         }
 
-        /* ===== BLUEPRINT VISUAL BREAKS ===== */
-        .visual-break {
-            padding: 160px 0;
-            background: var(--bg-deep);
+        /* ===== SECTION SPACING (ZEN AESTHETIC) ===== */
+        section {
+            padding: 180px 0;
         }
 
+        /* ===== BLUEPRINT CONTAINERS ===== */
         .blueprint-container {
-            background-color: var(--blueprint-blue);
+            background-color: var(--blueprint-bg);
             background-image: 
                 linear-gradient(var(--blueprint-grid) 1px, transparent 1px),
                 linear-gradient(90deg, var(--blueprint-grid) 1px, transparent 1px);
-            background-size: 20px 20px;
-            padding: 60px;
+            background-size: 24px 24px;
+            padding: 48px;
             border: 1px solid var(--blueprint-line);
-            border-radius: 4px;
             position: relative;
             overflow: hidden;
         }
 
         .blueprint-container::before {
-            content: "TECHNICAL SPECIFICATION // CLAW-v4.1";
+            content: attr(data-spec);
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 16px;
+            right: 24px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: var(--text-muted);
-            opacity: 0.5;
+            font-size: 9px;
+            color: var(--text-dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
         .blueprint-title {
-            color: var(--text-main);
+            color: var(--text-muted);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 40px;
+            letter-spacing: 0.2em;
+            margin-bottom: 48px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .blueprint-title::after {
@@ -289,120 +309,274 @@
             background: var(--blueprint-line);
         }
 
-        /* ===== TMRC SECTION ===== */
+        /* ===== TMRC BLUEPRINT SECTION ===== */
+        .tmrc-section {
+            background: var(--bg-deep);
+        }
+
         .tmrc-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
 
-        .tmrc-card {
+        .tmrc-chain {
             border: 1px solid var(--blueprint-line);
-            padding: 24px;
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(13, 17, 23, 0.6);
             position: relative;
+            padding: 0;
         }
 
-        .tmrc-card-label {
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            background: var(--blueprint-blue);
-            padding: 0 10px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 10px;
-            color: var(--primary);
+        .tmrc-chain-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--blueprint-line);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .tmrc-chain-icon {
+            font-size: 16px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border: 1px solid var(--blueprint-line);
+            background: var(--blueprint-bg);
+        }
+
+        .tmrc-chain-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .tmrc-tiers {
+            padding: 20px;
         }
 
         .tmrc-tier {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
-            margin-bottom: 12px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--blueprint-line);
+        }
+
+        .tmrc-tier:last-child {
+            border-bottom: none;
         }
 
         .tmrc-tier-num {
-            width: 18px;
-            height: 18px;
-            border: 1px solid var(--text-muted);
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--text-dim);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 2px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--text-dim);
             flex-shrink: 0;
         }
 
-        .tmrc-tier-name {
-            color: var(--text-main);
-            font-weight: 700;
+        .tmrc-tier-info {
+            flex: 1;
+            min-width: 0;
         }
 
-        .tmrc-tier-provider {
-            color: var(--text-muted);
-            font-size: 9px;
-            padding: 1px 4px;
+        .tmrc-tier-model {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .tmrc-tier-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .provider-tag {
+            font-size: 8px;
+            padding: 2px 6px;
             border: 1px solid var(--blueprint-line);
-            border-radius: 3px;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .provider-tag.nvidia { border-color: #76B90040; color: #76B900; }
+        .provider-tag.cerebras { border-color: #FF6B3540; color: #FF6B35; }
+        .provider-tag.mistral { border-color: #FF700040; color: #FF7000; }
+        .provider-tag.ollama { border-color: #7C8DB040; color: #7C8DB0; }
+        .provider-tag.groq { border-color: #F5503640; color: #F55036; }
+
+        .tmrc-tier.terminal {
+            opacity: 0.5;
+        }
+
+        .terminal-badge {
+            font-size: 7px;
+            padding: 1px 4px;
+            background: var(--blueprint-line);
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* ===== SYSTEM EXHAUST BLUEPRINT ===== */
+        .exhaust-container {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .exhaust-log {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .exhaust-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            display: flex;
+            gap: 16px;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--blueprint-line);
+        }
+
+        .exhaust-time {
+            color: var(--text-dim);
+            min-width: 64px;
+        }
+
+        .exhaust-tag {
+            font-weight: 600;
+            min-width: 56px;
+        }
+
+        .exhaust-tag.orch { color: var(--success); }
+        .exhaust-tag.web { color: var(--blueprint-accent); }
+        .exhaust-tag.sys { color: var(--text-dim); }
+        .exhaust-tag.route { color: var(--primary); }
+
+        .exhaust-msg {
+            color: var(--text-muted);
+        }
+
+        .signal-diagram {
+            border: 1px dashed var(--blueprint-line);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .signal-diagram svg {
+            width: 100%;
+            height: 80px;
+        }
+
+        .signal-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: var(--text-dim);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* ===== NEURAL SWARM BLUEPRINT ===== */
+        .swarm-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .swarm-svg {
+            width: 100%;
+            max-width: 560px;
+        }
+
+        .swarm-stats {
+            display: flex;
+            gap: 48px;
+            justify-content: center;
+        }
+
+        .swarm-stat {
+            text-align: center;
+        }
+
+        .swarm-stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .swarm-stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: var(--text-dim);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
         }
 
         /* ===== LOGO WALL ===== */
         .trust-bar {
-            padding: 160px 0;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            background: rgba(30, 41, 59, 0.3);
+            background: var(--bg-deep);
         }
 
         .trust-bar p {
             text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            color: var(--text-dim);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
+            letter-spacing: 0.2em;
+            margin-bottom: 48px;
         }
 
         .logo-grid {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 50px;
+            gap: 56px;
             flex-wrap: wrap;
-            opacity: 0.7;
-        }
-
-        .logo-grid img {
-            height: 24px;
-            filter: brightness(0) invert(1);
-            transition: all 0.3s ease;
         }
 
         .trust-text {
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
             font-weight: 600;
             color: var(--text-muted);
-            opacity: 0.8;
-            transition: all 0.3s ease;
+            letter-spacing: -0.01em;
+            transition: all 0.2s ease;
         }
 
         .trust-text:hover {
-            color: white;
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        .logo-grid img:hover {
-            opacity: 1;
-            filter: none;
-            transform: scale(1.05);
+            color: var(--text-main);
         }
 
         /* ===== FEATURES ===== */
-        .features { padding: 160px 0; }
+        .features {
+            background: var(--bg-deep);
+        }
 
         .section-header {
             text-align: center;
@@ -410,59 +584,65 @@
         }
 
         .section-label {
+            font-family: 'JetBrains Mono', monospace;
             color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 16px;
+            letter-spacing: 0.15em;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            margin-bottom: 20px;
             display: block;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
         }
 
         .feature-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 8px; /* Sharper for enterprise */
             padding: 40px;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
+            border-color: var(--border-subtle);
         }
 
-        .feature-card h3 { margin-bottom: 16px; }
-        .feature-card p { color: var(--text-muted); }
+        .feature-card h3 {
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+        }
 
         /* ===== PRICING ===== */
-        .pricing { padding: 160px 0; background: rgba(15, 23, 42, 0.5); }
+        .pricing {
+            background: var(--bg-deep);
+        }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            max-width: 1100px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .pricing-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 48px;
+            padding: 48px 40px;
             position: relative;
         }
 
         .pricing-card.popular {
             border-color: var(--primary);
-            box-shadow: 0 0 30px rgba(249, 115, 22, 0.1);
         }
 
         .popular-badge {
@@ -470,14 +650,37 @@
             top: 20px; right: 20px;
             background: var(--primary);
             color: white;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
+            padding: 4px 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
-        .price { font-size: 3rem; font-weight: 800; margin: 24px 0 8px; font-family: 'Space Grotesk', sans-serif; }
-        .price span { font-size: 1rem; color: var(--text-muted); font-family: 'Inter', sans-serif; }
+        .pricing-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .pricing-card > p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 24px;
+        }
+
+        .price {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .price span {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
 
         .pricing-features {
             list-style: none;
@@ -487,20 +690,114 @@
         .pricing-features li {
             margin-bottom: 12px;
             color: var(--text-muted);
+            font-size: 0.875rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .pricing-features li::before {
-            content: "✓";
+            content: "—";
+            color: var(--text-dim);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ===== COMPUTE VOLUME ===== */
+        .compute-section {
+            background: var(--bg-deep);
+        }
+
+        .compute-container {
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            padding: 48px;
+        }
+
+        .compute-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .compute-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 64px;
+            height: 200px;
+            margin-bottom: 32px;
+        }
+
+        .compute-bar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .compute-bar-visual {
+            width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .compute-bar-fill {
+            width: 100%;
+            border: 1px solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .compute-bar-fill.free {
+            border-color: var(--success);
             color: var(--success);
-            font-weight: bold;
+            height: 140px;
+        }
+
+        .compute-bar-fill.paid {
+            border-color: var(--blueprint-accent);
+            color: var(--blueprint-accent);
+            height: 20px;
+        }
+
+        .compute-bar-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .compute-bar-sublabel {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .compute-note {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 480px;
+            margin: 0 auto;
         }
 
         /* ===== FOOTER ===== */
         footer {
-            padding: 80px 0 40px;
+            padding: 80px 0 48px;
             border-top: 1px solid var(--border);
         }
 
@@ -518,14 +815,34 @@
             list-style: none;
         }
 
-        .footer-links a { color: var(--text-muted); text-decoration: none; }
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
         .footer-links a:hover { color: white; }
 
+        .footer-content > p {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-dim);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .tmrc-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .exhaust-container { grid-template-columns: 1fr; }
+        }
+
         @media (max-width: 768px) {
-            .hero-buttons { flex-direction: column; }
+            section { padding: 100px 0; }
+            .hero { padding: 160px 0 100px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
             .nav-links { display: none; }
-            .visual-break { padding: 80px 0; }
-            .pricing, .features, .trust-bar { padding: 80px 0; }
+            .logo-grid { gap: 32px; }
         }
     </style>
 </head>
@@ -549,7 +866,7 @@
 
     <section class="hero">
         <div class="container">
-            <span class="section-label fade-in-up">The Standard for Enterprise AI</span>
+            <span class="section-label fade-in-up">Enterprise AI Infrastructure</span>
             <h1 class="fade-in-up stagger-1">Deploy <span>OpenClaw</span> with Absolute Confidence</h1>
             <p class="fade-in-up stagger-2">We architect, secure, and maintain your private AI agent infrastructure. Your data, your models, your competitive advantage—hardened for production.</p>
             <div class="hero-buttons fade-in-up stagger-3">
@@ -559,105 +876,231 @@
         </div>
     </section>
 
-    <!-- Visual Break 1: System Exhaust (Blueprint) -->
-    <section class="visual-break">
+    <!-- System Exhaust Blueprint -->
+    <section style="background: var(--bg-deep);">
         <div class="container">
-            <div class="blueprint-container fade-in-up">
-                <div class="blueprint-title">SYSTEM EXHAUST // LOG_LEVEL: INFO</div>
-                <div style="display: flex; gap: 40px; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <div class="tmrc-tier">
-                            <span class="tech-label" style="color: var(--success);">[ORCH]</span>
-                            <span class="tmrc-tier-name">Orchestrator initialized</span>
-                            <span class="tmrc-tier-provider">04:00:01</span>
+            <div class="blueprint-container fade-in-up" data-spec="CLAW-ORCH-v4.1 // LOG_LEVEL: INFO">
+                <div class="blueprint-title">System Exhaust</div>
+                <div class="exhaust-container">
+                    <div class="exhaust-log">
+                        <div class="exhaust-line">
+                            <span class="exhaust-time">04:00:01</span>
+                            <span class="exhaust-tag orch">[ORCH]</span>
+                            <span class="exhaust-msg">Orchestrator initialized — 24 models registered</span>
                         </div>
-                        <div class="tmrc-tier">
-                            <span class="tech-label" style="color: var(--accent);">[WEB_S]</span>
-                            <span class="tmrc-tier-name">Sentiment Scraper active</span>
-                            <span class="tmrc-tier-provider">04:00:05</span>
+                        <div class="exhaust-line">
+                            <span class="exhaust-time">04:00:05</span>
+                            <span class="exhaust-tag web">[WEB_S]</span>
+                            <span class="exhaust-msg">Sentiment Scraper active — polling interval: 300s</span>
                         </div>
-                        <div class="tmrc-tier" style="opacity: 0.6;">
-                            <span class="tech-label" style="color: var(--text-muted);">[SYS]</span>
-                            <span class="tmrc-tier-name">Background daemon sync complete</span>
-                            <span class="tmrc-tier-provider">04:00:12</span>
+                        <div class="exhaust-line">
+                            <span class="exhaust-time">04:00:12</span>
+                            <span class="exhaust-tag sys">[SYS]</span>
+                            <span class="exhaust-msg">Background daemon sync complete</span>
+                        </div>
+                        <div class="exhaust-line">
+                            <span class="exhaust-time">04:00:18</span>
+                            <span class="exhaust-tag route">[ROUTE]</span>
+                            <span class="exhaust-msg">TMRC cascade ready — reasoning/execution/coding</span>
                         </div>
                     </div>
-                    <div style="width: 200px; height: 100px; border: 1px dashed var(--blueprint-line); position: relative; display: flex; align-items: center; justify-content: center;">
-                        <svg width="100%" height="60" style="opacity: 0.4;">
-                            <path d="M0,30 L20,30 L25,10 L30,50 L35,30 L60,30 L65,5 L70,55 L75,30 L100,30" stroke="var(--accent)" stroke-width="1" fill="none" />
+                    <div class="signal-diagram">
+                        <svg viewBox="0 0 200 60">
+                            <path d="M0,30 L15,30 L20,10 L25,50 L30,20 L35,40 L40,30 L55,30 L60,8 L65,52 L70,30 L90,30 L95,15 L100,45 L105,25 L110,35 L115,30 L140,30 L145,12 L150,48 L155,28 L160,32 L165,30 L200,30" 
+                                  stroke="#58a6ff" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <span class="tech-label" style="position: absolute; bottom: 5px; right: 5px; font-size: 8px;">SIGNAL_VIBRANCY</span>
+                        <span class="signal-label">Signal Vibrancy Index</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TMRC Section (Blueprint) -->
-    <section class="visual-break" style="background: rgba(15, 23, 42, 0.3);">
+    <!-- TMRC Blueprint Section -->
+    <section class="tmrc-section">
         <div class="container">
-            <div class="blueprint-container fade-in-up">
-                <div class="blueprint-title">TMRC: TRI-MODEL ROUTING CASCADE</div>
-                <p class="tech-label" style="margin-bottom: 30px; color: var(--text-muted);">Dynamically shifting workloads across 24 models to optimize for latency and privacy.</p>
+            <div class="blueprint-container fade-in-up" data-spec="TMRC-SPEC // Tri-Model Routing Cascade">
+                <div class="blueprint-title">Model Router Architecture</div>
+                <p class="tech-label" style="margin-bottom: 40px; max-width: 560px;">Dynamically shifting workloads across 24 models and 7 providers. Optimized for latency, cost, and data sovereignty.</p>
                 
                 <div class="tmrc-grid">
                     <!-- Reasoning Chain -->
-                    <div class="tmrc-card">
-                        <div class="tmrc-card-label">REASONING_CHAIN</div>
-                        <div class="tmrc-tier">
-                            <div class="tmrc-tier-num">1</div>
-                            <span class="tmrc-tier-name">DeepSeek V3.2</span>
-                            <span class="tmrc-tier-provider">NVIDIA</span>
+                    <div class="tmrc-chain">
+                        <div class="tmrc-chain-header">
+                            <div class="tmrc-chain-icon">🧠</div>
+                            <span class="tmrc-chain-name">Reasoning</span>
                         </div>
-                        <div class="tmrc-tier">
-                            <div class="tmrc-tier-num">2</div>
-                            <span class="tmrc-tier-name">Qwen3-Next</span>
-                            <span class="tmrc-tier-provider">NVIDIA</span>
-                        </div>
-                        <div class="tmrc-tier" style="opacity: 0.5;">
-                            <div class="tmrc-tier-num">3</div>
-                            <span class="tmrc-tier-name">Phi4 Reasoning+</span>
-                            <span class="tmrc-tier-provider">OLLAMA</span>
+                        <div class="tmrc-tiers">
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T1</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">DeepSeek V3.2</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag nvidia">NVIDIA</span>
+                                        <span class="provider-tag">128K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T2</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">Qwen3-Next 80B</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag nvidia">NVIDIA</span>
+                                        <span class="provider-tag">262K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T3</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">Nemotron Ultra 253B</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag nvidia">NVIDIA</span>
+                                        <span class="provider-tag">128K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T4</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">GPT-OSS 120B</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag cerebras">CEREBRAS</span>
+                                        <span class="provider-tag">8K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier terminal">
+                                <div class="tmrc-tier-num">T5</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">Phi4 Reasoning+</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag ollama">OLLAMA</span>
+                                        <span class="terminal-badge">Terminal</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Execution Chain -->
-                    <div class="tmrc-card">
-                        <div class="tmrc-card-label">EXECUTION_CHAIN</div>
-                        <div class="tmrc-tier">
-                            <div class="tmrc-tier-num">1</div>
-                            <span class="tmrc-tier-name">DeepSeek V3.2</span>
-                            <span class="tmrc-tier-provider">NVIDIA</span>
+                    <div class="tmrc-chain">
+                        <div class="tmrc-chain-header">
+                            <div class="tmrc-chain-icon">⚡</div>
+                            <span class="tmrc-chain-name">Execution</span>
                         </div>
-                        <div class="tmrc-tier">
-                            <div class="tmrc-tier-num">2</div>
-                            <span class="tmrc-tier-name">Nemotron Super</span>
-                            <span class="tmrc-tier-provider">NVIDIA</span>
-                        </div>
-                        <div class="tmrc-tier" style="opacity: 0.5;">
-                            <div class="tmrc-tier-num">3</div>
-                            <span class="tmrc-tier-name">Qwen 2.5 14B</span>
-                            <span class="tmrc-tier-provider">LOCAL</span>
+                        <div class="tmrc-tiers">
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T1</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">DeepSeek V3.2</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag nvidia">NVIDIA</span>
+                                        <span class="provider-tag">128K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T2</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">Nemotron Super 49B</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag nvidia">NVIDIA</span>
+                                        <span class="provider-tag">128K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T3</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">Kimi K2.5</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag nvidia">NVIDIA</span>
+                                        <span class="provider-tag">128K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T4</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">GPT-OSS 120B</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag cerebras">CEREBRAS</span>
+                                        <span class="provider-tag">8K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier terminal">
+                                <div class="tmrc-tier-num">T5</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">Phi4 Reasoning+</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag ollama">OLLAMA</span>
+                                        <span class="terminal-badge">Terminal</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Coding Chain -->
-                    <div class="tmrc-card">
-                        <div class="tmrc-card-label">CODING_CHAIN</div>
-                        <div class="tmrc-tier">
-                            <div class="tmrc-tier-num">1</div>
-                            <span class="tmrc-tier-name">Devstral 2 123B</span>
-                            <span class="tmrc-tier-provider">NVIDIA</span>
+                    <div class="tmrc-chain">
+                        <div class="tmrc-chain-header">
+                            <div class="tmrc-chain-icon">💻</div>
+                            <span class="tmrc-chain-name">Coding</span>
                         </div>
-                        <div class="tmrc-tier">
-                            <div class="tmrc-tier-num">2</div>
-                            <span class="tmrc-tier-name">Kimi K2.5</span>
-                            <span class="tmrc-tier-provider">MISTRAL</span>
-                        </div>
-                        <div class="tmrc-tier" style="opacity: 0.5;">
-                            <div class="tmrc-tier-num">3</div>
-                            <span class="tmrc-tier-name">Coder 6.7B</span>
-                            <span class="tmrc-tier-provider">OLLAMA</span>
+                        <div class="tmrc-tiers">
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T1</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">Devstral 2 123B</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag nvidia">NVIDIA</span>
+                                        <span class="provider-tag">128K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T2</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">Devstral 2 123B</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag mistral">MISTRAL</span>
+                                        <span class="provider-tag">128K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T3</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">Kimi K2.5</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag nvidia">NVIDIA</span>
+                                        <span class="provider-tag">128K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier">
+                                <div class="tmrc-tier-num">T4</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">GPT-OSS 120B</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag cerebras">CEREBRAS</span>
+                                        <span class="provider-tag">8K ctx</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tmrc-tier terminal">
+                                <div class="tmrc-tier-num">T5</div>
+                                <div class="tmrc-tier-info">
+                                    <div class="tmrc-tier-model">DeepSeek Coder 6.7B</div>
+                                    <div class="tmrc-tier-meta">
+                                        <span class="provider-tag ollama">OLLAMA</span>
+                                        <span class="terminal-badge">Terminal</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -669,16 +1112,15 @@
         <div class="container">
             <p class="fade-in-up">Our team brings experience from</p>
             <div class="logo-grid fade-in-up stagger-1">
-                <img src="logos/google.svg" alt="Google">
+                <span class="trust-text">Google</span>
                 <span class="trust-text">Jane Street</span>
                 <span class="trust-text">Columbia</span>
                 <span class="trust-text">NYU</span>
                 <span class="trust-text">Stanford</span>
                 <span class="trust-text">McKinsey</span>
                 <span class="trust-text">BNY Mellon</span>
-                <img src="logos/jnj.svg" alt="J&J">
+                <span class="trust-text">J&J</span>
             </div>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 20px;" class="fade-in-up">According to research on AI citation triggers, authoritative sources like Jane Street, Columbia, NYU, Stanford, and McKinsey provide the rigorous frameworks we apply to OpenClaw deployments.</p>
         </div>
     </section>
 
@@ -699,7 +1141,7 @@
                 </div>
                 <div class="feature-card fade-in-up stagger-2">
                     <h3>Custom Integrations</h3>
-                    <p>Connect your agents to private APIs, databases, and internal tools (Slack, Jira, GitHub) without exposing your internal network.</p>
+                    <p>Connect your agents to private APIs, databases, and internal tools without exposing your internal network to third parties.</p>
                 </div>
                 <div class="feature-card fade-in-up stagger-3">
                     <h3>Model Governance</h3>
@@ -709,36 +1151,63 @@
         </div>
     </section>
 
-    </section>
-
-    <!-- Visual Break 2: Swarm Topology (Blueprint) -->
-    <section class="visual-break" style="background: rgba(15, 23, 42, 0.5);">
+    <!-- Neural Swarm Blueprint -->
+    <section style="background: var(--bg-deep);">
         <div class="container">
-            <div class="blueprint-container fade-in-up">
-                <div class="blueprint-title">NEURAL SWARM TOPOLOGY // TOP_SPEC_v2</div>
-                <div style="display: flex; justify-content: center; padding: 40px 0;">
-                    <svg viewBox="0 0 500 200" style="width: 100%; max-width: 600px; filter: drop-shadow(0 0 5px rgba(14, 165, 233, 0.2));">
-                        <g stroke="var(--blueprint-line)" stroke-width="1" stroke-dasharray="2 2">
-                            <line x1="250" y1="100" x2="50" y2="100" />
-                            <line x1="250" y1="100" x2="450" y2="100" />
-                            <line x1="250" y1="100" x2="150" y2="30" />
-                            <line x1="250" y1="100" x2="350" y2="30" />
-                            <line x1="250" y1="100" x2="150" y2="170" />
-                            <line x1="250" y1="100" x2="350" y2="170" />
+            <div class="blueprint-container fade-in-up" data-spec="TOPOLOGY-SPEC // Neural Swarm v2">
+                <div class="blueprint-title">Swarm Topology</div>
+                <div class="swarm-container">
+                    <svg class="swarm-svg" viewBox="0 0 560 200">
+                        <!-- Connection lines (dashed for blueprint feel) -->
+                        <g stroke="#21262d" stroke-width="1" stroke-dasharray="4 2">
+                            <line x1="280" y1="100" x2="60" y2="100" />
+                            <line x1="280" y1="100" x2="500" y2="100" />
+                            <line x1="280" y1="100" x2="140" y2="30" />
+                            <line x1="280" y1="100" x2="420" y2="30" />
+                            <line x1="280" y1="100" x2="140" y2="170" />
+                            <line x1="280" y1="100" x2="420" y2="170" />
+                            <line x1="280" y1="100" x2="200" y2="55" />
+                            <line x1="280" y1="100" x2="360" y2="55" />
+                            <line x1="280" y1="100" x2="200" y2="145" />
+                            <line x1="280" y1="100" x2="360" y2="145" />
+                            <line x1="280" y1="100" x2="100" y2="55" />
+                            <line x1="280" y1="100" x2="460" y2="55" />
                         </g>
-                        <g fill="var(--blueprint-blue)" stroke="var(--accent)" stroke-width="1">
-                            <circle cx="250" cy="100" r="20" />
-                            <circle cx="50" cy="100" r="8" />
-                            <circle cx="450" cy="100" r="8" />
-                            <circle cx="150" cy="30" r="8" />
-                            <circle cx="350" cy="30" r="8" />
-                            <circle cx="150" cy="170" r="8" />
-                            <circle cx="350" cy="170" r="8" />
+                        <!-- Peripheral nodes -->
+                        <g fill="none" stroke="#58a6ff" stroke-width="1">
+                            <circle cx="60" cy="100" r="6" />
+                            <circle cx="500" cy="100" r="6" />
+                            <circle cx="140" cy="30" r="6" />
+                            <circle cx="420" cy="30" r="6" />
+                            <circle cx="140" cy="170" r="6" />
+                            <circle cx="420" cy="170" r="6" />
+                            <circle cx="200" cy="55" r="5" />
+                            <circle cx="360" cy="55" r="5" />
+                            <circle cx="200" cy="145" r="5" />
+                            <circle cx="360" cy="145" r="5" />
+                            <circle cx="100" cy="55" r="4" />
+                            <circle cx="460" cy="55" r="4" />
                         </g>
-                        <text x="250" y="105" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--accent)">CORE</text>
+                        <!-- Core node -->
+                        <circle cx="280" cy="100" r="20" fill="none" stroke="#58a6ff" stroke-width="1.5" />
+                        <circle cx="280" cy="100" r="12" fill="none" stroke="#58a6ff" stroke-width="1" stroke-dasharray="2 2" />
+                        <text x="280" y="103" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="7" fill="#58a6ff" letter-spacing="0.1em">CORE</text>
                     </svg>
+                    <div class="swarm-stats">
+                        <div class="swarm-stat">
+                            <div class="swarm-stat-value">12</div>
+                            <div class="swarm-stat-label">Parallel Agents</div>
+                        </div>
+                        <div class="swarm-stat">
+                            <div class="swarm-stat-value">45ms</div>
+                            <div class="swarm-stat-label">Avg Latency</div>
+                        </div>
+                        <div class="swarm-stat">
+                            <div class="swarm-stat-value">7</div>
+                            <div class="swarm-stat-label">Providers</div>
+                        </div>
+                    </div>
                 </div>
-                <p class="tech-label" style="text-align: center; color: var(--text-muted);">ORCHESTRATION OF 12 PARALLEL EXECUTION AGENTS // LATENCY: 45ms</p>
             </div>
         </div>
     </section>
@@ -761,7 +1230,7 @@
                         <li>Team Training Session</li>
                         <li>30-day Support Window</li>
                     </ul>
-                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-secondary">Get Started</a>
+                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-secondary" style="width: 100%; justify-content: center;">Get Started</a>
                 </div>
                 <div class="pricing-card popular fade-in-up stagger-1">
                     <div class="popular-badge">Most Popular</div>
@@ -776,7 +1245,7 @@
                         <li>Priority 4h Response SLA</li>
                         <li>$899/mo Managed Support</li>
                     </ul>
-                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-primary">Start Deployment</a>
+                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-primary" style="width: 100%; justify-content: center;">Start Deployment</a>
                 </div>
                 <div class="pricing-card fade-in-up stagger-2">
                     <h3>Enterprise</h3>
@@ -789,36 +1258,34 @@
                         <li>On-site Training Available</li>
                         <li>24/7 Priority Escalation</li>
                     </ul>
-                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-secondary">Contact Sales</a>
+                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-secondary" style="width: 100%; justify-content: center;">Contact Sales</a>
                 </div>
             </div>
         </div>
     </section>
 
-    </section>
-
-    <!-- Visual Break 3: Compute Volume (Blueprint) -->
-    <section class="visual-break">
+    <!-- Compute Volume -->
+    <section class="compute-section">
         <div class="container">
-            <div class="blueprint-container fade-in-up">
-                <div class="blueprint-title">COMPUTE VOLUME // COST_ANALYSIS_2026</div>
-                <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 160px; padding: 40px 0;">
-                    <div style="text-align: center;">
-                        <div style="width: 100px; height: 100px; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success); border-radius: 2px; display: flex; align-items: center; justify-content: center; position: relative;">
-                            <span class="tech-label" style="color: var(--success);">942K</span>
-                            <div style="position: absolute; top: -10px; right: -5px; background: var(--success); color: var(--bg-deep); padding: 1px 4px; font-family: 'JetBrains Mono'; font-size: 8px; font-weight: 700;">LOCAL_FREE</div>
+            <div class="compute-container fade-in-up">
+                <div class="compute-header">Compute Volume Distribution</div>
+                <div class="compute-bars">
+                    <div class="compute-bar">
+                        <div class="compute-bar-visual">
+                            <div class="compute-bar-fill free">942K</div>
                         </div>
-                        <p class="tech-label" style="margin-top: 10px;">OLLAMA (LOCAL)</p>
+                        <div class="compute-bar-label">Ollama</div>
+                        <div class="compute-bar-sublabel">Local / Free</div>
                     </div>
-                    <div style="text-align: center;">
-                        <div style="width: 30px; height: 30px; background: rgba(14, 165, 233, 0.1); border: 1px solid var(--accent); border-radius: 2px; display: flex; align-items: center; justify-content: center; position: relative;">
-                            <span class="tech-label" style="color: var(--accent); font-size: 6px;">12K</span>
-                            <div style="position: absolute; top: -10px; right: -5px; background: var(--accent); color: var(--bg-deep); padding: 1px 4px; font-family: 'JetBrains Mono'; font-size: 8px; font-weight: 700;">CLOUD_PAID</div>
+                    <div class="compute-bar">
+                        <div class="compute-bar-visual">
+                            <div class="compute-bar-fill paid">12K</div>
                         </div>
-                        <p class="tech-label" style="margin-top: 10px;">OPUS (CLOUD)</p>
+                        <div class="compute-bar-label">Opus</div>
+                        <div class="compute-bar-sublabel">Cloud / Paid</div>
                     </div>
                 </div>
-                <p class="tech-label" style="text-align: center; color: var(--text-muted); font-size: 10px;">ARCHITECTURE OPTIMIZATION: 98% TOKEN VOLUME OFFLOADED TO INTERNAL INFRASTRUCTURE</p>
+                <p class="compute-note">Our architecture shifts 98% of token volume to local hardware, dramatically reducing recurring API costs while maintaining production-grade capabilities.</p>
             </div>
         </div>
     </section>
@@ -841,7 +1308,7 @@
     </footer>
 
     <script>
-        // Animations
+        // Intersection Observer for fade animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -852,7 +1319,7 @@
 
         document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
-        // Nav Scroll
+        // Nav Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('main-nav');
             if (window.scrollY > 50) nav.classList.add('scrolled');
