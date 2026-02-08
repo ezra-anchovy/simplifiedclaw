@@ -1,0 +1,17 @@
+.blur-overlay {
+  position: relative;
+  display: inline-block;
+}
+
+.blur-overlay::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 150px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
+  pointer-events: none;
+}
