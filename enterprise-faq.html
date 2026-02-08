@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise FAQ | SimplifiedClaw</title>
+    <meta name="description" content="Answers to common enterprise questions about OpenClaw deployment: timelines, security, support, integrations, and proof of concept options.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #3b82f6;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+        nav {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover { color: var(--accent); }
+
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; }
+
+        .faq-section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-section:last-of-type { border-bottom: none; }
+
+        .faq-section h2 {
+            font-size: 1.25rem;
+            color: var(--accent);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-item {
+            margin-bottom: 24px;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .faq-item ul {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        .faq-item li { margin-bottom: 4px; }
+
+        .cta {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .cta h2 { font-size: 1.5rem; margin-bottom: 16px; }
+        .cta p { color: var(--text-muted); margin-bottom: 24px; }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover { background: #2563eb; }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer a { color: var(--text-muted); text-decoration: none; }
+        footer a:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">🦞 SimplifiedClaw</a>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Enterprise FAQ</h1>
+            <p>Common questions from enterprise teams evaluating OpenClaw deployment</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="faq-section">
+            <h2>📅 Timeline & Process</h2>
+            
+            <div class="faq-item">
+                <h3>How long does a typical enterprise deployment take?</h3>
+                <p>Most deployments complete in 2-4 weeks, depending on complexity. A focused single-team deployment can be done in under 2 weeks. Multi-team or highly integrated deployments may take 4-6 weeks. We provide a detailed timeline during the discovery phase.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What does the engagement process look like?</h3>
+                <p>We follow a 5-phase methodology: Discovery → Architecture → Implementation → Testing → Handoff. Each phase has clear deliverables and checkpoints. See our <a href="methodology.html" style="color: var(--accent);">Methodology page</a> for details.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do you offer proof-of-concept engagements?</h3>
+                <p>Yes. We offer a scoped POC option: a 1-week engagement focused on a single use case to demonstrate value before committing to a full deployment. POC cost can be credited toward a larger engagement.</p>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>🔒 Security & Compliance</h2>
+            
+            <div class="faq-item">
+                <h3>How do you handle data security?</h3>
+                <p>OpenClaw runs entirely within your infrastructure. Your data never leaves your environment. We configure proper access controls, secret management (via tools like 1Password or HashiCorp Vault), and audit logging from day one.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can you support our compliance requirements?</h3>
+                <p>We have experience deploying OpenClaw in environments with various compliance needs. We configure systems aligned with SOC2, HIPAA, and industry-specific standards. However, we're implementers—not auditors. We'll work with your compliance team to ensure requirements are met.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do you sign NDAs?</h3>
+                <p>Yes, always. We treat every engagement as confidential by default. Mutual NDAs are standard before any discovery work begins. We never discuss client work, share configurations, or reveal who we work with.</p>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>🛠 Technical Requirements</h2>
+            
+            <div class="faq-item">
+                <h3>What infrastructure do we need?</h3>
+                <p>OpenClaw can run on a single server, a VM, or distributed across multiple machines. Minimum requirements depend on your use case. Typical setups need:</p>
+                <ul>
+                    <li>Linux server (or macOS for smaller deployments)</li>
+                    <li>Node.js 18+ runtime</li>
+                    <li>API keys for your chosen AI providers (OpenAI, Anthropic, etc.)</li>
+                    <li>Network access to required integrations</li>
+                </ul>
+            </div>
+
+            <div class="faq-item">
+                <h3>What integrations do you support?</h3>
+                <p>We've integrated OpenClaw with Slack, Microsoft Teams, Jira, GitHub, GitLab, Salesforce, Google Workspace, databases (PostgreSQL, MySQL), and many custom APIs. If you have a specific integration need, ask—we've probably done it.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can OpenClaw use our existing AI provider contracts?</h3>
+                <p>Yes. OpenClaw connects to AI providers via API. You use your own API keys and your own contracts. We just configure the routing and optimization.</p>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>📞 Support & Maintenance</h2>
+            
+            <div class="faq-item">
+                <h3>What support is included?</h3>
+                <p>Every deployment includes:</p>
+                <ul>
+                    <li><strong>Starter:</strong> 30-day email support, optional ongoing at $200/month</li>
+                    <li><strong>Team:</strong> Dedicated support with $400/month retainer, 4-hour response SLA</li>
+                    <li><strong>Enterprise:</strong> Custom SLA, dedicated Slack channel, priority escalation</li>
+                </ul>
+            </div>
+
+            <div class="faq-item">
+                <h3>Who handles ongoing maintenance?</h3>
+                <p>After handoff, your team can maintain the system—we provide full documentation and training. If you prefer, ongoing support packages include maintenance, updates, and optimization as part of the retainer.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What if we need changes after deployment?</h3>
+                <p>Support packages include configuration changes and troubleshooting. New feature development or major architecture changes are scoped as separate engagements, typically at favorable rates for existing clients.</p>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2>💰 Pricing & Contracts</h2>
+            
+            <div class="faq-item">
+                <h3>How is pricing structured?</h3>
+                <p>We offer three tiers: Starter ($500), Team ($2,000 + $400/mo support), and Enterprise (custom). Pricing is based on scope, not hourly rates. You know the cost upfront before we begin.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do you require long-term contracts?</h3>
+                <p>No. Deployment engagements are project-based. Ongoing support is month-to-month with no long-term commitment required. Enterprise SLAs may have annual terms for pricing benefits.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What payment methods do you accept?</h3>
+                <p>We accept credit card, ACH transfer, and wire transfer. Enterprise clients can be invoiced with NET-30 terms upon credit approval.</p>
+            </div>
+        </section>
+    </div>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Still Have Questions?</h2>
+            <p>We're happy to discuss your specific situation. No pressure, no sales pitch.</p>
+            <a href="index.html#contact" class="cta-btn">Schedule a Call →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 SimplifiedClaw · </p>
+        </div>
+    </footer>
+</body>
+</html>

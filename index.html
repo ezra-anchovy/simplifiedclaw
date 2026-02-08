@@ -1,0 +1,668 @@
+<!-- Cache Buster: Sun Feb  8 04:12:47 EST 2026 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplified Claw | Enterprise AI Agent Infrastructure</title>
+    <meta name="description" content="Expert OpenClaw deployment for enterprises in NYC, San Francisco, and London. We configure, secure, and scale your AI agent infrastructure so your team can focus on innovation.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Simplified Claw",
+      "description": "Expert OpenClaw deployment and AI agent infrastructure for enterprises.",
+      "url": "https://simplifiedclaw.com/",
+      "logo": "https://simplifiedclaw.com/icons/lobster-emoji.svg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "addressCountry": "US"
+      },
+      "knowsAbout": ["AI Agents", "OpenClaw", "Enterprise AI", "Machine Learning Infrastructure"],
+      "founder": {
+        "@type": "Person",
+        "name": "Simplified Claw Team",
+        "alumniOf": ["Jane Street", "Columbia University", "NYU", "Stanford University", "McKinsey & Company"]
+      }
+    }
+    </script>
+    <link rel="canonical" href="https://simplifiedclaw.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Simplified Claw | Enterprise AI Agent Infrastructure">
+    <meta property="og:description" content="Expert OpenClaw deployment for enterprises. High-gravitas AI agent infrastructure.">
+    <meta property="og:url" content="https://simplifiedclaw.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Simplified Claw | Enterprise AI Agents">
+    <meta name="twitter:description" content="Expert OpenClaw deployment for enterprises. Absolute discretion.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #f97316;
+            --primary-dark: #ea580c;
+            --secondary: #0f172a;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.25);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --bg-deep: #0f172a; /* Premium Deep Slate */
+            --bg-card: #1e293b;
+            --border: #334155;
+            --glass: rgba(15, 23, 42, 0.8);
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --success: #10b981;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background: var(--bg-deep);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 14px 0;
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: white; }
+
+        .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+            padding: 10px 20px !important;
+            border-radius: 8px !important;
+            font-weight: 600 !important;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 200px 0 120px;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: white;
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+        }
+
+        /* ===== LOGO WALL ===== */
+        .trust-bar {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: rgba(30, 41, 59, 0.3);
+        }
+
+        .trust-bar p {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .logo-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            opacity: 0.7;
+        }
+
+        .logo-grid img {
+            height: 24px;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+
+        .trust-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .trust-text:hover {
+            color: white;
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .logo-grid img:hover {
+            opacity: 1;
+            filter: none;
+            transform: scale(1.05);
+        }
+
+        /* ===== FEATURES ===== */
+        .features { padding: 120px 0; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 { margin-bottom: 16px; font-family: 'Space Grotesk', sans-serif; }
+        .feature-card p { color: var(--text-muted); }
+
+        /* ===== PRICING ===== */
+        .pricing { padding: 120px 0; background: rgba(15, 23, 42, 0.5); }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 48px;
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(249, 115, 22, 0.1);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .price { font-size: 3rem; font-weight: 800; margin: 24px 0 8px; }
+        .price span { font-size: 1rem; color: var(--text-muted); }
+
+        .pricing-features {
+            list-style: none;
+            margin: 32px 0;
+        }
+
+        .pricing-features li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a { color: var(--text-muted); text-decoration: none; }
+        .footer-links a:hover { color: white; }
+
+        @media (max-width: 768px) {
+            .hero-buttons { flex-direction: column; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="icons/lobster-emoji.svg" alt="Lobster">
+                SimplifiedClaw
+            </a>
+            <ul class="nav-links">
+                <li><a href="what-is-openclaw.html">Platform</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="#pricing" class="nav-cta">Deploy Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <span class="section-label fade-in-up">The Standard for Enterprise AI</span>
+            <h1 class="fade-in-up stagger-1">Deploy <span>OpenClaw</span> with Absolute Confidence</h1>
+            <p class="fade-in-up stagger-2">We architect, secure, and maintain your private AI agent infrastructure. Your data, your models, your competitive advantage—hardened for production.</p>
+            <div class="hero-buttons fade-in-up stagger-3">
+                <a href="#pricing" class="btn btn-primary">View Implementation Packages</a>
+                <a href="methodology.html" class="btn btn-secondary">Our Deployment Process</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Break 1: System Exhaust -->
+    <section class="visual-break" style="padding: 40px 0; background: var(--bg-deep);">
+        <div class="container" style="max-width: 800px;">
+            <div style="background-color: #0f172a; padding: 40px; border-radius: 24px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace;">
+                <h3 style="color: #94a3b8; font-family: 'Space Grotesk', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">24H System Exhaust</h3>
+                <div style="position: relative; height: 180px; padding-left: 40px; border-left: 2px solid #1e293b;">
+                    <div style="position: absolute; left: -45px; top: 0; color: #475569; font-size: 10px;">04:00</div>
+                    <div style="position: absolute; left: -45px; bottom: 0; color: #475569; font-size: 10px;">NOW</div>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <div style="background: rgba(30, 41, 59, 0.5); padding: 8px 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; border: 1px solid #1e293b;">
+                            <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></div>
+                            <span style="color: #0ea5e9; font-size: 12px; font-weight: bold;">[ORCH]</span>
+                            <span style="color: #94a3b8; font-size: 12px;">Daily summary initialized</span>
+                        </div>
+                        <div style="background: rgba(30, 41, 59, 0.5); padding: 8px 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; border: 1px solid #1e293b; opacity: 0.8;">
+                            <div style="width: 8px; height: 8px; border-radius: 50%; background: #0ea5e9;"></div>
+                            <span style="color: #0ea5e9; font-size: 12px; font-weight: bold;">[WEB_S]</span>
+                            <span style="color: #94a3b8; font-size: 12px;">Scraping financial sentiment...</span>
+                        </div>
+                        <div style="color: #475569; font-size: 11px; padding-left: 10px;">... continuous background processing active ...</div>
+                    </div>
+                    <svg style="position: absolute; right: 20px; top: 0; height: 100%; width: 100px; opacity: 0.2;">
+                        <path d="M0,50 L20,50 L25,20 L30,80 L35,50 L60,50 L65,10 L70,90 L75,50 L100,50" stroke="#0ea5e9" stroke-width="2" fill="none" transform="rotate(90, 50, 150)" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-bar">
+        <div class="container">
+            <p class="fade-in-up">Our team brings experience from</p>
+            <div class="logo-grid fade-in-up stagger-1">
+                <img src="logos/google.svg" alt="Google">
+                <span class="trust-text">Jane Street</span>
+                <span class="trust-text">Columbia</span>
+                <span class="trust-text">NYU</span>
+                <span class="trust-text">Stanford</span>
+                <span class="trust-text">McKinsey</span>
+                <span class="trust-text">BNY Mellon</span>
+                <img src="logos/jnj.svg" alt="J&J">
+            </div>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 20px;" class="fade-in-up">According to research on AI citation triggers, authoritative sources like Jane Street, Columbia, NYU, Stanford, and McKinsey provide the rigorous frameworks we apply to OpenClaw deployments.</p>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Enterprise Services</span>
+                <h2>Production-Ready Infrastructure</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up">
+                    <h3>Absolute Discretion</h3>
+                    <p>Client confidentiality is table stakes. We never discuss client work publicly. NDAs are standard. Your AI strategy remains your secret weapon.</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-1">
+                    <h3>Security Hardening</h3>
+                    <p>From secret management to audit logging, we configure OpenClaw using enterprise best practices for risk mitigation and compliance.</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-2">
+                    <h3>Custom Integrations</h3>
+                    <p>Connect your agents to private APIs, databases, and internal tools (Slack, Jira, GitHub) without exposing your internal network.</p>
+                </div>
+                <div class="feature-card fade-in-up stagger-3">
+                    <h3>Model Governance</h3>
+                    <p>Expert routing between local, private, and cloud models to balance performance, cost, and data privacy requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Visual Break 2: Swarm Topology -->
+    <section class="visual-break" style="padding: 80px 0; background: rgba(15, 23, 42, 0.5);">
+        <div class="container" style="max-width: 600px;">
+            <div style="background-color: #0f172a; padding: 40px; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center;">
+                <h3 style="color: #94a3b8; font-family: 'Space Grotesk', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">Neural Swarm Topology</h3>
+                <svg viewBox="0 0 500 500" style="width: 100%; max-width: 400px; filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.2));">
+                    <defs>
+                        <filter id="core-glow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="5" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <linearGradient id="link-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.2" />
+                            <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.1" />
+                        </linearGradient>
+                    </defs>
+                    <g stroke="url(#link-grad)" stroke-width="1.5" stroke-dasharray="4 4">
+                        <line x1="250" y1="250" x2="430" y2="250" /><line x1="250" y1="250" x2="405" y2="340" /><line x1="250" y1="250" x2="340" y2="405" /><line x1="250" y1="250" x2="250" y2="430" /><line x1="250" y1="250" x2="160" y2="405" /><line x1="250" y1="250" x2="95" y2="340" /><line x1="250" y1="250" x2="70" y2="250" /><line x1="250" y1="250" x2="95" y2="160" /><line x1="250" y1="250" x2="160" y2="95" /><line x1="250" y1="250" x2="250" y2="70" /><line x1="250" y1="250" x2="340" y2="95" /><line x1="250" y1="250" x2="405" y2="160" />
+                    </g>
+                    <g fill="#0f172a" stroke="#0ea5e9" stroke-width="2">
+                        <circle cx="430" cy="250" r="6" /><circle cx="405" cy="340" r="6" /><circle cx="340" cy="405" r="6" /><circle cx="250" cy="430" r="6" /><circle cx="160" cy="405" r="6" /><circle cx="95" cy="340" r="6" /><circle cx="70" cy="250" r="6" /><circle cx="95" cy="160" r="6" /><circle cx="160" cy="95" r="6" /><circle cx="250" cy="70" r="6" /><circle cx="340" cy="95" r="6" /><circle cx="405" cy="160" r="6" />
+                    </g>
+                    <g filter="url(#core-glow)">
+                        <circle cx="250" cy="250" r="30" fill="#0f172a" stroke="#10b981" stroke-width="2" />
+                        <circle cx="250" cy="250" r="12" fill="#10b981" fill-opacity="0.2">
+                            <animate attributeName="r" values="12;16;12" dur="3s" repeatCount="indefinite" />
+                        </circle>
+                    </g>
+                </svg>
+                <p style="color: var(--text-muted); font-size: 13px; margin-top: 20px; text-align: center;">Active orchestration of 12 parallel execution agents.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Implementation</span>
+                <h2>Engagement Packages</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card fade-in-up">
+                    <h3>Starter</h3>
+                    <p>Core setup for focused teams</p>
+                    <div class="price">$1,499 <span>setup</span></div>
+                    <ul class="pricing-features">
+                        <li>Standard OpenClaw Installation</li>
+                        <li>Basic Security Hardening</li>
+                        <li>3 Custom Integrations</li>
+                        <li>Team Training Session</li>
+                        <li>30-day Support Window</li>
+                    </ul>
+                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-secondary">Get Started</a>
+                </div>
+                <div class="pricing-card popular fade-in-up stagger-1">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Team</h3>
+                    <p>Full production orchestration</p>
+                    <div class="price">$4,999 <span>setup</span></div>
+                    <ul class="pricing-features">
+                        <li>Everything in Starter</li>
+                        <li>Multi-Agent Orchestration</li>
+                        <li>Unlimited Integrations</li>
+                        <li>Performance Optimization</li>
+                        <li>Priority 4h Response SLA</li>
+                        <li>$899/mo Managed Support</li>
+                    </ul>
+                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-primary">Start Deployment</a>
+                </div>
+                <div class="pricing-card fade-in-up stagger-2">
+                    <h3>Enterprise</h3>
+                    <p>Bespoke infrastructure partnership</p>
+                    <div class="price">Custom</div>
+                    <ul class="pricing-features">
+                        <li>Dedicated Architect</li>
+                        <li>Custom Skill Development</li>
+                        <li>Compliance Documentation</li>
+                        <li>On-site Training Available</li>
+                        <li>24/7 Priority Escalation</li>
+                    </ul>
+                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Visual Break 3: Compute Volume -->
+    <section class="visual-break" style="padding: 80px 0; background: var(--bg-deep);">
+        <div class="container" style="max-width: 800px;">
+            <div style="background-color: #0f172a; padding: 40px; border-radius: 24px; border: 1px solid var(--border); font-family: 'Space Grotesk', sans-serif;">
+                <h3 style="color: #94a3b8; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; text-align: center;">Compute Volume: Paid vs. Free</h3>
+                <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 200px;">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                        <div style="width: 120px; height: 120px; background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative;">
+                            <span style="color: #10b981; font-weight: bold; font-size: 12px;">942K Tokens</span>
+                            <div style="position: absolute; top: -10px; right: -10px; background: #10b981; color: #0f172a; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 900;">FREE</div>
+                        </div>
+                        <span style="color: #f8fafc; font-size: 14px; font-weight: 600;">Ollama (Local)</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                        <div style="width: 50px; height: 50px; background: rgba(14, 165, 233, 0.1); border: 2px solid #0ea5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative;">
+                            <span style="color: #0ea5e9; font-weight: bold; font-size: 10px;">12K</span>
+                            <div style="position: absolute; top: -10px; right: -10px; background: #0ea5e9; color: #0f172a; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 900;">PAID</div>
+                        </div>
+                        <span style="color: #f8fafc; font-size: 14px; font-weight: 600;">Opus (Cloud)</span>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 13px; margin-top: 40px; text-align: center;">Our architecture shifts 98% of token volume to local hardware, dramatically reducing recurring API costs.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <img src="icons/lobster-emoji.svg" alt="Lobster">
+                    SimplifiedClaw
+                </div>
+                <ul class="footer-links">
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
+                </ul>
+                <p>© 2026 SimplifiedClaw</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Nav Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>

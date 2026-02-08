@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Simplified Claw</title>
+    <meta name="description" content="Terms of Service and Privacy Policy for Simplified Claw enterprise AI consulting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --accent-light: #60a5fa;
+            --text: #e2e8f0;
+            --text-light: #94a3b8;
+            --bg: #0f172a;
+            --bg-alt: #1e293b;
+            --border: #334155;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(51, 65, 85, 0.8);
+            z-index: 1000; padding: 16px 0; transition: all 0.3s ease;
+        }
+        nav.scrolled { padding: 12px 0; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); }
+        nav .container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+        .logo-icon img { width: 100%; height: 100%; }
+        .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 500; font-size: 0.95rem; position: relative; transition: color 0.3s ease; }
+        .nav-links a:hover { color: white; }
+        .nav-cta { background: var(--accent) !important; color: white !important; padding: 10px 20px !important; border-radius: 10px !important; }
+
+        /* ===== HERO ===== */
+        .hero { padding: 160px 0 60px; text-align: center; }
+        .hero h1 { font-size: 3rem; font-weight: 800; color: white; margin-bottom: 16px; }
+        .hero p { font-size: 1.1rem; color: var(--text-light); }
+
+        /* ===== CONTENT ===== */
+        .content { padding: 60px 0 100px; font-size: 1rem; line-height: 1.7; color: var(--text-light); }
+        .content h2 { font-size: 1.5rem; color: white; margin: 40px 0 16px; }
+        .content p { margin-bottom: 20px; }
+        .content ul { margin-bottom: 24px; padding-left: 20px; }
+        .content li { margin-bottom: 8px; }
+
+        /* ===== FOOTER ===== */
+        footer { padding: 70px 0 40px; background: #0b1120; border-top: 1px solid var(--border); color: var(--text-light); }
+        .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .footer-logo { color: white; font-size: 1.35rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .footer-logo img { width: 28px; height: 28px; }
+        .footer-links { display: flex; gap: 36px; list-style: none; }
+        .footer-links a { color: var(--text-light); text-decoration: none; transition: all 0.3s ease; }
+        .footer-links a:hover { color: white; }
+
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: white; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #1e293b; flex-direction: column; padding: 24px; gap: 16px; border-bottom: 1px solid var(--border); }
+            .nav-links.mobile-open { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="icons/lobster-emoji.svg" alt="Lobster"></div>
+                Simplified Claw
+            </a>
+            <ul class="nav-links">
+                <li><a href="what-is-openclaw.html">What is OpenClaw?</a></li>
+                <li><a href="index.html#features">Services</a></li>
+                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
+                <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p>Last updated: February 8, 2026</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2>1. Engagement</h2>
+            <p>Simplified Claw provides technical consulting and deployment services for the OpenClaw open-source framework. Our services are provided as-is, subject to the specific Statement of Work (SOW) agreed upon with each client.</p>
+
+            <h2>2. Intellectual Property</h2>
+            <p>Clients retain all rights to their proprietary data and custom agent configurations developed during an engagement. OpenClaw core framework remains subject to its original open-source license.</p>
+
+            <h2>3. Confidentiality</h2>
+            <p>We maintain absolute discretion regarding client engagements. We do not disclose client identities or work details without explicit written consent. Standard NDAs are available for all engagements.</p>
+
+            <h2>4. Limitation of Liability</h2>
+            <p>Simplified Claw is not liable for outcomes generated by AI agents or any disruption caused by third-party model provider outages or changes. AI agent behavior is non-deterministic and should be monitored by the client.</p>
+
+            <h2>5. Governing Law</h2>
+            <p>These terms are governed by the laws of the State of New York.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="icons/lobster-emoji.svg" alt="Lobster">
+                    Simplified Claw
+                </div>
+                <ul class="footer-links">
+                    <li><a href="index.html#features">Services</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
+                </ul>
+                <p>© 2026 Simplified Claw. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-open');
+                menuBtn.textContent = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
+            });
+        }
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>
