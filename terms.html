@@ -600,6 +600,41 @@
             .nav-links { display: none; }
             .trust-grid { gap: 24px; }
         }
+        
+        /* Terms Content */
+        .content {
+            padding: 0 0 120px;
+        }
+        
+        .content h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .content p {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 720px;
+        }
+        
+        .content ul {
+            margin: 16px 0 16px 24px;
+            color: var(--text-secondary);
+        }
+        
+        .content li {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
 </style>
 </head>
 <body>
@@ -620,10 +655,11 @@
         </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" style="padding: 160px 0 60px;">
         <div class="container">
-            <h1>Terms of Service</h1>
-            <p>Last updated: February 8, 2026</p>
+            <span class="label fade-in">Legal</span>
+            <h1 class="fade-in" style="font-size: 2rem;">Terms of Service</h1>
+            <p class="fade-in" style="font-size: 0.9rem;">Last updated: February 8, 2026</p>
         </div>
     </section>
 
