@@ -226,10 +226,92 @@
             color: var(--accent);
         }
 
+        /* Device Frame - Laptop */
+        .device-laptop {
+            position: relative;
+            padding: 2% 10% 6%;
+            background: linear-gradient(135deg, #2a2a2e 0%, #1a1a1e 100%);
+            border-radius: 16px 16px 0 0;
+            box-shadow: 
+                0 0 0 2px #3a3a3e,
+                0 20px 60px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+        .device-laptop::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: #1a1a1e;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px #3a3a3e;
+        }
+        .device-laptop::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: -5%;
+            right: -5%;
+            height: 20px;
+            background: linear-gradient(180deg, #2a2a2e 0%, #1a1a1e 100%);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .device-laptop .screen {
+            border-radius: 4px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .device-laptop .screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Device Frame - Phone (for gallery) */
+        .device-phone {
+            position: relative;
+            padding: 8% 4% 12%;
+            background: linear-gradient(135deg, #2a2a2e 0%, #1a1a1e 100%);
+            border-radius: 24px;
+            box-shadow: 
+                0 0 0 2px #3a3a3e,
+                0 15px 40px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.05);
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        .device-phone::before {
+            content: '';
+            position: absolute;
+            top: 3%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 4px;
+            background: #1a1a1e;
+            border-radius: 4px;
+        }
+        .device-phone .screen {
+            border-radius: 8px;
+            overflow: hidden;
+            background: #000;
+        }
+        .device-phone .screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .artifact-frame {
             border: 1px solid var(--border);
             overflow: hidden;
             background: var(--bg-elevated);
+            padding: 40px;
         }
 
         .artifact-frame img {
@@ -242,16 +324,29 @@
             border: 1px solid var(--border);
             overflow: hidden;
             background: var(--bg-elevated);
+            padding: 24px;
         }
-        .artifact-subframe img {
+        .artifact-subframe .device-mini {
+            position: relative;
+            padding: 3% 8% 5%;
+            background: linear-gradient(135deg, #2a2a2e 0%, #1a1a1e 100%);
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px #3a3a3e;
+        }
+        .artifact-subframe .device-mini .screen {
+            border-radius: 2px;
+            overflow: hidden;
+            background: #000;
+        }
+        .artifact-subframe .device-mini .screen img {
             width: 100%;
-            height: 200px;
+            height: 160px;
             object-fit: cover;
             display: block;
-            opacity: 0.6;
+            opacity: 0.8;
             transition: opacity 0.3s;
         }
-        .artifact-subframe:hover img {
+        .artifact-subframe:hover .device-mini .screen img {
             opacity: 1;
         }
 
@@ -742,7 +837,11 @@
                 <h2>Agent Exhaust Dashboard</h2>
             </div>
             <div class="artifact-frame fade-in">
-                <img src="img/artifacts/dashboard-main.jpg" alt="Agent Exhaust Telemetry Dashboard">
+                <div class="device-laptop">
+                    <div class="screen">
+                        <img src="img/artifacts/dashboard-main-redacted.jpg" alt="Agent Exhaust Telemetry Dashboard">
+                    </div>
+                </div>
                 <div class="artifact-caption">
                     <span>SWARM_TELEMETRY_v2.4</span>
                     <span>47.0K events · 1.3K sessions · 78.1% classification rate</span>
@@ -752,15 +851,27 @@
             <!-- Evolution Gallery -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px;" class="fade-in">
                 <div class="artifact-subframe">
-                    <img src="img/artifacts/v1-dashboard.jpg" alt="Feb 1 Early Dashboard">
+                    <div class="device-mini">
+                        <div class="screen">
+                            <img src="img/artifacts/v1-dashboard-redacted.jpg" alt="Feb 1 Early Dashboard">
+                        </div>
+                    </div>
                     <div class="artifact-caption">v1.0 (Feb 1) // INITIAL_TRACE</div>
                 </div>
                 <div class="artifact-subframe">
-                    <img src="img/artifacts/v2-dashboard.jpg" alt="Feb 5 Refined Dashboard">
+                    <div class="device-mini">
+                        <div class="screen">
+                            <img src="img/artifacts/v2-dashboard-redacted.jpg" alt="Feb 5 Refined Dashboard">
+                        </div>
+                    </div>
                     <div class="artifact-caption">v2.1 (Feb 5) // METRIC_DENSITY</div>
                 </div>
                 <div class="artifact-subframe">
-                    <img src="img/artifacts/topology-blue.jpg" alt="Agent Topology View">
+                    <div class="device-mini">
+                        <div class="screen">
+                            <img src="img/artifacts/topology-blue-redacted.jpg" alt="Agent Topology View">
+                        </div>
+                    </div>
                     <div class="artifact-caption">v2.4 (Current) // TOPOLOGY_MAP</div>
                 </div>
             </div>
