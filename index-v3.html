@@ -508,7 +508,7 @@
             font-weight: 500;
         }
 
-        .trust-logos {
+        .logo-grid {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -516,32 +516,33 @@
             flex-wrap: wrap;
         }
 
-        .trust-logos img,
-        .trust-logos span {
-            transition: all 0.4s ease;
+        .logo-grid img {
+            height: 24px;
+            width: auto;
             opacity: 0.5;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
         }
 
-        .trust-logos img {
-            filter: grayscale(100%);
-            height: 28px;
-        }
-
-        .trust-logos span {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-light);
-            letter-spacing: -0.5px;
-        }
-
-        .trust-logos img:hover,
-        .trust-logos span:hover {
+        .logo-grid img:hover {
             opacity: 1;
-            transform: scale(1.1);
+            filter: none;
+            transform: scale(1.05);
         }
 
-        .trust-logos img:hover {
-            filter: grayscale(0%);
+        .trust-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .trust-text:hover {
+            color: white;
+            opacity: 1;
+            transform: scale(1.05);
         }
 
         /* ===== FEATURES SECTION ===== */
@@ -1288,14 +1289,15 @@
     <section class="trust-bar">
         <div class="container">
             <p class="fade-in-up">Our team brings experience from</p>
-            <div class="trust-logos fade-in-up stagger-1">
-                <img src="logos/mckinsey.svg" alt="McKinsey & Company">
-                <span>Stanford</span>
-                <span>UChicago</span>
-                <span>NYU</span>
-                <span>Max Planck</span>
-                <img src="logos/jnj.svg" alt="Johnson & Johnson">
-                <span>BNY Mellon</span>
+            <div class="logo-grid fade-in-up stagger-1">
+                <img src="logos/google.svg" alt="Google">
+                <span class="trust-text">Jane Street</span>
+                <span class="trust-text">Columbia</span>
+                <span class="trust-text">NYU</span>
+                <span class="trust-text">Stanford</span>
+                <span class="trust-text">McKinsey</span>
+                <span class="trust-text">BNY Mellon</span>
+                <img src="logos/jnj.svg" alt="J&J">
             </div>
         </div>
     </section>

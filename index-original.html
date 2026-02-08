@@ -228,29 +228,41 @@
             margin-bottom: 24px;
         }
 
-        .trust-logos {
+        .logo-grid {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
+            gap: 48px;
             flex-wrap: wrap;
-            opacity: 0.7;
         }
 
-        .trust-logos img {
-            filter: grayscale(100%);
-            transition: all 0.3s;
+        .logo-grid img {
+            height: 24px;
+            width: auto;
+            opacity: 0.5;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
         }
 
-        .trust-logos img:hover {
-            filter: grayscale(0%);
+        .logo-grid img:hover {
             opacity: 1;
+            filter: none;
+            transform: scale(1.05);
         }
 
-        .trust-logos span {
-            font-size: 1.25rem;
+        .trust-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--text-light);
+            color: var(--text-muted);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .trust-text:hover {
+            color: white;
+            opacity: 1;
+            transform: scale(1.05);
         }
 
         /* Features Section */
@@ -685,14 +697,15 @@
     <section class="trust-bar">
         <div class="container">
             <p>Our team brings experience from</p>
-            <div class="trust-logos" style="gap: 24px; opacity: 1;">
-                <img src="logos/mckinsey.svg" alt="McKinsey & Company" style="height: 28px; filter: grayscale(100%) brightness(0.3);">
-                <span style="font-size: 1.3rem; font-weight: 700; color: var(--primary-light); letter-spacing: -0.5px;">Stanford</span>
-                <span style="font-size: 1.3rem; font-weight: 700; color: var(--primary-light); letter-spacing: -0.5px;">UChicago</span>
-                <span style="font-size: 1.3rem; font-weight: 700; color: var(--primary-light); letter-spacing: -0.5px;">NYU</span>
-                <span style="font-size: 1.2rem; font-weight: 700; color: var(--primary-light); letter-spacing: -0.5px;">Max Planck</span>
-                <img src="logos/jnj.svg" alt="Johnson & Johnson" style="height: 24px; filter: grayscale(100%) brightness(0.3);">
-                <span style="font-size: 1.2rem; font-weight: 700; color: var(--primary-light); letter-spacing: -0.5px;">BNY Mellon</span>
+            <div class="logo-grid fade-in-up stagger-1">
+                <img src="logos/google.svg" alt="Google">
+                <span class="trust-text">Jane Street</span>
+                <span class="trust-text">Columbia</span>
+                <span class="trust-text">NYU</span>
+                <span class="trust-text">Stanford</span>
+                <span class="trust-text">McKinsey</span>
+                <span class="trust-text">BNY Mellon</span>
+                <img src="logos/jnj.svg" alt="J&J">
             </div>
         </div>
     </section>
