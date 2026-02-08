@@ -17,6 +17,9 @@
             --accent: #f97316;
             --accent-muted: #ea580c;
             --success: #22c55e;
+            --blue: #3b82f6;
+            --purple: #a855f7;
+            --cyan: #06b6d4;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -38,7 +41,7 @@
         }
 
         h1 { font-size: max(2.5rem, 4vw); }
-        h2 { font-size: 1.75rem; }
+        h2 { font-size: 1.75rem; margin-bottom: 16px; }
         h3 { font-size: 1.125rem; }
 
         .mono { font-family: 'JetBrains Mono', monospace; }
@@ -50,6 +53,8 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-tertiary);
+            margin-bottom: 16px;
+            display: block;
         }
 
         .container {
@@ -59,7 +64,7 @@
         }
 
         section {
-            padding: 180px 0;
+            padding: 120px 0;
         }
 
         nav {
@@ -116,47 +121,519 @@
             border-radius: 6px !important;
         }
 
+        /* Hero Section */
         .hero {
             padding: 200px 0 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero h1 { margin-bottom: 24px; }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 { margin-bottom: 24px; position: relative; }
         .hero h1 span { color: var(--accent); }
         .hero p {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: var(--text-secondary);
-            max-width: 650px;
-            margin: 0 auto;
+            max-width: 700px;
+            margin: 0 auto 32px;
         }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Intro Section */
+        .intro {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .intro-content h2 { margin-bottom: 24px; }
+        .intro-content p { color: var(--text-secondary); font-size: 1.125rem; line-height: 1.8; }
+
+        .intro-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .brain-icon {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .brain-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 { margin-bottom: 16px; }
+        .section-header p { color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: var(--border);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-elevated);
             border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: border-color 0.2s, transform 0.2s;
         }
 
-        .feature {
-            background: var(--bg);
-            padding: 48px;
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
         }
 
-        .feature h3 { margin-bottom: 16px; }
-        .feature p { color: var(--text-secondary); font-size: 0.9375rem; }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-muted) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
 
-        .content-section {
-            max-width: 800px;
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .feature-card h3 { margin-bottom: 12px; }
+        .feature-card p { color: var(--text-secondary); font-size: 0.9375rem; }
+
+        /* Agent Workflow Diagram */
+        .workflow {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 50%, var(--bg) 100%);
+        }
+
+        .workflow-diagram {
+            position: relative;
+            max-width: 900px;
             margin: 0 auto;
+            padding: 48px 0;
         }
 
-        .content-section h2 { margin-bottom: 24px; margin-top: 64px; }
-        .content-section p { color: var(--text-secondary); margin-bottom: 24px; }
-        .content-section ul { list-style: none; margin-bottom: 24px; }
-        .content-section li { color: var(--text-secondary); padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
-        .content-section li::before { content: "—"; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+        .agent-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
 
+        .agent-node {
+            background: var(--bg);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 24px 32px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .agent-node.main {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(249, 115, 22, 0.05) 100%);
+            border-width: 3px;
+        }
+
+        .agent-node.sub {
+            border-color: var(--blue);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.02) 100%);
+        }
+
+        .agent-node .icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .agent-node .title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .agent-node .desc {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .spawn-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 200px;
+            margin: 32px 0;
+            position: relative;
+        }
+
+        .spawn-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .arrow-line {
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(180deg, var(--accent) 0%, var(--blue) 100%);
+            position: relative;
+        }
+
+        .arrow-line::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid var(--blue);
+        }
+
+        .arrow-label {
+            font-size: 0.6875rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .sub-agents {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .sub-agent-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .result-arrows {
+            display: flex;
+            justify-content: center;
+            gap: 200px;
+            margin: 32px 0;
+        }
+
+        .result-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .result-arrow .arrow-line {
+            background: linear-gradient(180deg, var(--success) 0%, var(--accent) 100%);
+        }
+
+        .result-arrow .arrow-line::after {
+            border-top-color: var(--accent);
+            bottom: auto;
+            top: -6px;
+            border-top: none;
+            border-bottom: 8px solid var(--success);
+        }
+
+        .workflow-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 64px;
+        }
+
+        .workflow-step {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin: 0 auto 16px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .workflow-step h4 {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .workflow-step p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Autonomy Section */
+        .autonomy {
+            padding: 120px 0;
+        }
+
+        .autonomy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .autonomy-content h2 { margin-bottom: 24px; }
+        .autonomy-content p { color: var(--text-secondary); margin-bottom: 24px; }
+
+        .autonomy-list {
+            list-style: none;
+        }
+
+        .autonomy-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .autonomy-list li:last-child { border-bottom: none; }
+
+        .list-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .list-icon svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent);
+        }
+
+        .autonomy-list .list-content h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .autonomy-list .list-content p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .autonomy-visual {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f56; }
+        .terminal-dot.yellow { background: #ffbd2e; }
+        .terminal-dot.green { background: #27c93f; }
+
+        .terminal-content {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8125rem;
+            line-height: 1.8;
+        }
+
+        .terminal-line {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .terminal-prompt { color: var(--accent); }
+        .terminal-command { color: var(--text); }
+        .terminal-output { color: var(--text-secondary); margin-left: 24px; }
+        .terminal-success { color: var(--success); }
+        .terminal-info { color: var(--blue); }
+
+        /* Why OpenClaw */
+        .why {
+            padding: 120px 0;
+            background: var(--bg-elevated);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .why-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .why-card .card-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(249, 115, 22, 0.05) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .why-card .card-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--accent);
+        }
+
+        .why-card h3 { margin-bottom: 12px; }
+        .why-card p { color: var(--text-secondary); font-size: 0.9375rem; }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(249, 115, 22, 0.02) 100%);
+            border: 1px solid var(--accent);
+            border-radius: 24px;
+            padding: 64px;
+        }
+
+        .cta-box h2 { margin-bottom: 16px; }
+        .cta-box p { color: var(--text-secondary); max-width: 500px; margin: 0 auto 32px; }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-muted);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-tertiary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
         footer {
             padding: 64px 0;
             border-top: 1px solid var(--border);
@@ -198,8 +675,15 @@
         }
 
         @media (max-width: 900px) {
+            .intro-grid, .autonomy-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
-            section { padding: 120px 0; }
+            .why-grid { grid-template-columns: 1fr; }
+            .workflow-steps { grid-template-columns: 1fr; }
+            .sub-agents { flex-direction: column; align-items: center; }
+            .spawn-arrows, .result-arrows { flex-direction: column; gap: 16px; }
+            section { padding: 80px 0; }
+            .cta-box { padding: 32px; }
+            .cta-buttons { flex-direction: column; }
         }
     </style>
 </head>
@@ -210,7 +694,7 @@
                 <img src="icons/lobster-emoji.svg" alt="">
                 SimplifiedClaw
             </a>
-                        <ul class="nav-links">
+            <ul class="nav-links">
                 <li><a href="what-is-openclaw.html">Platform</a></li>
                 <li><a href="methodology.html">Methodology</a></li>
                 <li><a href="case-studies.html">Case Studies</a></li>
@@ -221,35 +705,373 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <span class="label fade-in">Core Technology</span>
+            <div class="hero-badge fade-in">
+                <span class="dot"></span>
+                <span>Open Source • Enterprise Ready</span>
+            </div>
             <h1 class="fade-in">What is <span>OpenClaw?</span></h1>
-            <p class="fade-in">The open-source infrastructure for the next generation of autonomous AI agents.</p>
+            <p class="fade-in">The open-source infrastructure that transforms LLMs from chat interfaces into autonomous agents that can think, plan, and execute complex workflows.</p>
         </div>
     </section>
 
-    <section class="platform-content" style="padding-top: 0;">
+    <!-- Intro Section -->
+    <section class="intro">
         <div class="container">
-            <div class="content-section fade-in">
-                <p><strong>OpenClaw</strong> is a powerful, extensible framework designed to bridge the gap between Large Language Models (LLMs) and real-world enterprise workflows. While a standard chatbot can only talk, an OpenClaw agent can <strong>act</strong>.</p>
-                
-                <h2>More Than Just a Chatbot</h2>
-                <p>Unlike typical AI wrappers, OpenClaw provides the "central nervous system" for AI agents. It handles the complex plumbing required for agents to use tools, access data, and execute multi-step plans reliably.</p>
-                
-                <h2>Key Capabilities</h2>
-                <ul>
-                    <li><strong>Tool Use:</strong> Interact with any API, database, or software tool (Slack, GitHub, Jira, etc.).</li>
-                    <li><strong>Multi-Agent Orchestration:</strong> Agents collaborate, delegate, and peer-review autonomously.</li>
-                    <li><strong>Persistent Memory:</strong> Context is remembered across sessions, enabling long-term learning.</li>
-                    <li><strong>Self-Correction:</strong> Agents analyze errors and adapt their approach in real-time.</li>
-                </ul>
+            <div class="intro-grid">
+                <div class="intro-content fade-in">
+                    <span class="label">The AI Agent Framework</span>
+                    <h2>More Than Just a Chatbot</h2>
+                    <p>While a standard chatbot can only talk, an OpenClaw agent can <strong style="color: var(--accent);">act</strong>. It provides the "central nervous system" for AI agents—handling the complex orchestration required for agents to use tools, access data, spawn sub-agents, and execute multi-step plans reliably.</p>
+                </div>
+                <div class="intro-visual fade-in">
+                    <div class="brain-icon">
+                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Central brain/network visualization -->
+                            <circle cx="100" cy="100" r="80" stroke="url(#grad1)" stroke-width="2" fill="none" opacity="0.3"/>
+                            <circle cx="100" cy="100" r="60" stroke="url(#grad1)" stroke-width="2" fill="none" opacity="0.5"/>
+                            <circle cx="100" cy="100" r="40" stroke="var(--accent)" stroke-width="3" fill="rgba(249,115,22,0.1)"/>
+                            <!-- Nodes -->
+                            <circle cx="100" cy="100" r="12" fill="var(--accent)"/>
+                            <circle cx="60" cy="70" r="8" fill="#3b82f6"/>
+                            <circle cx="140" cy="70" r="8" fill="#3b82f6"/>
+                            <circle cx="60" cy="130" r="8" fill="#3b82f6"/>
+                            <circle cx="140" cy="130" r="8" fill="#3b82f6"/>
+                            <circle cx="100" cy="40" r="6" fill="#a855f7"/>
+                            <circle cx="100" cy="160" r="6" fill="#a855f7"/>
+                            <circle cx="40" cy="100" r="6" fill="#a855f7"/>
+                            <circle cx="160" cy="100" r="6" fill="#a855f7"/>
+                            <!-- Connection lines -->
+                            <line x1="100" y1="100" x2="60" y2="70" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+                            <line x1="100" y1="100" x2="140" y2="70" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+                            <line x1="100" y1="100" x2="60" y2="130" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+                            <line x1="100" y1="100" x2="140" y2="130" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+                            <line x1="60" y1="70" x2="100" y2="40" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+                            <line x1="140" y1="70" x2="100" y2="40" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+                            <line x1="60" y1="130" x2="100" y2="160" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+                            <line x1="140" y1="130" x2="100" y2="160" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+                            <line x1="60" y1="70" x2="40" y2="100" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+                            <line x1="60" y1="130" x2="40" y2="100" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+                            <line x1="140" y1="70" x2="160" y2="100" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+                            <line x1="140" y1="130" x2="160" y2="100" stroke="#a855f7" stroke-width="1.5" opacity="0.4"/>
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#f97316"/>
+                                    <stop offset="100%" style="stop-color:#3b82f6"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <h2>Why OpenClaw?</h2>
-                <p>Enterprises choose OpenClaw because it offers <strong>control</strong> and <strong>privacy</strong>. It is open-source, ensuring no vendor lock-in. You run it on your infrastructure, with your models, and maintain complete visibility into every decision.</p>
+    <!-- Key Capabilities -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="label">Core Capabilities</span>
+                <h2>Built for Enterprise Autonomy</h2>
+                <p>OpenClaw provides everything an AI agent needs to operate independently within your organization.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <h3>Tool Use</h3>
+                    <p>Interact with any API, database, or software tool—Slack, GitHub, Jira, Salesforce, custom internal systems. Agents can read, write, and execute across your entire tech stack.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                    </div>
+                    <h3>Multi-Agent Orchestration</h3>
+                    <p>Agents can spawn sub-agents, delegate tasks, and coordinate complex workflows. Like a team of specialists working together, each agent focuses on what it does best.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Persistent Memory</h3>
+                    <p>Context persists across sessions, enabling long-term learning and relationship building. Your agent remembers past conversations, decisions, and preferences.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+                            <path d="M21 3v5h-5"/>
+                        </svg>
+                    </div>
+                    <h3>Self-Correction</h3>
+                    <p>Agents analyze errors, learn from failures, and adapt their approach in real-time. They don't just execute—they improve through experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <h2>How We Help</h2>
-                <p>Configuring OpenClaw for production is complex. <strong>Simplified Claw</strong> provides the expertise to deploy, secure, and optimize your infrastructure, turning framework potential into strategic business results.</p>
+    <!-- Agent Workflow Diagram -->
+    <section class="workflow">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="label">How It Works</span>
+                <h2>Autonomous Agent Orchestration</h2>
+                <p>When a task is too complex for a single agent, OpenClaw enables intelligent delegation through sub-agent spawning.</p>
+            </div>
+            
+            <div class="workflow-diagram fade-in">
+                <!-- Main Agent -->
+                <div class="agent-main">
+                    <div class="agent-node main">
+                        <div class="icon">🦞</div>
+                        <div class="title">Main Agent</div>
+                        <div class="desc">Receives complex task</div>
+                    </div>
+                </div>
+
+                <!-- Spawn Arrows -->
+                <div class="spawn-arrows">
+                    <div class="spawn-arrow">
+                        <div class="arrow-label">spawn</div>
+                        <div class="arrow-line"></div>
+                    </div>
+                    <div class="spawn-arrow">
+                        <div class="arrow-label">spawn</div>
+                        <div class="arrow-line"></div>
+                    </div>
+                    <div class="spawn-arrow">
+                        <div class="arrow-label">spawn</div>
+                        <div class="arrow-line"></div>
+                    </div>
+                </div>
+
+                <!-- Sub Agents -->
+                <div class="sub-agents">
+                    <div class="sub-agent-wrapper">
+                        <div class="agent-node sub">
+                            <div class="icon">🔍</div>
+                            <div class="title">Research Agent</div>
+                            <div class="desc">Gathers data</div>
+                        </div>
+                    </div>
+                    <div class="sub-agent-wrapper">
+                        <div class="agent-node sub">
+                            <div class="icon">📊</div>
+                            <div class="title">Analysis Agent</div>
+                            <div class="desc">Processes info</div>
+                        </div>
+                    </div>
+                    <div class="sub-agent-wrapper">
+                        <div class="agent-node sub">
+                            <div class="icon">✍️</div>
+                            <div class="title">Writer Agent</div>
+                            <div class="desc">Creates output</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Arrows -->
+                <div class="result-arrows">
+                    <div class="result-arrow">
+                        <div class="arrow-line"></div>
+                        <div class="arrow-label" style="color: var(--success);">results</div>
+                    </div>
+                    <div class="result-arrow">
+                        <div class="arrow-line"></div>
+                        <div class="arrow-label" style="color: var(--success);">results</div>
+                    </div>
+                    <div class="result-arrow">
+                        <div class="arrow-line"></div>
+                        <div class="arrow-label" style="color: var(--success);">results</div>
+                    </div>
+                </div>
+
+                <!-- Main Agent (Synthesis) -->
+                <div class="agent-main">
+                    <div class="agent-node main">
+                        <div class="icon">🦞</div>
+                        <div class="title">Main Agent</div>
+                        <div class="desc">Synthesizes &amp; delivers</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="workflow-steps fade-in">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <h4>Task Decomposition</h4>
+                    <p>Main agent analyzes the task and identifies sub-tasks that can be parallelized or delegated to specialists.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <h4>Parallel Execution</h4>
+                    <p>Sub-agents work independently, each with their own tools and context. They can even spawn their own sub-agents.</p>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <h4>Result Synthesis</h4>
+                    <p>Results flow back to the main agent, which synthesizes findings and delivers the final output to the user.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Autonomy Section -->
+    <section class="autonomy">
+        <div class="container">
+            <div class="autonomy-grid">
+                <div class="autonomy-content fade-in">
+                    <span class="label">True Autonomy</span>
+                    <h2>Agents That Work While You Sleep</h2>
+                    <p>OpenClaw enables agents to operate continuously, handling tasks proactively without constant human supervision.</p>
+                    
+                    <ul class="autonomy-list">
+                        <li>
+                            <div class="list-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <div class="list-content">
+                                <h4>Scheduled Operations</h4>
+                                <p>Cron jobs, heartbeat checks, and proactive monitoring without manual triggers.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <div class="list-content">
+                                <h4>Self-Healing Workflows</h4>
+                                <p>Automatic error detection, retry logic, and graceful degradation.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="list-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="list-content">
+                                <h4>Guardrails & Safety</h4>
+                                <p>Built-in permission systems, sandboxing, and human-in-the-loop controls.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="autonomy-visual fade-in">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">▸</span>
+                            <span class="terminal-command">agent heartbeat --check</span>
+                        </div>
+                        <div class="terminal-output terminal-info">📧 3 unread emails (1 urgent)</div>
+                        <div class="terminal-output terminal-info">📅 Meeting in 2h: Q4 Planning</div>
+                        <div class="terminal-output terminal-success">✓ Drafting response to urgent email...</div>
+                        <div class="terminal-line" style="margin-top: 16px;">
+                            <span class="terminal-prompt">▸</span>
+                            <span class="terminal-command">spawn research-agent</span>
+                        </div>
+                        <div class="terminal-output terminal-info">🔍 Spawned: competitor-analysis</div>
+                        <div class="terminal-output terminal-success">✓ Sub-agent working in background</div>
+                        <div class="terminal-line" style="margin-top: 16px;">
+                            <span class="terminal-prompt">▸</span>
+                            <span class="terminal-command">status</span>
+                        </div>
+                        <div class="terminal-output terminal-success">✓ All systems operational</div>
+                        <div class="terminal-output">Active sub-agents: 3</div>
+                        <div class="terminal-output">Tasks completed today: 47</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why OpenClaw -->
+    <section class="why">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="label">Why Choose OpenClaw</span>
+                <h2>Built for Enterprise Requirements</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Complete Control</h3>
+                    <p>Run on your infrastructure, with your models. Full visibility into every decision and action.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <h3>Data Privacy</h3>
+                    <p>Your data never leaves your network. Comply with GDPR, HIPAA, SOC2, and internal policies.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3>No Vendor Lock-in</h3>
+                    <p>Open-source core. Swap models, providers, or infrastructure without rewriting your agents.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box fade-in">
+                <span class="label">Ready to Deploy?</span>
+                <h2>Let Us Handle the Complexity</h2>
+                <p>Configuring OpenClaw for production is complex. We provide the expertise to deploy, secure, and optimize your infrastructure.</p>
+                <div class="cta-buttons">
+                    <a href="methodology.html" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        See Our Methodology
+                    </a>
+                    <a href="index.html#pricing" class="btn btn-secondary">
+                        View Pricing →
+                    </a>
+                </div>
             </div>
         </div>
     </section>

@@ -835,7 +835,7 @@
             <p style="text-align: center; font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 32px; letter-spacing: 0.05em;">OUR TEAM HAS WORKED WITH</p>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px;">
                 <div style="background: white; padding: 12px 20px; border-radius: 8px;">
-                    <img src="logos/AP/McKinsey-Logo-2.png" alt="McKinsey" style="height: 28px; display: block;">
+                    <img src="logos/AP/McKinsey-Logo-2" alt="McKinsey" style="height: 28px; display: block;">
                 </div>
                 <div style="background: white; padding: 12px 20px; border-radius: 8px;">
                     <img src="logos/AP/Jane_Street_2.png" alt="Jane Street" style="height: 24px; display: block;">
@@ -850,7 +850,7 @@
                     <img src="logos/AP/NYU-Logo.png" alt="NYU" style="height: 28px; display: block;">
                 </div>
                 <div style="background: white; padding: 12px 20px; border-radius: 8px;">
-                    <img src="logos/AP/Google.png" alt="Google" style="height: 28px; display: block;">
+                    <img src="logos/AP/Google" alt="Google" style="height: 28px; display: block;">
                 </div>
                 <div style="background: white; padding: 12px 20px; border-radius: 8px;">
                     <img src="logos/AP/JnJ.png" alt="Johnson & Johnson" style="height: 28px; display: block;">
@@ -976,36 +976,52 @@
                 </div>
             </div>
             
-            <!-- Dashboard Visualization Samples -->
+            <!-- Dashboard Visualization Samples - 6 decomposed views -->
             <div style="margin-top: 64px;" class="fade-in">
-                <p style="text-align: center; font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 32px; letter-spacing: 0.05em;">REAL-TIME VISUALIZATION SAMPLES</p>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+                <p style="text-align: center; font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 32px; letter-spacing: 0.05em;">DASHBOARD VIEWS — UNBLURRED SAMPLES</p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                    <!-- Row 1: Activity Timeline, Theme Distribution, Theme Composition -->
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-                        <img src="img/charts/theme-composition.png" alt="Theme Composition Over Time" style="width: 100%; height: auto; display: block;" onerror="this.parentElement.innerHTML='<div style=\'padding: 60px 20px; text-align: center; color: var(--text-muted);\'>📊 Theme Composition Chart</div>'">
+                        <img src="img/charts/activity-timeline.png" alt="Activity Timeline" style="width: 100%; height: 140px; object-fit: cover; display: block;">
                         <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Theme Composition Over Time</div>
-                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">Track work distribution across categories</div>
+                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">Activity Timeline</div>
+                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">8-day event velocity with dual-axis sessions</div>
                         </div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-                        <img src="img/charts/activity-heatmap.png" alt="Activity Heatmap" style="width: 100%; height: auto; display: block;" onerror="this.parentElement.innerHTML='<div style=\'padding: 60px 20px; text-align: center; color: var(--text-muted);\'>🗓️ Activity Heatmap</div>'">
+                        <img src="img/charts/theme-distribution.png" alt="Theme Distribution" style="width: 100%; height: 140px; object-fit: cover; display: block;">
                         <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Activity Heatmap</div>
-                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">Visualize work patterns by day and hour</div>
+                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">Theme Distribution</div>
+                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">Semantic classification donut</div>
                         </div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-                        <img src="img/charts/activity-timeline.png" alt="Activity Timeline" style="width: 100%; height: auto; display: block;" onerror="this.parentElement.innerHTML='<div style=\'padding: 60px 20px; text-align: center; color: var(--text-muted);\'>📈 Activity Timeline</div>'">
+                        <img src="img/charts/theme-composition.png" alt="Theme Composition" style="width: 100%; height: 140px; object-fit: cover; display: block;">
                         <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Activity Timeline</div>
-                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">8-day event and session velocity</div>
+                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">Theme Composition</div>
+                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">Stacked work categories over time</div>
+                        </div>
+                    </div>
+                    <!-- Row 2: Activity Heatmap, User Engagement, Model Usage -->
+                    <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+                        <img src="img/charts/activity-heatmap.png" alt="Activity Heatmap" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+                        <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
+                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">Activity Heatmap</div>
+                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">GitHub-style activity by hour/day</div>
                         </div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-                        <img src="img/charts/theme-distribution.png" alt="Theme Distribution" style="width: 100%; height: auto; display: block;" onerror="this.parentElement.innerHTML='<div style=\'padding: 60px 20px; text-align: center; color: var(--text-muted);\'>🎯 Theme Distribution</div>'">
+                        <img src="img/charts/user-heatmap.png" alt="User Engagement Heatmap" style="width: 100%; height: 140px; object-fit: cover; display: block;">
                         <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Theme Distribution</div>
-                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">Semantic classification breakdown</div>
+                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">User Engagement</div>
+                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">Direct interaction patterns (purple)</div>
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
+                        <img src="img/charts/model-usage.png" alt="Model Usage" style="width: 100%; height: 140px; object-fit: cover; display: block;">
+                        <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
+                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">Model Usage</div>
+                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">Distribution across providers</div>
                         </div>
                     </div>
                 </div>
@@ -1383,7 +1399,7 @@
             <div class="footer-content">
                 <a href="index.html" class="logo">
                     <img src="icons/lobster-emoji.svg" alt="">
-                    Simplified<span style="color: var(--accent);">Claw</span>
+                    SimplifiedClaw
                 </a>
                 <ul class="footer-links">
                     <li><a href="security.html">Security</a></li>
