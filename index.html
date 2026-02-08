@@ -36,9 +36,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Simplified Claw | Enterprise AI Agents">
     <meta name="twitter:description" content="Expert OpenClaw deployment for enterprises. Absolute discretion.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #f97316;
@@ -54,6 +52,9 @@
             --glass: rgba(15, 23, 42, 0.8);
             --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
             --success: #10b981;
+            --blueprint-blue: #1e293b;
+            --blueprint-line: #334155;
+            --blueprint-grid: rgba(51, 65, 85, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -66,6 +67,17 @@
             line-height: 1.6;
             background: var(--bg-deep);
             overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .tech-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         .container {
@@ -127,7 +139,6 @@
         }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
             color: white;
@@ -169,14 +180,13 @@
 
         /* ===== HERO SECTION ===== */
         .hero {
-            padding: 200px 0 120px;
+            padding: 240px 0 160px;
             position: relative;
             text-align: center;
         }
 
         .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: max(2.5rem, 4vw);
             line-height: 1.1;
             margin-bottom: 24px;
             letter-spacing: -0.02em;
@@ -230,9 +240,118 @@
             border-color: var(--primary);
         }
 
+        /* ===== BLUEPRINT VISUAL BREAKS ===== */
+        .visual-break {
+            padding: 160px 0;
+            background: var(--bg-deep);
+        }
+
+        .blueprint-container {
+            background-color: var(--blueprint-blue);
+            background-image: 
+                linear-gradient(var(--blueprint-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--blueprint-grid) 1px, transparent 1px);
+            background-size: 20px 20px;
+            padding: 60px;
+            border: 1px solid var(--blueprint-line);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blueprint-container::before {
+            content: "TECHNICAL SPECIFICATION // CLAW-v4.1";
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        .blueprint-title {
+            color: var(--text-main);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .blueprint-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--blueprint-line);
+        }
+
+        /* ===== TMRC SECTION ===== */
+        .tmrc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tmrc-card {
+            border: 1px solid var(--blueprint-line);
+            padding: 24px;
+            background: rgba(15, 23, 42, 0.4);
+            position: relative;
+        }
+
+        .tmrc-card-label {
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--blueprint-blue);
+            padding: 0 10px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--primary);
+            border: 1px solid var(--blueprint-line);
+        }
+
+        .tmrc-tier {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+        }
+
+        .tmrc-tier-num {
+            width: 18px;
+            height: 18px;
+            border: 1px solid var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .tmrc-tier-name {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .tmrc-tier-provider {
+            color: var(--text-muted);
+            font-size: 9px;
+            padding: 1px 4px;
+            border: 1px solid var(--blueprint-line);
+            border-radius: 3px;
+        }
+
         /* ===== LOGO WALL ===== */
         .trust-bar {
-            padding: 60px 0;
+            padding: 160px 0;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
             background: rgba(30, 41, 59, 0.3);
@@ -263,7 +382,6 @@
         }
 
         .trust-text {
-            font-family: 'Space Grotesk', sans-serif;
             font-size: 1rem;
             font-weight: 600;
             color: var(--text-muted);
@@ -284,7 +402,7 @@
         }
 
         /* ===== FEATURES ===== */
-        .features { padding: 120px 0; }
+        .features { padding: 160px 0; }
 
         .section-header {
             text-align: center;
@@ -310,7 +428,7 @@
         .feature-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 8px; /* Sharper for enterprise */
             padding: 40px;
             transition: all 0.3s ease;
         }
@@ -320,11 +438,11 @@
             transform: translateY(-5px);
         }
 
-        .feature-card h3 { margin-bottom: 16px; font-family: 'Space Grotesk', sans-serif; }
+        .feature-card h3 { margin-bottom: 16px; }
         .feature-card p { color: var(--text-muted); }
 
         /* ===== PRICING ===== */
-        .pricing { padding: 120px 0; background: rgba(15, 23, 42, 0.5); }
+        .pricing { padding: 160px 0; background: rgba(15, 23, 42, 0.5); }
 
         .pricing-grid {
             display: grid;
@@ -337,7 +455,7 @@
         .pricing-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 24px;
+            border-radius: 8px;
             padding: 48px;
             position: relative;
         }
@@ -353,13 +471,13 @@
             background: var(--primary);
             color: white;
             padding: 4px 12px;
-            border-radius: 50px;
+            border-radius: 4px;
             font-size: 0.75rem;
             font-weight: 700;
         }
 
-        .price { font-size: 3rem; font-weight: 800; margin: 24px 0 8px; }
-        .price span { font-size: 1rem; color: var(--text-muted); }
+        .price { font-size: 3rem; font-weight: 800; margin: 24px 0 8px; font-family: 'Space Grotesk', sans-serif; }
+        .price span { font-size: 1rem; color: var(--text-muted); font-family: 'Inter', sans-serif; }
 
         .pricing-features {
             list-style: none;
@@ -406,6 +524,8 @@
         @media (max-width: 768px) {
             .hero-buttons { flex-direction: column; }
             .nav-links { display: none; }
+            .visual-break { padding: 80px 0; }
+            .pricing, .features, .trust-bar { padding: 80px 0; }
         }
     </style>
 </head>
@@ -439,30 +559,107 @@
         </div>
     </section>
 
-    <!-- Visual Break 1: System Exhaust -->
-    <section class="visual-break" style="padding: 40px 0; background: var(--bg-deep);">
-        <div class="container" style="max-width: 800px;">
-            <div style="background-color: #0f172a; padding: 40px; border-radius: 24px; border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace;">
-                <h3 style="color: #94a3b8; font-family: 'Space Grotesk', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">24H System Exhaust</h3>
-                <div style="position: relative; height: 180px; padding-left: 40px; border-left: 2px solid #1e293b;">
-                    <div style="position: absolute; left: -45px; top: 0; color: #475569; font-size: 10px;">04:00</div>
-                    <div style="position: absolute; left: -45px; bottom: 0; color: #475569; font-size: 10px;">NOW</div>
-                    <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <div style="background: rgba(30, 41, 59, 0.5); padding: 8px 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; border: 1px solid #1e293b;">
-                            <div style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 10px #10b981;"></div>
-                            <span style="color: #0ea5e9; font-size: 12px; font-weight: bold;">[ORCH]</span>
-                            <span style="color: #94a3b8; font-size: 12px;">Daily summary initialized</span>
+    <!-- Visual Break 1: System Exhaust (Blueprint) -->
+    <section class="visual-break">
+        <div class="container">
+            <div class="blueprint-container fade-in-up">
+                <div class="blueprint-title">SYSTEM EXHAUST // LOG_LEVEL: INFO</div>
+                <div style="display: flex; gap: 40px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <div class="tmrc-tier">
+                            <span class="tech-label" style="color: var(--success);">[ORCH]</span>
+                            <span class="tmrc-tier-name">Orchestrator initialized</span>
+                            <span class="tmrc-tier-provider">04:00:01</span>
                         </div>
-                        <div style="background: rgba(30, 41, 59, 0.5); padding: 8px 15px; border-radius: 6px; display: flex; align-items: center; gap: 10px; border: 1px solid #1e293b; opacity: 0.8;">
-                            <div style="width: 8px; height: 8px; border-radius: 50%; background: #0ea5e9;"></div>
-                            <span style="color: #0ea5e9; font-size: 12px; font-weight: bold;">[WEB_S]</span>
-                            <span style="color: #94a3b8; font-size: 12px;">Scraping financial sentiment...</span>
+                        <div class="tmrc-tier">
+                            <span class="tech-label" style="color: var(--accent);">[WEB_S]</span>
+                            <span class="tmrc-tier-name">Sentiment Scraper active</span>
+                            <span class="tmrc-tier-provider">04:00:05</span>
                         </div>
-                        <div style="color: #475569; font-size: 11px; padding-left: 10px;">... continuous background processing active ...</div>
+                        <div class="tmrc-tier" style="opacity: 0.6;">
+                            <span class="tech-label" style="color: var(--text-muted);">[SYS]</span>
+                            <span class="tmrc-tier-name">Background daemon sync complete</span>
+                            <span class="tmrc-tier-provider">04:00:12</span>
+                        </div>
                     </div>
-                    <svg style="position: absolute; right: 20px; top: 0; height: 100%; width: 100px; opacity: 0.2;">
-                        <path d="M0,50 L20,50 L25,20 L30,80 L35,50 L60,50 L65,10 L70,90 L75,50 L100,50" stroke="#0ea5e9" stroke-width="2" fill="none" transform="rotate(90, 50, 150)" />
-                    </svg>
+                    <div style="width: 200px; height: 100px; border: 1px dashed var(--blueprint-line); position: relative; display: flex; align-items: center; justify-content: center;">
+                        <svg width="100%" height="60" style="opacity: 0.4;">
+                            <path d="M0,30 L20,30 L25,10 L30,50 L35,30 L60,30 L65,5 L70,55 L75,30 L100,30" stroke="var(--accent)" stroke-width="1" fill="none" />
+                        </svg>
+                        <span class="tech-label" style="position: absolute; bottom: 5px; right: 5px; font-size: 8px;">SIGNAL_VIBRANCY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TMRC Section (Blueprint) -->
+    <section class="visual-break" style="background: rgba(15, 23, 42, 0.3);">
+        <div class="container">
+            <div class="blueprint-container fade-in-up">
+                <div class="blueprint-title">TMRC: TRI-MODEL ROUTING CASCADE</div>
+                <p class="tech-label" style="margin-bottom: 30px; color: var(--text-muted);">Dynamically shifting workloads across 24 models to optimize for latency and privacy.</p>
+                
+                <div class="tmrc-grid">
+                    <!-- Reasoning Chain -->
+                    <div class="tmrc-card">
+                        <div class="tmrc-card-label">REASONING_CHAIN</div>
+                        <div class="tmrc-tier">
+                            <div class="tmrc-tier-num">1</div>
+                            <span class="tmrc-tier-name">DeepSeek V3.2</span>
+                            <span class="tmrc-tier-provider">NVIDIA</span>
+                        </div>
+                        <div class="tmrc-tier">
+                            <div class="tmrc-tier-num">2</div>
+                            <span class="tmrc-tier-name">Qwen3-Next</span>
+                            <span class="tmrc-tier-provider">NVIDIA</span>
+                        </div>
+                        <div class="tmrc-tier" style="opacity: 0.5;">
+                            <div class="tmrc-tier-num">3</div>
+                            <span class="tmrc-tier-name">Phi4 Reasoning+</span>
+                            <span class="tmrc-tier-provider">OLLAMA</span>
+                        </div>
+                    </div>
+
+                    <!-- Execution Chain -->
+                    <div class="tmrc-card">
+                        <div class="tmrc-card-label">EXECUTION_CHAIN</div>
+                        <div class="tmrc-tier">
+                            <div class="tmrc-tier-num">1</div>
+                            <span class="tmrc-tier-name">DeepSeek V3.2</span>
+                            <span class="tmrc-tier-provider">NVIDIA</span>
+                        </div>
+                        <div class="tmrc-tier">
+                            <div class="tmrc-tier-num">2</div>
+                            <span class="tmrc-tier-name">Nemotron Super</span>
+                            <span class="tmrc-tier-provider">NVIDIA</span>
+                        </div>
+                        <div class="tmrc-tier" style="opacity: 0.5;">
+                            <div class="tmrc-tier-num">3</div>
+                            <span class="tmrc-tier-name">Qwen 2.5 14B</span>
+                            <span class="tmrc-tier-provider">LOCAL</span>
+                        </div>
+                    </div>
+
+                    <!-- Coding Chain -->
+                    <div class="tmrc-card">
+                        <div class="tmrc-card-label">CODING_CHAIN</div>
+                        <div class="tmrc-tier">
+                            <div class="tmrc-tier-num">1</div>
+                            <span class="tmrc-tier-name">Devstral 2 123B</span>
+                            <span class="tmrc-tier-provider">NVIDIA</span>
+                        </div>
+                        <div class="tmrc-tier">
+                            <div class="tmrc-tier-num">2</div>
+                            <span class="tmrc-tier-name">Kimi K2.5</span>
+                            <span class="tmrc-tier-provider">MISTRAL</span>
+                        </div>
+                        <div class="tmrc-tier" style="opacity: 0.5;">
+                            <div class="tmrc-tier-num">3</div>
+                            <span class="tmrc-tier-name">Coder 6.7B</span>
+                            <span class="tmrc-tier-provider">OLLAMA</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -514,36 +711,34 @@
 
     </section>
 
-    <!-- Visual Break 2: Swarm Topology -->
-    <section class="visual-break" style="padding: 80px 0; background: rgba(15, 23, 42, 0.5);">
-        <div class="container" style="max-width: 600px;">
-            <div style="background-color: #0f172a; padding: 40px; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center;">
-                <h3 style="color: #94a3b8; font-family: 'Space Grotesk', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;">Neural Swarm Topology</h3>
-                <svg viewBox="0 0 500 500" style="width: 100%; max-width: 400px; filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.2));">
-                    <defs>
-                        <filter id="core-glow" x="-50%" y="-50%" width="200%" height="200%">
-                            <feGaussianBlur stdDeviation="5" result="blur" />
-                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                        </filter>
-                        <linearGradient id="link-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.2" />
-                            <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:0.1" />
-                        </linearGradient>
-                    </defs>
-                    <g stroke="url(#link-grad)" stroke-width="1.5" stroke-dasharray="4 4">
-                        <line x1="250" y1="250" x2="430" y2="250" /><line x1="250" y1="250" x2="405" y2="340" /><line x1="250" y1="250" x2="340" y2="405" /><line x1="250" y1="250" x2="250" y2="430" /><line x1="250" y1="250" x2="160" y2="405" /><line x1="250" y1="250" x2="95" y2="340" /><line x1="250" y1="250" x2="70" y2="250" /><line x1="250" y1="250" x2="95" y2="160" /><line x1="250" y1="250" x2="160" y2="95" /><line x1="250" y1="250" x2="250" y2="70" /><line x1="250" y1="250" x2="340" y2="95" /><line x1="250" y1="250" x2="405" y2="160" />
-                    </g>
-                    <g fill="#0f172a" stroke="#0ea5e9" stroke-width="2">
-                        <circle cx="430" cy="250" r="6" /><circle cx="405" cy="340" r="6" /><circle cx="340" cy="405" r="6" /><circle cx="250" cy="430" r="6" /><circle cx="160" cy="405" r="6" /><circle cx="95" cy="340" r="6" /><circle cx="70" cy="250" r="6" /><circle cx="95" cy="160" r="6" /><circle cx="160" cy="95" r="6" /><circle cx="250" cy="70" r="6" /><circle cx="340" cy="95" r="6" /><circle cx="405" cy="160" r="6" />
-                    </g>
-                    <g filter="url(#core-glow)">
-                        <circle cx="250" cy="250" r="30" fill="#0f172a" stroke="#10b981" stroke-width="2" />
-                        <circle cx="250" cy="250" r="12" fill="#10b981" fill-opacity="0.2">
-                            <animate attributeName="r" values="12;16;12" dur="3s" repeatCount="indefinite" />
-                        </circle>
-                    </g>
-                </svg>
-                <p style="color: var(--text-muted); font-size: 13px; margin-top: 20px; text-align: center;">Active orchestration of 12 parallel execution agents.</p>
+    <!-- Visual Break 2: Swarm Topology (Blueprint) -->
+    <section class="visual-break" style="background: rgba(15, 23, 42, 0.5);">
+        <div class="container">
+            <div class="blueprint-container fade-in-up">
+                <div class="blueprint-title">NEURAL SWARM TOPOLOGY // TOP_SPEC_v2</div>
+                <div style="display: flex; justify-content: center; padding: 40px 0;">
+                    <svg viewBox="0 0 500 200" style="width: 100%; max-width: 600px; filter: drop-shadow(0 0 5px rgba(14, 165, 233, 0.2));">
+                        <g stroke="var(--blueprint-line)" stroke-width="1" stroke-dasharray="2 2">
+                            <line x1="250" y1="100" x2="50" y2="100" />
+                            <line x1="250" y1="100" x2="450" y2="100" />
+                            <line x1="250" y1="100" x2="150" y2="30" />
+                            <line x1="250" y1="100" x2="350" y2="30" />
+                            <line x1="250" y1="100" x2="150" y2="170" />
+                            <line x1="250" y1="100" x2="350" y2="170" />
+                        </g>
+                        <g fill="var(--blueprint-blue)" stroke="var(--accent)" stroke-width="1">
+                            <circle cx="250" cy="100" r="20" />
+                            <circle cx="50" cy="100" r="8" />
+                            <circle cx="450" cy="100" r="8" />
+                            <circle cx="150" cy="30" r="8" />
+                            <circle cx="350" cy="30" r="8" />
+                            <circle cx="150" cy="170" r="8" />
+                            <circle cx="350" cy="170" r="8" />
+                        </g>
+                        <text x="250" y="105" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="var(--accent)">CORE</text>
+                    </svg>
+                </div>
+                <p class="tech-label" style="text-align: center; color: var(--text-muted);">ORCHESTRATION OF 12 PARALLEL EXECUTION AGENTS // LATENCY: 45ms</p>
             </div>
         </div>
     </section>
@@ -602,28 +797,28 @@
 
     </section>
 
-    <!-- Visual Break 3: Compute Volume -->
-    <section class="visual-break" style="padding: 80px 0; background: var(--bg-deep);">
-        <div class="container" style="max-width: 800px;">
-            <div style="background-color: #0f172a; padding: 40px; border-radius: 24px; border: 1px solid var(--border); font-family: 'Space Grotesk', sans-serif;">
-                <h3 style="color: #94a3b8; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; text-align: center;">Compute Volume: Paid vs. Free</h3>
-                <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 200px;">
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
-                        <div style="width: 120px; height: 120px; background: rgba(16, 185, 129, 0.1); border: 2px solid #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative;">
-                            <span style="color: #10b981; font-weight: bold; font-size: 12px;">942K Tokens</span>
-                            <div style="position: absolute; top: -10px; right: -10px; background: #10b981; color: #0f172a; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 900;">FREE</div>
+    <!-- Visual Break 3: Compute Volume (Blueprint) -->
+    <section class="visual-break">
+        <div class="container">
+            <div class="blueprint-container fade-in-up">
+                <div class="blueprint-title">COMPUTE VOLUME // COST_ANALYSIS_2026</div>
+                <div style="display: flex; align-items: flex-end; justify-content: space-around; height: 160px; padding: 40px 0;">
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; background: rgba(16, 185, 129, 0.1); border: 1px solid var(--success); border-radius: 2px; display: flex; align-items: center; justify-content: center; position: relative;">
+                            <span class="tech-label" style="color: var(--success);">942K</span>
+                            <div style="position: absolute; top: -10px; right: -5px; background: var(--success); color: var(--bg-deep); padding: 1px 4px; font-family: 'JetBrains Mono'; font-size: 8px; font-weight: 700;">LOCAL_FREE</div>
                         </div>
-                        <span style="color: #f8fafc; font-size: 14px; font-weight: 600;">Ollama (Local)</span>
+                        <p class="tech-label" style="margin-top: 10px;">OLLAMA (LOCAL)</p>
                     </div>
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
-                        <div style="width: 50px; height: 50px; background: rgba(14, 165, 233, 0.1); border: 2px solid #0ea5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative;">
-                            <span style="color: #0ea5e9; font-weight: bold; font-size: 10px;">12K</span>
-                            <div style="position: absolute; top: -10px; right: -10px; background: #0ea5e9; color: #0f172a; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 900;">PAID</div>
+                    <div style="text-align: center;">
+                        <div style="width: 30px; height: 30px; background: rgba(14, 165, 233, 0.1); border: 1px solid var(--accent); border-radius: 2px; display: flex; align-items: center; justify-content: center; position: relative;">
+                            <span class="tech-label" style="color: var(--accent); font-size: 6px;">12K</span>
+                            <div style="position: absolute; top: -10px; right: -5px; background: var(--accent); color: var(--bg-deep); padding: 1px 4px; font-family: 'JetBrains Mono'; font-size: 8px; font-weight: 700;">CLOUD_PAID</div>
                         </div>
-                        <span style="color: #f8fafc; font-size: 14px; font-weight: 600;">Opus (Cloud)</span>
+                        <p class="tech-label" style="margin-top: 10px;">OPUS (CLOUD)</p>
                     </div>
                 </div>
-                <p style="color: var(--text-muted); font-size: 13px; margin-top: 40px; text-align: center;">Our architecture shifts 98% of token volume to local hardware, dramatically reducing recurring API costs.</p>
+                <p class="tech-label" style="text-align: center; color: var(--text-muted); font-size: 10px;">ARCHITECTURE OPTIMIZATION: 98% TOKEN VOLUME OFFLOADED TO INTERNAL INFRASTRUCTURE</p>
             </div>
         </div>
     </section>
