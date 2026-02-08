@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplified Claw | Enterprise AI Agent Infrastructure</title>
+    <meta name="description" content="Expert OpenClaw deployment for enterprises. We configure, secure, and scale your AI agent infrastructure so your team can focus on innovation.">
+    <link rel="canonical" href="https://simplifiedclaw.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Simplified Claw | Enterprise AI Agent Infrastructure">
+    <meta property="og:description" content="Expert OpenClaw deployment for enterprises. Setup in &lt;48 hours, not months.">
+    <meta property="og:url" content="https://simplifiedclaw.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Simplified Claw | Enterprise AI Agents">
+    <meta name="twitter:description" content="Expert OpenClaw deployment for enterprises. Setup in &lt;48 hours.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --text: #334155;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-light) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--bg);
+            color: var(--primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-bar p {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .logo-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .logo-grid img {
+            height: 24px;
+            width: auto;
+            opacity: 0.5;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+
+        .logo-grid img:hover {
+            opacity: 1;
+            filter: none;
+            transform: scale(1.05);
+        }
+
+        .trust-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .trust-text:hover {
+            color: white;
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.125rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            padding: 32px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 88px;
+            height: 88px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon img {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: var(--bg-alt);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid var(--border);
+            position: relative;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.15);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 24px 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .pricing-card .description {
+            color: var(--text-light);
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 1.125rem;
+            color: var(--text);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .testimonial-info h4 {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .testimonial-info p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            opacity: 0.8;
+            font-size: 1.125rem;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .cta .btn-primary:hover {
+            background: var(--bg-alt);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            background: var(--primary-light);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-logo {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .trust-logos {
+                gap: 24px;
+            }
+
+            .features, .pricing, .testimonials {
+                padding: 60px 0;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">SC</div>
+                Simplified Claw
+            </a>
+            <ul class="nav-links">
+                <li><a href="what-is-openclaw.html">What is OpenClaw?</a></li>
+                <li><a href="#features">Services</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    Trusted by teams shipping AI agents to production
+                </div>
+                <h1>Your AI Agents, <span>Running in 48 Hours</span></h1>
+                <p>Stop debugging configs. Start shipping agents. We deploy enterprise-grade OpenClaw infrastructure while you focus on what your AI actually does.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Book Free Strategy Call →</a>
+                    <a href="what-is-openclaw.html" class="btn btn-secondary">What is OpenClaw?</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section style="padding: 60px 0; background: var(--primary); color: white;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
+                <div>
+                    <div style="font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">&lt;48hr</div>
+                    <div style="font-size: 0.95rem; opacity: 0.8; margin-top: 8px;">Average time to production deployment</div>
+                </div>
+                <div>
+                    <div style="font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">2.4x</div>
+                    <div style="font-size: 0.95rem; opacity: 0.8; margin-top: 8px;">Avg productivity gain for deployed teams</div>
+                </div>
+                <div>
+                    <div style="font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">47%</div>
+                    <div style="font-size: 0.95rem; opacity: 0.8; margin-top: 8px;">Reduction in AI API costs via smart routing</div>
+                </div>
+                <div>
+                    <div style="font-size: 3.5rem; font-weight: 700; background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0</div>
+                    <div style="font-size: 0.95rem; opacity: 0.8; margin-top: 8px;">Security incidents in production deployments</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <p>Our team brings experience from</p>
+            <div class="logo-grid fade-in-up stagger-1">
+                <img src="logos/google.svg" alt="Google">
+                <span class="trust-text">Jane Street</span>
+                <span class="trust-text">Columbia</span>
+                <span class="trust-text">NYU</span>
+                <span class="trust-text">Stanford</span>
+                <span class="trust-text">McKinsey</span>
+                <span class="trust-text">BNY Mellon</span>
+                <img src="logos/jnj.svg" alt="J&J">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Enterprise-Ready AI Agent Deployment</h2>
+                <p>From initial configuration to production scaling, we handle every aspect of your OpenClaw infrastructure.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="icons/config.svg" alt="Configuration"></div>
+                    <h3>Expert Configuration</h3>
+                    <p>Custom OpenClaw setup tailored to your enterprise architecture, including multi-agent orchestration, tool integrations, and workflow automation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="icons/security.svg" alt="Security"></div>
+                    <h3>Security Hardening</h3>
+                    <p>SOC2-aligned security practices, secret management, audit logging, and access controls configured from day one.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="icons/performance.svg" alt="Performance"></div>
+                    <h3>Performance Optimization</h3>
+                    <p>Model routing, caching strategies, and cost optimization to keep your AI agents fast and budget-friendly at scale.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="icons/integration.svg" alt="Integration"></div>
+                    <h3>System Integration</h3>
+                    <p>Connect OpenClaw to your existing tools—Slack, Teams, Jira, GitHub, databases, and custom APIs—seamlessly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="icons/monitoring.svg" alt="Monitoring"></div>
+                    <h3>Monitoring & Observability</h3>
+                    <p>Production-ready dashboards, alerting, and analytics to understand agent behavior and catch issues early.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><img src="icons/training.svg" alt="Training"></div>
+                    <h3>Team Training</h3>
+                    <p>Comprehensive training for your team on operating, extending, and troubleshooting your OpenClaw deployment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Engagement Options</h2>
+                <p>Flexible packages designed for enterprises at every stage of their AI agent journey.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <p class="description">Perfect for teams getting started with OpenClaw</p>
+                    <div class="price"><span style="text-decoration: line-through; color: var(--text-light); font-size: 1.5rem;">$1,000</span> $500 <span>one-time</span></div>
+                    <div style="color: var(--text-light); font-size: 0.85rem; margin-top: -16px; margin-bottom: 16px;">Optional: +$200/mo managed support</div>
+                    <ul class="pricing-features">
+                        <li>Complete OpenClaw installation & configuration</li>
+                        <li>Security hardening & best practices</li>
+                        <li>3 tool integrations of your choice</li>
+                        <li>Documentation & runbooks</li>
+                        <li>1 hour team training session</li>
+                        <li>30-day email support for questions</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Get Started</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Team</h3>
+                    <p class="description">For teams scaling production AI agents</p>
+                    <div class="price"><span style="text-decoration: line-through; color: var(--text-light); font-size: 1.5rem;">$4,000</span> $2,000 <span>setup</span></div>
+                    <div style="color: var(--accent); font-size: 0.9rem; margin-top: -16px; margin-bottom: 16px;">+ $400/mo managed support</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Starter</li>
+                        <li>Multi-agent orchestration setup</li>
+                        <li>Up to 5 users configured</li>
+                        <li>Unlimited integrations</li>
+                        <li>Performance optimization & cost tuning</li>
+                        <li>Monitoring & alerting setup</li>
+                        <li>4 hours team training</li>
+                        <li>Priority support with 4hr SLA</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <p class="description">Dedicated partnership for complex deployments</p>
+                    <div class="price">Custom</div>
+                    <div style="color: var(--text-light); font-size: 0.9rem; margin-top: -16px; margin-bottom: 16px;">Tailored to your needs</div>
+                    <ul class="pricing-features">
+                        <li>Everything in Team</li>
+                        <li>Dedicated solutions architect</li>
+                        <li>Custom agent & skill development</li>
+                        <li>SSO & compliance documentation</li>
+                        <li>SLA-backed support</li>
+                        <li>Quarterly optimization reviews</li>
+                        <li>Executive reporting & ROI tracking</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Work With Us?</h2>
+                <p>We've spent thousands of hours configuring, breaking, and optimizing AI agent deployments.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="feature-icon"><img src="icons/security.svg" alt=""></div>
+                    <h3 style="color: var(--primary); margin-bottom: 12px;">Enterprise DNA</h3>
+                    <p style="color: var(--text-light);">Our team has delivered AI and automation solutions at McKinsey, Fortune 100 healthcare companies, and leading financial institutions. We understand enterprise security, compliance, and scale.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="feature-icon"><img src="icons/performance.svg" alt=""></div>
+                    <h3 style="color: var(--primary); margin-bottom: 12px;">Battle-Tested Patterns</h3>
+                    <p style="color: var(--text-light);">We've debugged every edge case. Our configurations come from real production deployments, not tutorials. You get patterns that work on day one.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="feature-icon"><img src="icons/integration.svg" alt=""></div>
+                    <h3 style="color: var(--primary); margin-bottom: 12px;">Ongoing Partnership</h3>
+                    <p style="color: var(--text-light);">AI agents evolve. We stay with you—optimizing costs, adding integrations, and adapting to new capabilities as they emerge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Deploy AI Agents at Scale?</h2>
+            <p>Book a free 30-minute strategy call. No pitch, just answers.</p>
+            <form action="https://formspree.io/f/placeholder" method="POST" style="max-width: 500px; margin: 32px auto 0; text-align: left;">
+                <div style="display: grid; gap: 16px;">
+                    <input type="text" name="name" placeholder="Your Name" required style="padding: 14px 16px; border: none; border-radius: 8px; font-size: 1rem; background: rgba(255,255,255,0.1); color: white;">
+                    <input type="email" name="email" placeholder="Work Email" required style="padding: 14px 16px; border: none; border-radius: 8px; font-size: 1rem; background: rgba(255,255,255,0.1); color: white;">
+                    <input type="text" name="company" placeholder="Company (Optional)" style="padding: 14px 16px; border: none; border-radius: 8px; font-size: 1rem; background: rgba(255,255,255,0.1); color: white;">
+                    <select name="timeline" style="padding: 14px 16px; border: none; border-radius: 8px; font-size: 1rem; background: rgba(255,255,255,0.1); color: white;">
+                        <option value="" style="color: #333;">When do you need this?</option>
+                        <option value="asap" style="color: #333;">ASAP - This week</option>
+                        <option value="month" style="color: #333;">Within a month</option>
+                        <option value="quarter" style="color: #333;">This quarter</option>
+                        <option value="exploring" style="color: #333;">Just exploring</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; border: none; cursor: pointer;">Book Strategy Call →</button>
+                </div>
+            </form>
+            <p style="margin-top: 16px; font-size: 0.875rem; opacity: 0.7;">Or email directly: <a href="mailto:sales@simplifiedclaw.com" style="color: white;">sales@simplifiedclaw.com</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Simplified Claw</div>
+                <ul class="footer-links">
+                    <li><a href="#features">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="case-studies.html">Case Studies</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
+                </ul>
+                <p>© 2026 Simplified Claw. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('mobile-open');
+                menuBtn.textContent = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
+            });
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .pricing-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

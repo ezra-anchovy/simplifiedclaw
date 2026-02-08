@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | SimplifiedClaw</title>
+    <meta name="description" content="Real-world OpenClaw success stories from enterprises. See how organizations achieved faster deployments and cost savings with AI agent infrastructure.">
+    <link rel="canonical" href="https://simplifiedclaw.com/case-studies.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09090b;
+            --bg-elevated: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #f97316;
+            --accent-muted: #ea580c;
+            --success: #22c55e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        h1 { font-size: max(2.5rem, 4vw); }
+        h2 { font-size: 1.75rem; }
+        h3 { font-size: 1.125rem; }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section { padding: 180px 0; }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .logo img { width: 24px; height: 24px; }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active { color: var(--accent); }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: white !important;
+            padding: 8px 16px !important;
+            border-radius: 6px !important;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 200px 0 180px;
+            text-align: center;
+        }
+
+        .hero .label {
+            margin-bottom: 16px;
+            display: block;
+            color: var(--accent);
+        }
+
+        .hero h1 { margin-bottom: 24px; }
+        .hero h1 span { color: var(--accent); }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Case Studies */
+        .case-studies { padding: 0 0 180px; }
+
+        .case-study {
+            border: 1px solid var(--border);
+            margin-bottom: 48px;
+        }
+
+        .case-study-header {
+            background: var(--bg-elevated);
+            padding: 32px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .case-study-meta {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .case-study-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.5625rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border: 1px solid var(--border);
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .case-study-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .case-study-header .company {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+
+        .case-study-body { padding: 40px; }
+
+        .case-study-section {
+            margin-bottom: 32px;
+        }
+
+        .case-study-section:last-child { margin-bottom: 0; }
+
+        .case-study-section h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .case-study-section p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+
+        .case-study-section ul {
+            list-style: none;
+        }
+
+        .case-study-section ul li {
+            color: var(--text);
+            font-size: 0.9375rem;
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .case-study-section ul li::before {
+            content: "—";
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-tertiary);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-top: 16px;
+        }
+
+        .result-card {
+            background: var(--bg);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .result-card .metric {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+
+        .result-card .label {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            margin-top: 8px;
+            display: block;
+        }
+
+        /* Quote */
+        .case-study-quote {
+            background: var(--bg-elevated);
+            border-left: 3px solid var(--accent);
+            padding: 24px 32px;
+            margin-top: 24px;
+        }
+
+        .case-study-quote blockquote {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .case-study-quote .attribution {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-tertiary);
+            font-size: 0.75rem;
+        }
+
+        /* Summary Stats */
+        .summary-section {
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .summary-header .label {
+            margin-bottom: 16px;
+            display: block;
+            color: var(--accent);
+        }
+
+        .summary-header p {
+            color: var(--text-secondary);
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .summary-stat {
+            background: var(--bg);
+            padding: 48px;
+            text-align: center;
+        }
+
+        .summary-stat .number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+
+        .summary-stat .label {
+            color: var(--text-secondary);
+            font-size: 0.8125rem;
+            margin-top: 12px;
+            display: block;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+        }
+
+        .cta h2 { margin-bottom: 16px; }
+
+        .cta p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover { background: var(--accent-muted); }
+
+        /* Footer */
+        footer {
+            padding: 64px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-links a:hover { color: var(--text); }
+
+        .footer-copy {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            section { padding: 120px 0; }
+            .results-grid, .summary-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .hero { padding: 160px 0 120px; }
+            .nav-links { display: none; }
+            .case-study-header, .case-study-body { padding: 24px; }
+            .results-grid, .summary-stats { grid-template-columns: 1fr; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="icons/lobster-emoji.svg" alt="">
+                SimplifiedClaw
+            </a>
+                        <ul class="nav-links">
+                <li><a href="what-is-openclaw.html">Platform</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="index.html#pricing" class="nav-cta">Deploy Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <span class="label fade-in">Real Results</span>
+            <h1 class="fade-in">Client <span>Success Stories</span></h1>
+            <p class="fade-in">See how organizations across industries have transformed operations with expert OpenClaw deployments.</p>
+        </div>
+    </section>
+
+    <section class="case-studies">
+        <div class="container">
+
+            <!-- Case Study 1 -->
+            <article class="case-study fade-in">
+                <div class="case-study-header">
+                    <div class="case-study-meta">
+                        <span class="case-study-tag">Financial Services</span>
+                        <span class="case-study-tag">Team Tier</span>
+                    </div>
+                    <h2>Automating Compliance Documentation at Scale</h2>
+                    <p class="company">Regional Investment Firm · 450 Employees · Midwest USA</p>
+                </div>
+                <div class="case-study-body">
+                    <div class="case-study-section">
+                        <h3>The Problem</h3>
+                        <p>A mid-sized investment firm was spending 25+ hours per week manually compiling compliance reports, regulatory filings, and client documentation. Their compliance team of 6 was stretched thin, and the manual process led to occasional errors that required costly corrections.</p>
+                    </div>
+                    
+                    <div class="case-study-section">
+                        <h3>The Solution</h3>
+                        <p>We deployed OpenClaw with a custom multi-agent workflow designed for financial compliance:</p>
+                        <ul>
+                            <li>Document ingestion agent pulling from their CRM and trading systems</li>
+                            <li>Compliance verification agent cross-referencing SEC and FINRA requirements</li>
+                            <li>Report generation agent producing audit-ready documentation</li>
+                            <li>Integration with existing SharePoint and email systems</li>
+                            <li>Audit logging and access controls aligned with enterprise security</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-study-section">
+                        <h3>Results</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="metric">36 hrs</div>
+                                <span class="label">Time to Production</span>
+                            </div>
+                            <div class="result-card">
+                                <div class="metric">~80%</div>
+                                <span class="label">Manual Time Reduced</span>
+                            </div>
+                            <div class="result-card">
+                                <div class="metric">92%</div>
+                                <span class="label">Error Reduction</span>
+                            </div>
+                            <div class="result-card">
+                                <div class="metric">High</div>
+                                <span class="label">Audit Readiness</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-quote">
+                        <blockquote>"We went from skeptical about AI to having it run a core part of our operations in under a week. The SimplifiedClaw team understood our compliance requirements from day one."</blockquote>
+                        <p class="attribution">— Director of Compliance Operations</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Case Study 2 -->
+            <article class="case-study fade-in">
+                <div class="case-study-header">
+                    <div class="case-study-meta">
+                        <span class="case-study-tag">Healthcare Technology</span>
+                        <span class="case-study-tag">Enterprise Tier</span>
+                    </div>
+                    <h2>Accelerating Clinical Trial Data Processing</h2>
+                    <p class="company">Clinical Research Software Company · 180 Employees · Boston, MA</p>
+                </div>
+                <div class="case-study-body">
+                    <div class="case-study-section">
+                        <h3>The Problem</h3>
+                        <p>This healthtech company provides software to pharmaceutical companies running clinical trials. Their data science team was drowning in requests to extract insights from trial data, with a 3-week backlog and clients demanding faster turnaround.</p>
+                    </div>
+                    
+                    <div class="case-study-section">
+                        <h3>The Solution</h3>
+                        <p>We implemented an enterprise OpenClaw deployment integrated with their proprietary data platform:</p>
+                        <ul>
+                            <li>Secure data agent with read-only access to clinical data warehouse</li>
+                            <li>Analysis agent capable of running statistical tests and generating visualizations</li>
+                            <li>Report agent producing sponsor-ready PDFs</li>
+                            <li>Slack integration allowing analysts to delegate tasks conversationally</li>
+                            <li>Model routing optimized for query patterns, reducing API costs ~50%</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-study-section">
+                        <h3>Results</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="metric">~3x</div>
+                                <span class="label">Team Throughput</span>
+                            </div>
+                            <div class="result-card">
+                                <div class="metric">3wk → 4d</div>
+                                <span class="label">Turnaround Time</span>
+                            </div>
+                            <div class="result-card">
+                                <div class="metric">~50%</div>
+                                <span class="label">API Cost Reduction</span>
+                            </div>
+                            <div class="result-card">
+                                <div class="metric">78%</div>
+                                <span class="label">Faster Insights</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-quote">
+                        <blockquote>"Our analysts now work with AI agents as seamlessly as they work with each other. The security setup gave our CISO complete peace of mind."</blockquote>
+                        <p class="attribution">— VP of Data Science</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Case Study 3 -->
+            <article class="case-study fade-in">
+                <div class="case-study-header">
+                    <div class="case-study-meta">
+                        <span class="case-study-tag">Professional Services</span>
+                        <span class="case-study-tag">Starter Tier</span>
+                    </div>
+                    <h2>Transforming Client Research at a Boutique Consulting Firm</h2>
+                    <p class="company">Strategy Consulting Firm · 35 Employees · New York, NY</p>
+                </div>
+                <div class="case-study-body">
+                    <div class="case-study-section">
+                        <h3>The Problem</h3>
+                        <p>A growing strategy consulting firm was spending significant associate hours on client research, competitive analysis, and market sizing—work that felt repetitive but still required expert judgment.</p>
+                    </div>
+                    
+                    <div class="case-study-section">
+                        <h3>The Solution</h3>
+                        <p>We configured a lightweight OpenClaw deployment tailored for research workflows:</p>
+                        <ul>
+                            <li>Research agent with access to industry databases and web search</li>
+                            <li>Integration with Google Workspace for seamless document creation</li>
+                            <li>Custom prompts calibrated to their research methodology</li>
+                            <li>2-hour training session for all consultants</li>
+                            <li>Shared agent configuration allowing institutional knowledge to compound</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-study-section">
+                        <h3>Results</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="metric">18 hrs</div>
+                                <span class="label">Time to Deploy</span>
+                            </div>
+                            <div class="result-card">
+                                <div class="metric">12 hrs/wk</div>
+                                <span class="label">Time Saved</span>
+                            </div>
+                            <div class="result-card">
+                                <div class="metric">40%</div>
+                                <span class="label">Faster Deliverables</span>
+                            </div>
+                            <div class="result-card">
+                                <div class="metric">85%</div>
+                                <span class="label">Team Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-quote">
+                        <blockquote>"The ROI was obvious within the first week. Within a month, nobody could imagine working without their AI research partner."</blockquote>
+                        <p class="attribution">— Managing Partner</p>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="summary-section">
+        <div class="container">
+            <div class="summary-header fade-in">
+                <span class="label">Aggregate Metrics</span>
+                <h2>Proven Results Across Industries</h2>
+                <p>Aggregated metrics from our enterprise deployments</p>
+            </div>
+            <div class="summary-stats fade-in">
+                <div class="summary-stat">
+                    <div class="number">&lt;48hr</div>
+                    <span class="label">Average Time to Production</span>
+                </div>
+                <div class="summary-stat">
+                    <div class="number">2.4x</div>
+                    <span class="label">Productivity Gain</span>
+                </div>
+                <div class="summary-stat">
+                    <div class="number">47%</div>
+                    <span class="label">API Cost Reduction</span>
+                </div>
+                <div class="summary-stat">
+                    <div class="number">98%</div>
+                    <span class="label">Client Satisfaction</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container fade-in">
+            <h2>Ready to Write Your Success Story?</h2>
+            <p>Schedule a free consultation to discuss how OpenClaw can transform your team's operations.</p>
+            <a href="mailto:info@simplifiedclaw.com?subject=Case%20Study%20Inquiry" class="btn btn-primary">Schedule Consultation →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="logo">
+                    <img src="icons/lobster-emoji.svg" alt="">
+                    SimplifiedClaw
+                </a>
+                <ul class="footer-links">
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
+                </ul>
+                <span class="footer-copy">© 2026</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

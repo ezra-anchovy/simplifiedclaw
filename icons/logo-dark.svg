@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 48">
+  <defs>
+    <linearGradient id="circle-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff7ed"/>
+      <stop offset="100%" style="stop-color:#ffedd5"/>
+    </linearGradient>
+  </defs>
+  <!-- Lobster Icon Circle - cream/peach to contrast lobster orange -->
+  <circle cx="24" cy="24" r="22" fill="url(#circle-gradient)" stroke="#f97316" stroke-width="2"/>
+  <text x="24" y="32" text-anchor="middle" font-size="22">🦞</text>
+  <!-- SimplifiedClaw Text for dark backgrounds -->
+  <text x="56" y="32" font-family="Inter, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#1f2937">Simplified<tspan fill="#f97316">Claw</tspan></text>
+</svg>

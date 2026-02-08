@@ -1,0 +1,6 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <g transform="rotate(45 100 100)">
+    <path d="M40 80 Q60 30 80 80 T120 80 Q140 30 160 80" fill="#f97316" stroke="#0f172a" stroke-width="4"/>
+    <path d="M70 100 H130 Q150 100 150 90 Q150 110 130 110 H70" fill="#fff"/>
+  </g>
+</svg>

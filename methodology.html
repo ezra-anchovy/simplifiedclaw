@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Methodology | Simplified Claw</title>
+    <meta name="description" content="A battle-tested 5-phase deployment methodology for enterprise AI agents, refined over 4+ years of production implementations.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09090b;
+            --bg-elevated: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #f97316;
+            --accent-muted: #ea580c;
+            --success: #22c55e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        h1 { font-size: max(2.5rem, 4vw); }
+        h2 { font-size: 1.75rem; }
+        h3 { font-size: 1.125rem; }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 180px 0;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .logo img { width: 32px; height: 32px; border-radius: 50%; }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: white !important;
+            padding: 8px 16px !important;
+            border-radius: 6px !important;
+        }
+
+        .hero {
+            padding: 200px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 { margin-bottom: 24px; }
+        .hero h1 span { color: var(--accent); }
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .feature {
+            background: var(--bg);
+            padding: 48px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        .feature h3 { margin-bottom: 16px; }
+        .feature p { color: var(--text-secondary); font-size: 0.9375rem; margin-bottom: 24px; }
+        
+        .feature ul { list-style: none; }
+        .feature li { font-size: 0.875rem; color: var(--text-secondary); padding: 4px 0; display: flex; align-items: center; gap: 12px; }
+        .feature li::before { content: "—"; color: var(--text-tertiary); font-family: 'JetBrains Mono', monospace; }
+
+        .phase-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .deliverable {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            color: var(--success);
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px dashed var(--border);
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-elevated);
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .timeline-header .label {
+            margin-bottom: 16px;
+            display: block;
+            color: var(--accent);
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .timeline-item {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        .timeline-week {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .timeline-phase {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text);
+        }
+
+        .timeline-note {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Metrics bar */
+        .metrics-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-top: 80px;
+        }
+
+        .metric {
+            background: var(--bg);
+            padding: 32px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        footer {
+            padding: 64px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex; gap: 32px; list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-links a:hover { color: var(--text); }
+
+        .footer-copy {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .timeline-grid { grid-template-columns: 1fr; }
+            .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+            section { padding: 120px 0; }
+            .feature.full-width { grid-column: span 1; }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="icons/logo-compact.png" alt="">
+                Simplified<span style="color: var(--accent);">Claw</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="what-is-openclaw.html">Platform</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="index.html#pricing" class="nav-cta">Deploy Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <span class="label fade-in">Our Process</span>
+            <h1 class="fade-in">The <span>Methodology</span></h1>
+            <p class="fade-in">A rigorous 5-phase process refined across dozens of enterprise implementations. Predictable outcomes, transparent progress, no surprises.</p>
+            <div class="fade-in" style="margin-top: 32px; padding: 20px 28px; background: rgba(249, 115, 22, 0.08); border: 1px solid rgba(249, 115, 22, 0.2); border-radius: 8px; max-width: 640px; margin-left: auto; margin-right: auto;">
+                <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+                    <strong style="color: var(--accent);">Battle-Tested:</strong> While OpenClaw is a newer platform, our methodology draws on <strong>4+ years of enterprise AI deployment experience</strong>—including production systems at Fortune 500 organizations. We apply the same disciplined practices that have proven successful across complex infrastructure rollouts.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Overview -->
+    <section class="timeline-section fade-in">
+        <div class="container">
+            <div class="timeline-header">
+                <span class="label">Typical Engagement</span>
+                <h2>Phased Delivery</h2>
+            </div>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <div class="timeline-week">Week 1–2</div>
+                    <div class="timeline-phase">Discovery</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Week 2–3</div>
+                    <div class="timeline-phase">Architecture</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Week 3–5</div>
+                    <div class="timeline-phase">Implementation</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Week 5–6</div>
+                    <div class="timeline-phase">Testing</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-week">Week 6+</div>
+                    <div class="timeline-phase">Handoff</div>
+                </div>
+            </div>
+            <p class="timeline-note">Timeline varies based on scope and complexity. Enterprise engagements typically run 6–10 weeks.</p>
+        </div>
+    </section>
+
+    <section class="methodology-content" style="padding-top: 100px;">
+        <div class="container">
+            <div class="features-grid fade-in">
+                <div class="feature">
+                    <span class="phase-num">PHASE 01</span>
+                    <h3>Discovery</h3>
+                    <p>Deep-dive into your technical environment, business objectives, and organizational constraints through structured workshops and interviews.</p>
+                    <ul>
+                        <li>Infrastructure & architecture assessment</li>
+                        <li>Use case prioritization matrix</li>
+                        <li>Security & compliance mapping</li>
+                        <li>Integration inventory & gap analysis</li>
+                    </ul>
+                    <div class="deliverable">Deliverable: Discovery Report & Recommendation Brief</div>
+                </div>
+                <div class="feature">
+                    <span class="phase-num">PHASE 02</span>
+                    <h3>Architecture</h3>
+                    <p>Design a tailored agent topology and orchestration strategy, documented in detailed blueprints for your team's review and approval.</p>
+                    <ul>
+                        <li>Agent topology & hierarchy design</li>
+                        <li>Model routing & fallback strategy</li>
+                        <li>Security architecture & access controls</li>
+                        <li>Integration blueprints & API contracts</li>
+                    </ul>
+                    <div class="deliverable">Deliverable: Architecture Specification Document</div>
+                </div>
+                <div class="feature">
+                    <span class="phase-num">PHASE 03</span>
+                    <h3>Implementation</h3>
+                    <p>Build and configure your OpenClaw environment with full transparency—regular progress updates, milestone checkpoints, and collaborative iteration.</p>
+                    <ul>
+                        <li>Core platform installation & configuration</li>
+                        <li>Custom agent development & tuning</li>
+                        <li>Tool & API integrations</li>
+                        <li>Security hardening & audit setup</li>
+                    </ul>
+                    <div class="deliverable">Deliverable: Deployed Environment in Staging</div>
+                </div>
+                <div class="feature">
+                    <span class="phase-num">PHASE 04</span>
+                    <h3>Testing & Validation</h3>
+                    <p>Rigorous validation of functionality, security posture, and failure modes before any production deployment.</p>
+                    <ul>
+                        <li>Functional & regression testing</li>
+                        <li>Security review & penetration testing</li>
+                        <li>Performance benchmarking & optimization</li>
+                        <li>Edge case & failure mode analysis</li>
+                    </ul>
+                    <div class="deliverable">Deliverable: Test Results & Sign-Off Report</div>
+                </div>
+                <div class="feature full-width" style="grid-column: span 2; background: var(--bg-elevated);">
+                    <span class="phase-num">PHASE 05</span>
+                    <h3>Handoff & Enablement</h3>
+                    <p>Comprehensive knowledge transfer ensures your team is fully self-sufficient, with documentation and runbooks tailored to your operational workflows.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+                        <ul>
+                            <li>Complete documentation package</li>
+                            <li>Hands-on team training sessions</li>
+                            <li>Video walkthroughs & reference guides</li>
+                        </ul>
+                        <ul>
+                            <li>Operational runbooks & playbooks</li>
+                            <li>Escalation procedures</li>
+                            <li>Support transition & warranty period</li>
+                        </ul>
+                    </div>
+                    <div class="deliverable">Deliverable: Documentation Package, Trained Team, Production Go-Live</div>
+                </div>
+            </div>
+
+            <!-- Metrics -->
+            <div class="metrics-bar fade-in">
+                <div class="metric">
+                    <span class="metric-value">4+</span>
+                    <span class="metric-label">Years Methodology Experience</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">100%</span>
+                    <span class="metric-label">On-Time Delivery Rate</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">0</span>
+                    <span class="metric-label">Security Incidents</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">24hr</span>
+                    <span class="metric-label">Avg. Support Response</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="logo">
+                    <img src="icons/logo-compact.png" alt="">
+                    Simplified<span style="color: var(--accent);">Claw</span>
+                </a>
+                <ul class="footer-links">
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
+                </ul>
+                <span class="footer-copy">© 2026</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
