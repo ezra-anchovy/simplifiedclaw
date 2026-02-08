@@ -5,164 +5,332 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enterprise FAQ | SimplifiedClaw</title>
     <meta name="description" content="Answers to common enterprise questions about OpenClaw deployment: timelines, security, support, integrations, and proof of concept options.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://simplifiedclaw.com/enterprise-faq.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #3b82f6;
-            --text: #e2e8f0;
-            --text-muted: #94a3b8;
-            --border: #334155;
+            --bg: #09090b;
+            --bg-elevated: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #f97316;
+            --accent-muted: #ea580c;
+            --success: #22c55e;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--primary);
+            background: var(--bg);
             color: var(--text);
             line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        h1 { font-size: max(2.5rem, 4vw); }
+        h2 { font-size: 1.75rem; }
+        h3 { font-size: 1.125rem; }
 
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
         nav {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(12px);
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
             z-index: 100;
+            padding: 16px 0;
         }
 
         nav .container {
+            max-width: 1120px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-weight: 600;
+            font-size: 1rem;
             color: var(--text);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.02em;
         }
 
+        .logo img { width: 24px; height: 24px; }
+
         .back-link {
-            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8125rem;
+            transition: color 0.15s;
         }
 
         .back-link:hover { color: var(--accent); }
 
+        /* Hero */
         .hero {
-            padding: 80px 0 60px;
+            padding: 160px 0 80px;
             text-align: center;
             border-bottom: 1px solid var(--border);
         }
 
-        .hero h1 { font-size: 2.5rem; margin-bottom: 16px; }
-        .hero p { color: var(--text-muted); font-size: 1.1rem; }
+        .hero .label {
+            display: block;
+            margin-bottom: 16px;
+        }
 
+        .hero h1 {
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* FAQ Sections */
         .faq-section {
-            padding: 48px 0;
+            padding: 64px 0;
             border-bottom: 1px solid var(--border);
         }
 
-        .faq-section:last-of-type { border-bottom: none; }
+        .faq-section:last-of-type {
+            border-bottom: none;
+        }
 
-        .faq-section h2 {
-            font-size: 1.25rem;
-            color: var(--accent);
-            margin-bottom: 24px;
+        .section-header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            font-size: 1.25rem;
+        }
+
+        .section-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--accent);
         }
 
         .faq-item {
-            margin-bottom: 24px;
+            margin-bottom: 32px;
+            padding: 24px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
         }
 
         .faq-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            font-size: 1rem;
             font-weight: 600;
         }
 
         .faq-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+
+        .faq-item a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .faq-item a:hover {
+            text-decoration: underline;
         }
 
         .faq-item ul {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-top: 8px;
-            padding-left: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            margin-top: 12px;
+            list-style: none;
         }
 
-        .faq-item li { margin-bottom: 4px; }
+        .faq-item li {
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
 
+        .faq-item li::before {
+            content: "—";
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-tertiary);
+            flex-shrink: 0;
+        }
+
+        .faq-item strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* CTA Section */
         .cta {
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
             border-top: 1px solid var(--border);
+            background: var(--bg-elevated);
         }
 
-        .cta h2 { font-size: 1.5rem; margin-bottom: 16px; }
-        .cta p { color: var(--text-muted); margin-bottom: 24px; }
+        .cta h2 {
+            margin-bottom: 16px;
+        }
 
-        .cta-btn {
+        .cta p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-size: 0.9375rem;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.15s;
             display: inline-block;
+        }
+
+        .btn-primary {
             background: var(--accent);
             color: white;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
         }
 
-        .cta-btn:hover { background: #2563eb; }
+        .btn-primary:hover {
+            background: var(--accent-muted);
+        }
 
+        /* Footer */
         footer {
-            padding: 40px 0;
+            padding: 64px 0;
             border-top: 1px solid var(--border);
-            text-align: center;
-            color: var(--text-muted);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
             font-size: 0.875rem;
         }
 
-        footer a { color: var(--text-muted); text-decoration: none; }
-        footer a:hover { color: var(--accent); }
+        .footer-links a:hover { color: var(--text); }
+
+        .footer-copy {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero { padding: 140px 0 60px; }
+            .faq-section { padding: 48px 0; }
+            .faq-item { padding: 20px; }
+            .footer-content { flex-direction: column; gap: 24px; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+        }
     </style>
 </head>
 <body>
     <nav>
         <div class="container">
-            <a href="index.html" class="logo">🦞 SimplifiedClaw</a>
+            <a href="index.html" class="logo">
+                <img src="icons/lobster-emoji.svg" alt="">
+                SimplifiedClaw
+            </a>
             <a href="index.html" class="back-link">← Back to Home</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="container">
-            <h1>Enterprise FAQ</h1>
-            <p>Common questions from enterprise teams evaluating OpenClaw deployment</p>
+            <span class="label fade-in">Enterprise Resources</span>
+            <h1 class="fade-in">Enterprise FAQ</h1>
+            <p class="fade-in">Common questions from enterprise teams evaluating OpenClaw deployment</p>
         </div>
     </section>
 
     <div class="container">
-        <section class="faq-section">
-            <h2>📅 Timeline & Process</h2>
+        <section class="faq-section fade-in">
+            <div class="section-header">
+                <span class="section-icon">📅</span>
+                <span class="section-title">Timeline & Process</span>
+            </div>
             
             <div class="faq-item">
                 <h3>How long does a typical enterprise deployment take?</h3>
@@ -171,7 +339,7 @@
 
             <div class="faq-item">
                 <h3>What does the engagement process look like?</h3>
-                <p>We follow a 5-phase methodology: Discovery → Architecture → Implementation → Testing → Handoff. Each phase has clear deliverables and checkpoints. See our <a href="methodology.html" style="color: var(--accent);">Methodology page</a> for details.</p>
+                <p>We follow a 5-phase methodology: Discovery → Architecture → Implementation → Testing → Handoff. Each phase has clear deliverables and checkpoints. See our <a href="methodology.html">Methodology page</a> for details.</p>
             </div>
 
             <div class="faq-item">
@@ -180,8 +348,11 @@
             </div>
         </section>
 
-        <section class="faq-section">
-            <h2>🔒 Security & Compliance</h2>
+        <section class="faq-section fade-in">
+            <div class="section-header">
+                <span class="section-icon">🔒</span>
+                <span class="section-title">Security & Compliance</span>
+            </div>
             
             <div class="faq-item">
                 <h3>How do you handle data security?</h3>
@@ -199,8 +370,11 @@
             </div>
         </section>
 
-        <section class="faq-section">
-            <h2>🛠 Technical Requirements</h2>
+        <section class="faq-section fade-in">
+            <div class="section-header">
+                <span class="section-icon">🛠</span>
+                <span class="section-title">Technical Requirements</span>
+            </div>
             
             <div class="faq-item">
                 <h3>What infrastructure do we need?</h3>
@@ -224,8 +398,11 @@
             </div>
         </section>
 
-        <section class="faq-section">
-            <h2>📞 Support & Maintenance</h2>
+        <section class="faq-section fade-in">
+            <div class="section-header">
+                <span class="section-icon">📞</span>
+                <span class="section-title">Support & Maintenance</span>
+            </div>
             
             <div class="faq-item">
                 <h3>What support is included?</h3>
@@ -248,12 +425,15 @@
             </div>
         </section>
 
-        <section class="faq-section">
-            <h2>💰 Pricing & Contracts</h2>
+        <section class="faq-section fade-in">
+            <div class="section-header">
+                <span class="section-icon">💰</span>
+                <span class="section-title">Pricing & Contracts</span>
+            </div>
             
             <div class="faq-item">
                 <h3>How is pricing structured?</h3>
-                <p>We offer three tiers: Starter ($500), Team ($2,000 + $400/mo support), and Enterprise (custom). Pricing is based on scope, not hourly rates. You know the cost upfront before we begin.</p>
+                <p>We offer three tiers: Starter ($1,499), Team ($4,999 + $400/mo support), and Enterprise (custom). Pricing is based on scope, not hourly rates. You know the cost upfront before we begin.</p>
             </div>
 
             <div class="faq-item">
@@ -268,18 +448,38 @@
         </section>
     </div>
 
-    <section class="cta">
+    <section class="cta fade-in">
         <div class="container">
             <h2>Still Have Questions?</h2>
             <p>We're happy to discuss your specific situation. No pressure, no sales pitch.</p>
-            <a href="index.html#contact" class="cta-btn">Schedule a Call →</a>
+            <a href="mailto:info@simplifiedclaw.com" class="btn btn-primary">Schedule a Call →</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>© 2026 SimplifiedClaw · </p>
+            <div class="footer-content">
+                <a href="index.html" class="logo">
+                    <img src="icons/lobster-emoji.svg" alt="">
+                    SimplifiedClaw
+                </a>
+                <ul class="footer-links">
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
+                </ul>
+                <span class="footer-copy">© 2026</span>
+            </div>
         </div>
     </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
