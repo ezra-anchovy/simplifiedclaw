@@ -204,6 +204,23 @@
             display: block;
         }
 
+        .artifact-subframe {
+            border: 1px solid var(--border);
+            overflow: hidden;
+            background: var(--bg-elevated);
+        }
+        .artifact-subframe img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        .artifact-subframe:hover img {
+            opacity: 1;
+        }
+
         .artifact-caption {
             padding: 16px 20px;
             border-top: 1px solid var(--border);
@@ -450,6 +467,44 @@
             font-size: 0.9375rem;
         }
 
+        /* Industrial Components */
+        .alert-box {
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 32px;
+            margin-bottom: 64px;
+        }
+
+        .alert-box h3 { color: var(--accent); margin-bottom: 16px; }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 32px;
+        }
+
+        .metric-card {
+            border-left: 1px solid var(--border);
+            padding-left: 24px;
+        }
+
+        .metric-val {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            font-family: 'JetBrains Mono', monospace;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         /* Pricing */
         .pricing {
             border-top: 1px solid var(--border);
@@ -614,6 +669,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="what-is-openclaw.html">Platform</a></li>
+                <li><a href="roi-calculator.html">ROI Calculator</a></li>
                 <li><a href="methodology.html">Methodology</a></li>
                 <li><a href="case-studies.html">Case Studies</a></li>
                 <li><a href="security.html">Security</a></li>
@@ -643,10 +699,26 @@
                 <h2>Agent Exhaust Dashboard</h2>
             </div>
             <div class="artifact-frame fade-in">
-                <img src="img/artifacts/dashboard-main.jpg" alt="Agent Exhaust Telemetry Dashboard showing 47K events, 1.3K active sessions, activity heatmaps, and model usage distribution">
+                <img src="img/artifacts/dashboard-main.jpg" alt="Agent Exhaust Telemetry Dashboard">
                 <div class="artifact-caption">
                     <span>SWARM_TELEMETRY_v2.4</span>
                     <span>47.0K events · 1.3K sessions · 78.1% classification rate</span>
+                </div>
+            </div>
+            
+            <!-- Evolution Gallery -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px;" class="fade-in">
+                <div class="artifact-subframe">
+                    <img src="img/artifacts/v1-dashboard.jpg" alt="Feb 1 Early Dashboard">
+                    <div class="artifact-caption">v1.0 (Feb 1) // INITIAL_TRACE</div>
+                </div>
+                <div class="artifact-subframe">
+                    <img src="img/artifacts/v2-dashboard.jpg" alt="Feb 5 Refined Dashboard">
+                    <div class="artifact-caption">v2.1 (Feb 5) // METRIC_DENSITY</div>
+                </div>
+                <div class="artifact-subframe">
+                    <img src="img/artifacts/topology-blue.jpg" alt="Agent Topology View">
+                    <div class="artifact-caption">v2.4 (Current) // TOPOLOGY_MAP</div>
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@ This site is deployed via GitHub Pages.
 
 ```bash
 # Clone the repository
-git clone https://github.com/ezra-anchovy/simplifiedclaw.git
+git clone https://github.com/simplifiedclaw/simplifiedclaw.git
 
 # The site is static HTML — just open index.html or deploy to any host
 ```
@@ -44,7 +44,7 @@ git clone https://github.com/ezra-anchovy/simplifiedclaw.git
 ## Contact
 
 📧 info@simplifiedclaw.com  
-🏢 An [Anchovy Labs](https://anchovylabs.ai) company
+Simplified Claw is an enterprise AI agent consultancy. We help companies deploy, secure, and scale OpenClaw infrastructure.
 
 ---
 

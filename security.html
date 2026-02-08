@@ -4,121 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Security Advisory | Simplified Claw</title>
-    <meta name="description" content="Security advisory on AI agent skill-based threats and how Simplified Claw provides vetted, secure OpenClaw deployments.">
-    <link rel="canonical" href="https://simplifiedclaw.com/security.html">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Security Advisory | Simplified Claw">
-    <meta property="og:description" content="Critical security information about AI agent skill-based malware and how to deploy safely.">
-    <meta property="og:url" content="https://simplifiedclaw.com/security.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Security Advisory | Simplified Claw">
-    <meta name="twitter:description" content="AI agent security risks and secure deployment practices.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="AI agent security risks and secure deployment practices.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --primary-lighter: #334155;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --accent-light: #60a5fa;
-            --text: #e2e8f0;
-            --text-muted: #94a3b8;
-            --text-dim: #64748b;
-            --bg: #0f172a;
-            --bg-alt: #1e293b;
-            --border: #334155;
+            --bg: #09090b;
+            --bg-elevated: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #f97316;
+            --accent-muted: #ea580c;
             --success: #22c55e;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            --gradient-soft: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
-            --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text);
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg);
-            overflow-x: hidden;
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        h1 { font-size: max(2.5rem, 4vw); }
+        h2 { font-size: 1.75rem; }
+        h3 { font-size: 1.125rem; }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1120px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        section {
+            padding: 180px 0;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-
-        .fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stagger-1 { transition-delay: 0.1s; }
-        .stagger-2 { transition-delay: 0.2s; }
-        .stagger-3 { transition-delay: 0.3s; }
-        .stagger-4 { transition-delay: 0.4s; }
-
-        /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(51, 65, 85, 0.8);
-            z-index: 1000;
+            top: 0; left: 0; right: 0;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
             padding: 16px 0;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            padding: 12px 0;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
         nav .container {
@@ -128,548 +80,89 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 600;
+            font-size: 1rem;
             color: var(--text);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: transform 0.3s ease;
+            letter-spacing: -0.02em;
         }
 
-        .logo:hover {
-            transform: scale(1.02);
-        }
-
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-icon img {
-            width: 36px;
-            height: 36px;
-        }
-
-        .logo:hover .logo-icon {
-            transform: rotate(-5deg) scale(1.1);
-        }
+        .logo img { width: 24px; height: 24px; }
 
         .nav-links {
             display: flex;
-            gap: 36px;
+            gap: 32px;
             list-style: none;
             align-items: center;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-decoration: none;
+            font-size: 0.875rem;
             font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-            transition: color 0.3s ease;
+            transition: color 0.15s;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: var(--danger);
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-            background: var(--danger);
-        }
+        .nav-links a:hover { color: var(--text); }
 
         .nav-cta {
             background: var(--accent) !important;
             color: white !important;
-            padding: 12px 24px !important;
-            border-radius: 10px !important;
-            transition: all 0.3s ease !important;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            padding: 8px 16px !important;
+            border-radius: 6px !important;
         }
 
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        .nav-cta:hover {
-            background: var(--accent-hover) !important;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
-        }
-
-        /* ===== HERO SECTION ===== */
         .hero {
-            padding: 160px 0 80px;
-            position: relative;
-            overflow: hidden;
-            background: 
-                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(239, 68, 68, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 100% 0%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
-                linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(rgba(239, 68, 68, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(239, 68, 68, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
-            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 200px 0 100px;
             text-align: center;
-            position: relative;
-            z-index: 1;
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(239, 68, 68, 0.15);
-            color: var(--danger);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 28px;
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .hero-badge::before {
-            content: '⚠️';
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.75rem);
-            font-weight: 800;
-            color: var(--text);
-            line-height: 1.1;
-            margin-bottom: 28px;
-            letter-spacing: -0.02em;
-            animation: fadeInUp 0.6s ease-out 0.1s both;
-        }
-
-        .hero h1 span {
-            color: var(--danger);
-        }
-
+        .hero h1 { margin-bottom: 24px; }
+        .hero h1 span { color: var(--accent); }
         .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 36px;
+            font-size: 1.125rem;
+            color: var(--text-secondary);
             max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-            animation: fadeInUp 0.6s ease-out 0.2s both;
+            margin: 0 auto;
         }
 
-        /* ===== ALERT BOX ===== */
+        /* Industrial Components */
         .alert-box {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
-            border: 2px solid rgba(239, 68, 68, 0.4);
-            border-radius: 16px;
-            padding: 32px;
-            margin: 60px auto;
-            max-width: 900px;
-        }
-
-        .alert-box h3 {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--danger);
-            margin-bottom: 16px;
-        }
-
-        .alert-box p {
-            color: var(--text);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        .alert-box ul {
-            margin: 16px 0;
-            padding-left: 24px;
-        }
-
-        .alert-box li {
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            line-height: 1.6;
-        }
-
-        .alert-box strong {
-            color: var(--text);
-        }
-
-        /* ===== SECTION STYLES ===== */
-        .section {
-            padding: 100px 0;
-        }
-
-        .section-alt {
-            background: var(--bg-alt);
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
-            margin-bottom: 16px;
-            background: rgba(59, 130, 246, 0.15);
-            padding: 8px 16px;
-            border-radius: 50px;
-        }
-
-        .section-label.danger {
-            color: var(--danger);
-            background: rgba(239, 68, 68, 0.15);
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text);
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            line-height: 1.7;
-        }
-
-        /* ===== THREAT GRID ===== */
-        .threat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-        }
-
-        .threat-card {
-            background: var(--bg-alt);
+            background: var(--bg-elevated);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-left: 4px solid #ef4444;
             padding: 32px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 64px;
         }
 
-        .threat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--danger-gradient);
+        .alert-box h3 { color: #ef4444; margin-bottom: 16px; }
+        .alert-box p { font-size: 0.9375rem; color: var(--text-secondary); margin-bottom: 16px; }
+        .alert-box ul { list-style: none; }
+        .alert-box li { color: var(--text-secondary); font-size: 0.875rem; padding: 4px 0; border-bottom: 1px solid var(--border); }
+        .alert-box li:last-child { border-bottom: none; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
         }
 
-        .threat-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(239, 68, 68, 0.15);
-            border-color: rgba(239, 68, 68, 0.3);
-        }
-
-        .threat-icon {
-            width: 64px;
-            height: 64px;
-            background: rgba(239, 68, 68, 0.15);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 1.75rem;
-        }
-
-        .threat-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 12px;
-        }
-
-        .threat-card p {
-            color: var(--text-muted);
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-
-        .threat-card .source {
-            display: inline-block;
-            margin-top: 16px;
-            font-size: 0.8rem;
-            color: var(--text-dim);
+        .feature {
             background: var(--bg);
-            padding: 6px 12px;
-            border-radius: 6px;
+            padding: 48px;
         }
 
-        /* ===== VALUES GRID ===== */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-            margin-top: 60px;
-        }
+        .feature h3 { margin-bottom: 16px; }
+        .feature p { color: var(--text-secondary); font-size: 0.9375rem; }
 
-        .value-card {
-            background: var(--bg-alt);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 36px;
-            text-align: center;
-            transition: all 0.4s ease;
-        }
-
-        .value-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(59, 130, 246, 0.15);
-            border-color: var(--accent);
-        }
-
-        .value-card.highlight {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border-color: var(--accent);
-        }
-
-        .value-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradient-soft);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 2rem;
-            transition: transform 0.4s ease;
-        }
-
-        .value-card:hover .value-icon {
-            transform: scale(1.1) rotate(-5deg);
-        }
-
-        .value-card.highlight .value-icon {
-            background: var(--gradient);
-        }
-
-        .value-card h3 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 14px;
-        }
-
-        .value-card p {
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-
-        /* ===== PROTECTION SECTION ===== */
-        .protection-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-        }
-
-        .protection-card {
-            background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg) 100%);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 40px;
-            transition: all 0.4s ease;
-        }
-
-        .protection-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(34, 197, 94, 0.15);
-            border-color: var(--success);
-        }
-
-        .protection-icon {
-            width: 72px;
-            height: 72px;
-            background: rgba(34, 197, 94, 0.15);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            font-size: 2rem;
-        }
-
-        .protection-card h3 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 14px;
-        }
-
-        .protection-card p {
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-
-        .protection-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .protection-card li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            color: var(--text);
-            margin-bottom: 12px;
-            font-size: 0.95rem;
-        }
-
-        .protection-card li::before {
-            content: "✓";
-            color: var(--success);
-            font-weight: 700;
-            flex-shrink: 0;
-            width: 22px;
-            height: 22px;
-            background: rgba(34, 197, 94, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-        }
-
-        /* ===== CTA SECTION ===== */
-        .cta {
-            padding: 100px 0;
-            background: var(--bg-alt);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
-        }
-
-        .cta .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-            color: var(--text);
-        }
-
-        .cta p {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            margin-bottom: 36px;
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        .btn {
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
-        }
-
-        /* ===== FOOTER ===== */
         footer {
-            padding: 60px 0 36px;
-            background: var(--bg);
-            color: var(--text-muted);
+            padding: 64px 0;
             border-top: 1px solid var(--border);
         }
 
@@ -677,345 +170,126 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
-        }
-
-        .footer-logo {
-            color: var(--text);
-            font-size: 1.35rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-logo img {
-            width: 28px;
-            height: 28px;
         }
 
         .footer-links {
-            display: flex;
-            gap: 36px;
-            list-style: none;
+            display: flex; gap: 32px; list-style: none;
         }
 
         .footer-links a {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            font-size: 0.875rem;
         }
 
-        .footer-links a:hover {
-            color: var(--text);
+        .footer-links a:hover { color: var(--text); }
+
+        .footer-copy {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
         }
 
-        /* ===== MOBILE MENU ===== */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text);
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--bg);
-                flex-direction: column;
-                padding: 24px;
-                gap: 16px;
-                border-bottom: 1px solid var(--border);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-            .nav-links.mobile-open {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                padding: 140px 0 60px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section {
-                padding: 70px 0;
-            }
-
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .threat-grid,
-            .values-grid,
-            .protection-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        @media (max-width: 900px) {
+            .features-grid { grid-template-columns: 1fr; }
+            section { padding: 120px 0; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <div class="logo-icon"><img src="icons/lobster-emoji.svg" alt="Lobster"></div>
-                Simplified Claw
+                <img src="icons/lobster-emoji.svg" alt="">
+                SimplifiedClaw
             </a>
             <ul class="nav-links">
-                <li><a href="what-is-openclaw.html">What is OpenClaw?</a></li>
-                <li><a href="index.html#features">Services</a></li>
-                <li><a href="index.html#pricing">Pricing</a></li>
-                <li><a href="case-studies.html">Case Studies</a></li>
-                <li><a href="security.html" class="active">Security</a></li>
+                <li><a href="what-is-openclaw.html">Platform</a></li>
                 <li><a href="methodology.html">Methodology</a></li>
-                <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="#pricing" class="nav-cta">Deploy Now</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    Security Advisory — February 2026
-                </div>
-                <h1>AI Agent Security: <span>Real Threats</span>, Real Solutions</h1>
-                <p>The rise of AI agent platforms has created new attack vectors. Malicious actors are now distributing compromised "skills" that can exfiltrate credentials, API keys, and sensitive data. Here's what you need to know.</p>
-            </div>
+            <span class="label fade-in">Security Advisory</span>
+            <h1 class="fade-in">AI Agent <span>Security Threats</span></h1>
+            <p class="fade-in">The rise of AI agent platforms has created new attack vectors. We architect defense-in-depth security for your OpenClaw infrastructure.</p>
         </div>
     </section>
 
-    <!-- Alert Box -->
-    <div class="container">
-        <div class="alert-box fade-in-up">
-            <h3>🚨 Active Threat: Skill-Based Malware</h3>
-            <p>In February 2026, security researchers discovered multiple malicious AI agent skills in public repositories:</p>
-            <ul>
-                <li><strong>1Password Credential Harvesting:</strong> A fake "1Password integration" skill was found to intercept and exfiltrate vault credentials during agent operations, affecting users who installed unvetted skills.</li>
-                <li><strong>VirusTotal Detection Reports:</strong> Multiple community-submitted skills were flagged by VirusTotal for containing obfuscated code designed to harvest API keys and tokens from agent environments.</li>
-                <li><strong>Supply Chain Attacks:</strong> Compromised dependencies in popular skill packages were identified, injecting malicious payloads during installation.</li>
-            </ul>
-            <p>These incidents underscore a critical reality: <strong>AI agents operate with elevated privileges</strong>, and every skill you install extends your attack surface.</p>
-        </div>
-    </div>
-
-    <!-- Threat Landscape Section -->
-    <section class="section">
+    <section class="security-content" style="padding-top: 0;">
         <div class="container">
-            <div class="section-header fade-in-up">
-                <span class="section-label danger">Threat Landscape</span>
-                <h2>Why AI Agent Skills Are a Security Risk</h2>
-                <p>Unlike traditional software, AI agent skills can execute arbitrary actions with access to your credentials, file system, and connected services.</p>
+            <div class="alert-box fade-in">
+                <h3>🚨 Active Threat: Skill-Based Malware</h3>
+                <p>Security researchers have discovered multiple malicious AI agent skills in public repositories designed to exfiltrate credentials and API keys.</p>
+                <ul>
+                    <li><strong>Credential Harvesting:</strong> Fake integrations intercepting password manager vaults.</li>
+                    <li><strong>Data Exfiltration:</strong> Skills silently sending documents to external servers.</li>
+                    <li><strong>Supply Chain Attacks:</strong> Compromised dependencies in popular skill packages.</li>
+                </ul>
             </div>
-            <div class="threat-grid">
-                <div class="threat-card fade-in-up stagger-1">
-                    <div class="threat-icon">🎭</div>
+
+            <div class="features-grid fade-in">
+                <div class="feature">
                     <h3>Credential Theft</h3>
-                    <p>Malicious skills can intercept credentials passed to agents, including OAuth tokens, API keys, and password manager vault access.</p>
-                    <span class="source">Source: 1Password incident, Feb 2026</span>
+                    <p>Malicious skills can intercept credentials passed to agents, including OAuth tokens and API keys. We implement least-privilege access to mitigate this risk.</p>
                 </div>
-                <div class="threat-card fade-in-up stagger-2">
-                    <div class="threat-icon">📤</div>
+                <div class="feature">
                     <h3>Data Exfiltration</h3>
-                    <p>Skills with network access can silently send sensitive documents, code, and conversations to external servers without user awareness.</p>
-                    <span class="source">Source: VirusTotal reports, Feb 2026</span>
+                    <p>Skills with network access can silently send sensitive documents to external servers. We segment networks to limit skill capabilities.</p>
                 </div>
-                <div class="threat-card fade-in-up stagger-3">
-                    <div class="threat-icon">🔗</div>
-                    <h3>Supply Chain Attacks</h3>
-                    <p>Compromised dependencies in skill packages can inject malicious code during installation, bypassing surface-level code review.</p>
-                    <span class="source">Source: NPM security advisories</span>
-                </div>
-                <div class="threat-card fade-in-up stagger-4">
-                    <div class="threat-icon">🤖</div>
-                    <h3>Agent Hijacking</h3>
-                    <p>Prompt injection via malicious skills can redirect agent behavior, causing it to perform unauthorized actions on the user's behalf.</p>
-                    <span class="source">Source: OWASP LLM Top 10</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Approach Section -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header fade-in-up">
-                <span class="section-label">Our Approach</span>
-                <h2>How Simplified Claw Protects You</h2>
-                <p>We don't just deploy OpenClaw—we harden it. Every engagement includes comprehensive security measures designed for enterprise environments.</p>
-            </div>
-            <div class="protection-grid">
-                <div class="protection-card fade-in-up stagger-1">
-                    <div class="protection-icon">🔍</div>
+                <div class="feature">
                     <h3>Expert Skill Vetting</h3>
-                    <p>Every skill we recommend goes through rigorous manual code review:</p>
-                    <ul>
-                        <li>Static analysis for obfuscated or suspicious code patterns</li>
-                        <li>Dependency auditing with known vulnerability checks</li>
-                        <li>Network behavior analysis in sandboxed environments</li>
-                        <li>Provenance verification of skill authors and maintainers</li>
-                    </ul>
+                    <p>Every skill we recommend goes through rigorous manual code review, static analysis, and sandboxed testing before deployment.</p>
                 </div>
-                <div class="protection-card fade-in-up stagger-2">
-                    <div class="protection-icon">🛡️</div>
+                <div class="feature" style="background: var(--bg-elevated);">
                     <h3>Hardened Deployment</h3>
-                    <p>We configure OpenClaw with defense-in-depth security:</p>
-                    <ul>
-                        <li>Least-privilege access controls for all integrations</li>
-                        <li>Network segmentation to limit skill capabilities</li>
-                        <li>Comprehensive audit logging of all agent actions</li>
-                        <li>Secrets management via enterprise-grade vaults</li>
-                    </ul>
-                </div>
-                <div class="protection-card fade-in-up stagger-3">
-                    <div class="protection-icon">📊</div>
-                    <h3>Continuous Monitoring</h3>
-                    <p>Security doesn't end at deployment:</p>
-                    <ul>
-                        <li>Real-time alerting on anomalous agent behavior</li>
-                        <li>Regular security updates and patch management</li>
-                        <li>Quarterly security reviews and penetration testing</li>
-                        <li>Incident response playbooks and support</li>
-                    </ul>
+                    <p>We configure OpenClaw with defense-in-depth security, including secrets management via enterprise-grade vaults and comprehensive audit logging.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Core Values Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header fade-in-up">
-                <span class="section-label">Our Values</span>
-                <h2>Built on Trust</h2>
-                <p>Security is not a feature—it's a foundational principle. These values guide every deployment we deliver.</p>
-            </div>
-            <div class="values-grid">
-                <div class="value-card fade-in-up stagger-1">
-                    <div class="value-icon">🔒</div>
-                    <h3>Security First</h3>
-                    <p>Every configuration decision prioritizes security over convenience. We assume breach and design accordingly.</p>
-                </div>
-                <div class="value-card fade-in-up stagger-2">
-                    <div class="value-icon">🔬</div>
-                    <h3>Expert Vetting</h3>
-                    <p>No skill enters your environment without manual review by our security engineers. We trust but verify—always.</p>
-                </div>
-                <div class="value-card highlight fade-in-up stagger-3">
-                    <div class="value-icon">🤐</div>
-                    <h3>Discretion</h3>
-                    <p>Your data, your business logic, your competitive advantages—they stay with you. We operate under strict confidentiality, never share client information, and design systems that minimize data exposure by default.</p>
-                </div>
-                <div class="value-card fade-in-up stagger-4">
-                    <div class="value-icon">📖</div>
-                    <h3>Transparency</h3>
-                    <p>You own your configuration. We document everything, explain our decisions, and ensure your team can operate independently.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="fade-in-up">
-                <h2>Deploy AI Agents Without the Risk</h2>
-                <p>Get a secure, vetted OpenClaw deployment from experts who understand enterprise security requirements.</p>
-                <a href="mailto:sales@simplifiedclaw.com?subject=Security%20Consultation%20Request" class="btn btn-primary">Request Security Consultation →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="icons/lobster-emoji.svg" alt="Lobster">
+                <a href="index.html" class="logo">
+                    <img src="icons/lobster-emoji.svg" alt="">
                     SimplifiedClaw
-                </div>
+                </a>
                 <ul class="footer-links">
-                    <li><a href="index.html#features">Services</a></li>
-                    <li><a href="index.html#pricing">Pricing</a></li>
-                    <li><a href="case-studies.html">Case Studies</a></li>
-                    <li><a href="news.html">News</a></li>
                     <li><a href="security.html">Security</a></li>
                     <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
                 </ul>
-                <p>© 2026 Simplified Claw. All rights reserved.</p>
+                <span class="footer-copy">© 2026</span>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (menuBtn && navLinks) {
-            menuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('mobile-open');
-                menuBtn.textContent = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
-            });
-        }
-
-        // Navbar scroll effect
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll-triggered fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            observer.observe(el);
-        });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

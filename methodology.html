@@ -3,634 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Methodology | SimplifiedClaw</title>
-    <meta name="description" content="A proven 5-phase deployment methodology for enterprise AI agents. From discovery to handoff, we ensure successful OpenClaw implementations.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Our Methodology | Simplified Claw</title>
+    <meta name="description" content="A proven 5-phase deployment methodology for enterprise AI agents.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --primary-lighter: #334155;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --accent-light: #60a5fa;
-            --accent-glow: rgba(59, 130, 246, 0.25);
-            --text: #e2e8f0;
-            --text-muted: #94a3b8;
-            --text-dim: #64748b;
-            --bg: #0f172a;
-            --bg-alt: #1e293b;
-            --border: #334155;
+            --bg: #09090b;
+            --bg-elevated: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #f97316;
+            --accent-muted: #ea580c;
             --success: #22c55e;
-            --gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
 
-        /* ===== NAVIGATION ===== */
+        h1 { font-size: max(2.5rem, 4vw); }
+        h2 { font-size: 1.75rem; }
+        h3 { font-size: 1.125rem; }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 180px 0;
+        }
+
         nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(51, 65, 85, 0.8);
-            z-index: 1000;
+            top: 0; left: 0; right: 0;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
             padding: 16px 0;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            padding: 12px 0;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
 
         nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 600;
+            font-size: 1rem;
             color: var(--text);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: transform 0.3s ease;
+            letter-spacing: -0.02em;
         }
 
-        .logo:hover {
-            transform: scale(1.02);
-        }
-
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-icon img {
-            width: 36px;
-            height: 36px;
-        }
-
-        .logo:hover .logo-icon {
-            transform: rotate(-5deg) scale(1.1);
-        }
+        .logo img { width: 24px; height: 24px; }
 
         .nav-links {
             display: flex;
-            gap: 36px;
+            gap: 32px;
             list-style: none;
             align-items: center;
         }
 
         .nav-links a {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-decoration: none;
+            font-size: 0.875rem;
             font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-            transition: color 0.3s ease;
+            transition: color 0.15s;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient);
-            transition: width 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: var(--accent);
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-            background: var(--accent);
-        }
+        .nav-links a:hover { color: var(--text); }
 
         .nav-cta {
             background: var(--accent) !important;
             color: white !important;
-            padding: 12px 24px !important;
-            border-radius: 10px !important;
-            transition: all 0.3s ease !important;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            padding: 8px 16px !important;
+            border-radius: 6px !important;
         }
 
-        .nav-cta::after {
-            display: none !important;
-        }
-
-        .nav-cta:hover {
-            background: var(--accent-hover) !important;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4) !important;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text);
-        }
-
-        /* ===== HERO ===== */
         .hero {
-            padding: 160px 0 80px;
+            padding: 200px 0 100px;
             text-align: center;
-            border-bottom: 1px solid var(--border);
-            background: 
-                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 100% 0%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-                var(--bg);
         }
 
-        .hero h1 { 
-            font-size: clamp(2rem, 4vw, 2.75rem); 
-            margin-bottom: 16px; 
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        .hero p { 
-            color: var(--text-muted); 
-            font-size: 1.15rem; 
-            max-width: 600px; 
-            margin: 0 auto; 
-            line-height: 1.7;
-        }
-
-        /* ===== PHASES ===== */
-        .phases {
-            padding: 80px 0;
-        }
-
-        .phase {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 32px;
-            padding: 48px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .phase:last-child { border-bottom: none; }
-
-        .phase-number {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: white;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        .phase-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        .phase-content p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .phase-deliverables {
-            list-style: none;
-        }
-
-        .phase-deliverables li {
-            padding: 10px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-            color: var(--text);
-        }
-
-        .phase-deliverables li::before {
-            content: "→";
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* ===== PRINCIPLES ===== */
-        .principles {
-            padding: 80px 0;
-            border-top: 1px solid var(--border);
-            background: var(--bg-alt);
-        }
-
-        .principles h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 48px;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            max-width: 1100px;
+        .hero h1 { margin-bottom: 24px; }
+        .hero h1 span { color: var(--accent); }
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 650px;
             margin: 0 auto;
         }
 
-        .principle {
-            background: var(--bg);
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--border);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 32px;
-            transition: all 0.3s ease;
         }
 
-        .principle:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
-        }
-
-        .principle-icon { 
-            font-size: 2.25rem; 
-            margin-bottom: 16px; 
-        }
-
-        .principle h4 { 
-            font-size: 1.15rem; 
-            margin-bottom: 10px; 
-            color: var(--text);
-            font-weight: 700;
-        }
-
-        .principle p { 
-            color: var(--text-muted); 
-            font-size: 0.9rem; 
-            line-height: 1.7;
-        }
-
-        /* ===== CTA ===== */
-        .cta {
-            padding: 100px 0;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            background: 
-                radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                var(--bg);
-        }
-
-        .cta h2 { 
-            font-size: 2rem; 
-            margin-bottom: 16px;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-
-        .cta p { 
-            color: var(--text-muted); 
-            max-width: 500px; 
-            margin: 0 auto 32px;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            background: var(--gradient);
-            color: white;
-            padding: 16px 36px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
-        }
-
-        .cta-btn:hover { 
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            padding: 60px 0 36px;
-            border-top: 1px solid var(--border);
+        .feature {
             background: var(--bg);
-            color: var(--text-muted);
+            padding: 48px;
+        }
+
+        .feature h3 { margin-bottom: 16px; }
+        .feature p { color: var(--text-secondary); font-size: 0.9375rem; margin-bottom: 24px; }
+        
+        .feature ul { list-style: none; }
+        .feature li { font-size: 0.875rem; color: var(--text-secondary); padding: 4px 0; display: flex; align-items: center; gap: 12px; }
+        .feature li::before { content: "—"; color: var(--text-tertiary); font-family: 'JetBrains Mono', monospace; }
+
+        .phase-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        footer {
+            padding: 64px 0;
+            border-top: 1px solid var(--border);
         }
 
         .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .footer-logo {
-            color: var(--text);
-            font-size: 1.35rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-logo img {
-            width: 28px;
-            height: 28px;
         }
 
         .footer-links {
-            display: flex;
-            gap: 36px;
-            list-style: none;
+            display: flex; gap: 32px; list-style: none;
         }
 
         .footer-links a {
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            font-size: 0.875rem;
         }
 
-        .footer-links a:hover {
-            color: var(--text);
+        .footer-links a:hover { color: var(--text); }
+
+        .footer-copy {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--bg);
-                flex-direction: column;
-                padding: 24px;
-                gap: 16px;
-                border-bottom: 1px solid var(--border);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
 
-            .nav-links.mobile-open {
-                display: flex;
-            }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                padding: 140px 0 60px;
-            }
-
-            .phase { 
-                grid-template-columns: 1fr; 
-                gap: 20px; 
-            }
-
-            .hero h1 { font-size: 1.75rem; }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+        @media (max-width: 900px) {
+            .features-grid { grid-template-columns: 1fr; }
+            section { padding: 120px 0; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <div class="logo-icon"><img src="icons/lobster-emoji.svg" alt="Lobster"></div>
-                Simplified Claw
+                <img src="icons/lobster-emoji.svg" alt="">
+                SimplifiedClaw
             </a>
             <ul class="nav-links">
-                <li><a href="what-is-openclaw.html">What is OpenClaw?</a></li>
-                <li><a href="index.html#features">Services</a></li>
-                <li><a href="index.html#pricing">Pricing</a></li>
+                <li><a href="what-is-openclaw.html">Platform</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
                 <li><a href="case-studies.html">Case Studies</a></li>
                 <li><a href="security.html">Security</a></li>
-                <li><a href="methodology.html" class="active">Methodology</a></li>
-                <li><a href="index.html#contact" class="nav-cta">Get Started</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="#pricing" class="nav-cta">Deploy Now</a></li>
             </ul>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
         </div>
     </nav>
 
     <section class="hero">
         <div class="container">
-            <h1>Our Deployment Methodology</h1>
-            <p>A proven 5-phase process refined across dozens of enterprise implementations. No guesswork, no surprises.</p>
+            <span class="label fade-in">Our Process</span>
+            <h1 class="fade-in">The <span>Methodology</span></h1>
+            <p class="fade-in">A proven 5-phase process refined across dozens of enterprise implementations. No guesswork, no surprises.</p>
         </div>
     </section>
 
-    <section class="phases">
+    <section class="methodology-content" style="padding-top: 0;">
         <div class="container">
-            <div class="phase">
-                <div class="phase-number">1</div>
-                <div class="phase-content">
+            <div class="features-grid fade-in">
+                <div class="feature">
+                    <span class="phase-num">PHASE 01</span>
                     <h3>Discovery</h3>
-                    <p>We start by understanding your environment, goals, and constraints. This isn't a generic questionnaire—it's a focused technical conversation.</p>
-                    <ul class="phase-deliverables">
-                        <li>Current infrastructure assessment</li>
+                    <p>Understanding your environment, goals, and constraints via technical deep-dives.</p>
+                    <ul>
+                        <li>Infrastructure assessment</li>
                         <li>Use case prioritization</li>
-                        <li>Security and compliance requirements mapping</li>
-                        <li>Integration inventory (tools, APIs, data sources)</li>
+                        <li>Security mapping</li>
+                        <li>Integration inventory</li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="phase">
-                <div class="phase-number">2</div>
-                <div class="phase-content">
+                <div class="feature">
+                    <span class="phase-num">PHASE 02</span>
                     <h3>Architecture</h3>
-                    <p>We design the OpenClaw deployment architecture tailored to your specific needs. Every decision is documented and explained.</p>
-                    <ul class="phase-deliverables">
-                        <li>Agent topology and orchestration design</li>
-                        <li>Model selection and routing strategy</li>
-                        <li>Security architecture (access controls, secret management)</li>
+                    <p>Tailored agent topology and orchestration design with documented blueprints.</p>
+                    <ul>
+                        <li>Agent topology design</li>
+                        <li>Model routing strategy</li>
+                        <li>Security architecture</li>
                         <li>Integration blueprints</li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="phase">
-                <div class="phase-number">3</div>
-                <div class="phase-content">
+                <div class="feature">
+                    <span class="phase-num">PHASE 03</span>
                     <h3>Implementation</h3>
-                    <p>We build and configure your OpenClaw environment. Your team has visibility throughout—no black boxes.</p>
-                    <ul class="phase-deliverables">
-                        <li>Core OpenClaw installation and configuration</li>
-                        <li>Agent development and skill customization</li>
-                        <li>Tool and API integrations</li>
-                        <li>Security hardening and audit logging</li>
+                    <p>Building and configuring your OpenClaw environment with full visibility.</p>
+                    <ul>
+                        <li>Core installation</li>
+                        <li>Agent development</li>
+                        <li>Tool integrations</li>
+                        <li>Security hardening</li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="phase">
-                <div class="phase-number">4</div>
-                <div class="phase-content">
+                <div class="feature">
+                    <span class="phase-num">PHASE 04</span>
                     <h3>Testing</h3>
-                    <p>Rigorous validation before anything goes to production. We test functionality, security, and edge cases.</p>
-                    <ul class="phase-deliverables">
-                        <li>Functional testing across all use cases</li>
-                        <li>Security validation and penetration testing</li>
+                    <p>Rigorous validation of functionality, security, and failure modes.</p>
+                    <ul>
+                        <li>Functional testing</li>
+                        <li>Penetration testing</li>
                         <li>Performance benchmarking</li>
-                        <li>Failure mode analysis</li>
+                        <li>Edge case analysis</li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="phase">
-                <div class="phase-number">5</div>
-                <div class="phase-content">
+                <div class="feature" style="grid-column: span 2; background: var(--bg-elevated);">
+                    <span class="phase-num">PHASE 05</span>
                     <h3>Handoff</h3>
-                    <p>We don't disappear after deployment. Complete knowledge transfer ensures your team can operate and extend the system.</p>
-                    <ul class="phase-deliverables">
-                        <li>Comprehensive documentation package</li>
-                        <li>Team training sessions (recorded)</li>
-                        <li>Runbooks for common operations</li>
-                        <li>Support transition and escalation paths</li>
-                    </ul>
+                    <p>Comprehensive knowledge transfer ensures your team is self-sufficient.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+                        <ul>
+                            <li>Full documentation package</li>
+                            <li>Team training sessions</li>
+                        </ul>
+                        <ul>
+                            <li>Operational runbooks</li>
+                            <li>Support transition</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="principles">
-        <div class="container">
-            <h2>Guiding Principles</h2>
-            <div class="principles-grid">
-                <div class="principle">
-                    <div class="principle-icon">🔍</div>
-                    <h4>Transparency</h4>
-                    <p>You see everything we do. No proprietary lock-in, no hidden configurations. It's your system.</p>
-                </div>
-                <div class="principle">
-                    <div class="principle-icon">📋</div>
-                    <h4>Documentation</h4>
-                    <p>Every decision, configuration, and process is documented. Your team can maintain and extend without us.</p>
-                </div>
-                <div class="principle">
-                    <div class="principle-icon">🔒</div>
-                    <h4>Security First</h4>
-                    <p>Security isn't an afterthought. It's built into every phase, from architecture to testing.</p>
-                </div>
-                <div class="principle">
-                    <div class="principle-icon">🤝</div>
-                    <h4>Knowledge Transfer</h4>
-                    <p>Our goal is to make your team self-sufficient. We succeed when you don't need us anymore.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Start?</h2>
-            <p>Let's discuss your deployment needs and timeline. The first conversation is always free.</p>
-            <a href="index.html#contact" class="cta-btn">Schedule a Consultation →</a>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="icons/lobster-emoji.svg" alt="Lobster">
-                SimplifiedClaw
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="logo">
+                    <img src="icons/lobster-emoji.svg" alt="">
+                    SimplifiedClaw
+                </a>
+                <ul class="footer-links">
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
+                </ul>
+                <span class="footer-copy">© 2026</span>
             </div>
-            <ul class="footer-links">
-                <li><a href="index.html#features">Services</a></li>
-                <li><a href="index.html#pricing">Pricing</a></li>
-                <li><a href="case-studies.html">Case Studies</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="security.html">Security</a></li>
-                <li><a href="terms.html">Terms</a></li>
-            </ul>
-            <p>© 2026 Simplified Claw. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (menuBtn && navLinks) {
-            menuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('mobile-open');
-                menuBtn.textContent = navLinks.classList.contains('mobile-open') ? '✕' : '☰';
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }
-
-        // Navbar scroll effect
-        const nav = document.querySelector('nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
