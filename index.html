@@ -1,1430 +1,1074 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenClaw Consulting | Enterprise AI Infrastructure</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-primary: #0a0a0f;
-      --bg-secondary: #111118;
-      --bg-tertiary: #1a1a24;
-      --text-primary: #e5e7eb;
-      --text-secondary: #9ca3af;
-      --text-muted: #6b7280;
-      --accent-primary: #3b82f6;
-      --accent-secondary: #60a5fa;
-      --border-subtle: #1e1e2e;
-      --border-accent: #3b82f640;
-      
-      /* Provider colors */
-      --nvidia: #76B900;
-      --cerebras: #FF6B35;
-      --groq: #F55036;
-      --mistral: #FF7000;
-      --ollama: #7C8DB0;
-      --anthropic: #D97706;
-      
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-heading: 'Space Grotesk', sans-serif;
-      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Typography */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-
-    h1 {
-      font-size: max(2.5rem, 4vw);
-    }
-
-    h2 {
-      font-size: max(1.75rem, 3vw);
-    }
-
-    h3 {
-      font-size: max(1.25rem, 2vw);
-    }
-
-    .mono-label {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    /* Layout */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    section {
-      padding: 160px 0;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       TECHNICAL VISUAL BREAKS - Blueprint Style
-       ═══════════════════════════════════════════════════════════════ */
-    .visual-break {
-      position: relative;
-      height: 120px;
-      background: var(--bg-primary);
-      overflow: hidden;
-    }
-
-    .visual-break::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, 
-        transparent 0%, 
-        var(--border-subtle) 10%, 
-        var(--accent-primary) 25%, 
-        var(--border-subtle) 50%,
-        var(--accent-primary) 75%,
-        var(--border-subtle) 90%,
-        transparent 100%
-      );
-      opacity: 0.6;
-    }
-
-    .visual-break::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 8px;
-      height: 8px;
-      border: 2px solid var(--accent-primary);
-      border-radius: 50%;
-      background: var(--bg-primary);
-    }
-
-    .visual-break .grid-pattern {
-      position: absolute;
-      inset: 0;
-      background-image: 
-        linear-gradient(var(--border-subtle) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
-      background-size: 40px 40px;
-      opacity: 0.3;
-    }
-
-    .visual-break .tick-marks {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      transform: translateY(-50%);
-      display: flex;
-      justify-content: space-between;
-      padding: 0 10%;
-    }
-
-    .visual-break .tick-marks span {
-      width: 1px;
-      height: 12px;
-      background: var(--accent-primary);
-      opacity: 0.4;
-    }
-
-    .visual-break .tick-marks span:nth-child(5n) {
-      height: 20px;
-      opacity: 0.6;
-    }
-
-    .visual-break .coordinates {
-      position: absolute;
-      bottom: 20px;
-      right: 24px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      color: var(--text-muted);
-      opacity: 0.5;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       HEADER
-       ═══════════════════════════════════════════════════════════════ */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      background: rgba(10, 10, 15, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .logo-icon {
-      font-size: 28px;
-    }
-
-    .logo-text {
-      font-family: var(--font-mono);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .logo-version {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      padding: 2px 8px;
-      background: var(--accent-primary);
-      color: #fff;
-      border-radius: 4px;
-      margin-left: 8px;
-    }
-
-    .nav {
-      display: flex;
-      gap: 32px;
-    }
-
-    .nav a {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav a:hover {
-      color: var(--accent-secondary);
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       HERO
-       ═══════════════════════════════════════════════════════════════ */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 72px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.1), transparent),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(118, 185, 0, 0.05), transparent);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      background: rgba(59, 130, 246, 0.1);
-      border: 1px solid var(--border-accent);
-      border-radius: 100px;
-      margin-bottom: 32px;
-    }
-
-    .hero-label span {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--accent-secondary);
-      letter-spacing: 0.02em;
-    }
-
-    .hero h1 {
-      margin-bottom: 24px;
-      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-description {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 48px;
-      padding-top: 48px;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .stat {
-      text-align: left;
-    }
-
-    .stat-value {
-      font-family: var(--font-mono);
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--accent-secondary);
-      line-height: 1;
-    }
-
-    .stat-label {
-      margin-top: 8px;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       TMRC - TRI-MODEL ROUTING CASCADE
-       ═══════════════════════════════════════════════════════════════ */
-    .tmrc {
-      background: var(--bg-secondary);
-    }
-
-    .tmrc-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-
-    .tmrc-header .mono-label {
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .tmrc-description {
-      color: var(--text-secondary);
-      max-width: 700px;
-      margin: 24px auto 0;
-    }
-
-    .capability-chains {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-      gap: 16px;
-    }
-
-    .chain-card {
-      background: var(--bg-primary);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 20px;
-      transition: all 0.2s;
-    }
-
-    .chain-card:hover {
-      border-color: var(--border-accent);
-      box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
-    }
-
-    .chain-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-
-    .chain-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .chain-icon {
-      font-size: 20px;
-    }
-
-    .chain-name {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .chain-meta {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-muted);
-    }
-
-    .provider-dots {
-      display: flex;
-      gap: 4px;
-    }
-
-    .provider-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-    }
-
-    .provider-dot.nvidia { background: var(--nvidia); }
-    .provider-dot.cerebras { background: var(--cerebras); }
-    .provider-dot.groq { background: var(--groq); }
-    .provider-dot.mistral { background: var(--mistral); }
-    .provider-dot.ollama { background: var(--ollama); }
-
-    .tier-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .tier {
-      display: flex;
-      align-items: stretch;
-      gap: 0;
-    }
-
-    .tier-connector {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 32px;
-      flex-shrink: 0;
-    }
-
-    .tier-node {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 700;
-      color: #fff;
-      flex-shrink: 0;
-    }
-
-    .tier-node.nvidia { background: var(--nvidia); }
-    .tier-node.cerebras { background: var(--cerebras); }
-    .tier-node.groq { background: var(--groq); }
-    .tier-node.mistral { background: var(--mistral); }
-    .tier-node.ollama { background: var(--ollama); }
-    .tier-node.terminal { background: #374151; }
-    .tier-node.hardstop { background: #DC2626; }
-
-    .tier-line {
-      width: 2px;
-      flex: 1;
-      min-height: 8px;
-      background: linear-gradient(to bottom, var(--border-subtle), transparent);
-    }
-
-    .tier-content {
-      flex: 1;
-      padding: 4px 0 12px;
-      min-width: 0;
-    }
-
-    .tier-model {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .tier-model-name {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .provider-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .provider-badge.nvidia { 
-      background: rgba(118, 185, 0, 0.1); 
-      color: var(--nvidia); 
-      border: 1px solid rgba(118, 185, 0, 0.25);
-    }
-    .provider-badge.cerebras { 
-      background: rgba(255, 107, 53, 0.1); 
-      color: var(--cerebras); 
-      border: 1px solid rgba(255, 107, 53, 0.25);
-    }
-    .provider-badge.groq { 
-      background: rgba(245, 80, 54, 0.1); 
-      color: var(--groq); 
-      border: 1px solid rgba(245, 80, 54, 0.25);
-    }
-    .provider-badge.mistral { 
-      background: rgba(255, 112, 0, 0.1); 
-      color: var(--mistral); 
-      border: 1px solid rgba(255, 112, 0, 0.25);
-    }
-    .provider-badge.ollama { 
-      background: rgba(124, 141, 176, 0.1); 
-      color: var(--ollama); 
-      border: 1px solid rgba(124, 141, 176, 0.25);
-    }
-
-    .provider-badge-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-    }
-
-    .provider-badge.nvidia .provider-badge-dot { background: var(--nvidia); }
-    .provider-badge.cerebras .provider-badge-dot { background: var(--cerebras); }
-    .provider-badge.groq .provider-badge-dot { background: var(--groq); }
-    .provider-badge.mistral .provider-badge-dot { background: var(--mistral); }
-    .provider-badge.ollama .provider-badge-dot { background: var(--ollama); }
-
-    .tier-tag {
-      font-family: var(--font-mono);
-      font-size: 8px;
-      font-weight: 700;
-      padding: 1px 6px;
-      border-radius: 3px;
-    }
-
-    .tier-tag.degraded {
-      background: rgba(245, 158, 11, 0.1);
-      color: #F59E0B;
-      border: 1px solid rgba(245, 158, 11, 0.25);
-    }
-
-    .tier-tag.terminal {
-      background: rgba(107, 114, 128, 0.1);
-      color: #9CA3AF;
-      border: 1px solid rgba(107, 114, 128, 0.25);
-    }
-
-    .tier-tag.hardstop {
-      background: rgba(220, 38, 38, 0.1);
-      color: #EF4444;
-      border: 1px solid rgba(220, 38, 38, 0.25);
-    }
-
-    .tier-specs {
-      display: flex;
-      gap: 12px;
-      margin-top: 4px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      color: var(--text-muted);
-    }
-
-    /* Switching Logic */
-    .switching-logic {
-      margin-top: 64px;
-      background: var(--bg-primary);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 24px;
-    }
-
-    .switching-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .switching-title {
-      font-family: var(--font-mono);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .switching-rules {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .switching-rule {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 10px 14px;
-      border-radius: 8px;
-    }
-
-    .switching-rule:nth-child(odd) {
-      background: var(--bg-tertiary);
-    }
-
-    .switching-trigger {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 700;
-      color: #EF4444;
-      padding: 4px 10px;
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.2);
-      border-radius: 4px;
-      min-width: 140px;
-    }
-
-    .switching-arrow {
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    .switching-action {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-secondary);
-    }
-
-    .switching-warning {
-      margin-top: 20px;
-      padding: 14px 18px;
-      background: rgba(220, 38, 38, 0.05);
-      border: 1px solid rgba(220, 38, 38, 0.2);
-      border-radius: 8px;
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: #F87171;
-      line-height: 1.7;
-    }
-
-    .switching-warning strong {
-      color: #EF4444;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       SERVICES
-       ═══════════════════════════════════════════════════════════════ */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-top: 64px;
-    }
-
-    .service-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 32px;
-      transition: all 0.2s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-accent);
-      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
-    }
-
-    .service-icon {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    .service-title {
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-    }
-
-    .service-description {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       FOOTER
-       ═══════════════════════════════════════════════════════════════ */
-    .footer {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border-subtle);
-      padding: 48px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-legal {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-muted);
-    }
-
-    .footer-timestamp {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-muted);
-    }
-
-    /* ═══════════════════════════════════════════════════════════════
-       RESPONSIVE
-       ═══════════════════════════════════════════════════════════════ */
-    @media (max-width: 768px) {
-      section {
-        padding: 100px 0;
-      }
-
-      .hero-stats {
-        flex-direction: column;
-        gap: 24px;
-      }
-
-      .nav {
-        display: none;
-      }
-
-      .capability-chains {
-        grid-template-columns: 1fr;
-      }
-
-      .switching-rule {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-
-      .switching-trigger {
-        min-width: auto;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplified Claw | Enterprise AI Agent Infrastructure</title>
+    <meta name="description" content="Expert OpenClaw deployment for enterprises. We configure, secure, and scale your AI agent infrastructure.">
+    <link rel="canonical" href="https://simplifiedclaw.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Simplified Claw | Enterprise AI Agent Infrastructure">
+    <meta property="og:description" content="Expert OpenClaw deployment for enterprises.">
+    <meta property="og:url" content="https://simplifiedclaw.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09090b;
+            --bg-elevated: #18181b;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-secondary: #a1a1aa;
+            --text-tertiary: #71717a;
+            --accent: #f97316;
+            --accent-muted: #ea580c;
+            --success: #22c55e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        h1 { font-size: max(2.5rem, 4vw); }
+        h2 { font-size: 1.75rem; }
+        h3 { font-size: 1.125rem; }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 180px 0;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(9, 9, 11, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .logo img { width: 24px; height: 24px; }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.15s;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: white !important;
+            padding: 8px 16px !important;
+            border-radius: 6px !important;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 200px 0 180px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span { color: var(--accent); }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 580px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.15s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover { background: var(--accent-muted); }
+
+        .btn-secondary {
+            background: var(--bg-elevated);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover { border-color: var(--text-tertiary); }
+
+        /* Real Artifact Section */
+        .artifact-section {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+        }
+
+        .artifact-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .artifact-header .label {
+            margin-bottom: 16px;
+            display: block;
+            color: var(--accent);
+        }
+
+        .artifact-frame {
+            border: 1px solid var(--border);
+            overflow: hidden;
+            background: var(--bg-elevated);
+        }
+
+        .artifact-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .artifact-caption {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .artifact-caption span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* TMRC Section */
+        .tmrc-section {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+        }
+
+        .tmrc-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .tmrc-header .label {
+            margin-bottom: 16px;
+            display: block;
+            color: var(--accent);
+        }
+
+        .tmrc-header p {
+            color: var(--text-secondary);
+            max-width: 520px;
+            margin: 16px auto 0;
+            font-size: 0.9375rem;
+        }
+
+        .tmrc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .tmrc-chain {
+            background: var(--bg);
+            padding: 32px;
+        }
+
+        .chain-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chain-icon {
+            font-size: 1.25rem;
+        }
+
+        .chain-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+
+        .tier {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .tier:last-child { border-bottom: none; }
+
+        .tier-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .tier-info { flex: 1; }
+
+        .tier-model {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .tier-meta {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.5625rem;
+            font-weight: 500;
+            padding: 2px 6px;
+            border: 1px solid var(--border);
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .tag.nvidia { color: #76B900; border-color: #76B90040; }
+        .tag.cerebras { color: #FF6B35; border-color: #FF6B3540; }
+        .tag.mistral { color: #FF7000; border-color: #FF700040; }
+        .tag.groq { color: #F55036; border-color: #F5503640; }
+        .tag.ollama { color: #7C8DB0; border-color: #7C8DB040; }
+        .tag.lmstudio { color: #A78BFA; border-color: #A78BFA40; }
+        .tag.terminal { color: var(--text-tertiary); background: var(--bg-elevated); }
+        .tag.degraded { color: #FBBF24; border-color: #FBBF2440; }
+
+        .tier.terminal { opacity: 0.5; }
+
+        /* Switching Logic */
+        .switching-section {
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 80px 0;
+        }
+
+        .switching-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .switch-rule {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        .switch-trigger {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: #ef4444;
+            padding: 4px 8px;
+            background: #ef444410;
+            border: 1px solid #ef444430;
+            white-space: nowrap;
+        }
+
+        .switch-arrow {
+            color: var(--text-tertiary);
+            font-size: 0.75rem;
+        }
+
+        .switch-action {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-bar .label {
+            text-align: center;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        .trust-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .trust-name {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            transition: color 0.15s;
+        }
+
+        .trust-name:hover { color: var(--text); }
+
+        /* Features */
+        .features {
+            border-top: 1px solid var(--border);
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .features-header .label {
+            margin-bottom: 16px;
+            display: block;
+            color: var(--accent);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .feature {
+            background: var(--bg);
+            padding: 48px;
+        }
+
+        .feature h3 {
+            margin-bottom: 12px;
+        }
+
+        .feature p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            border-top: 1px solid var(--border);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .pricing-header .label {
+            margin-bottom: 16px;
+            display: block;
+            color: var(--accent);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .pricing-card {
+            background: var(--bg);
+            padding: 48px 40px;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            background: var(--bg-elevated);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.5625rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            background: var(--accent);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .pricing-card > p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 24px;
+        }
+
+        .price {
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            margin-bottom: 4px;
+        }
+
+        .price span {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 32px 0;
+        }
+
+        .pricing-features li {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pricing-features li::before {
+            content: "—";
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-tertiary);
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            padding: 64px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .footer-links a:hover { color: var(--text); }
+
+        .footer-copy {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            section { padding: 120px 0; }
+            .tmrc-grid, .features-grid, .pricing-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 640px) {
+            .hero { padding: 160px 0 120px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .nav-links { display: none; }
+            .trust-grid { gap: 24px; }
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-inner">
-      <a href="#" class="logo">
-        <span class="logo-icon">🦞</span>
-        <span class="logo-text">OpenClaw</span>
-        <span class="logo-version">v4.1</span>
-      </a>
-      <nav class="nav">
-        <a href="#services">Services</a>
-        <a href="#router">Model Router</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="icons/lobster-emoji.svg" alt="">
+                SimplifiedClaw
+            </a>
+            <ul class="nav-links">
+                <li><a href="what-is-openclaw.html">Platform</a></li>
+                <li><a href="methodology.html">Methodology</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="security.html">Security</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="#pricing" class="nav-cta">Deploy Now</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container hero-content">
-      <div class="hero-label">
-        <span class="mono-label">Enterprise AI Infrastructure</span>
-      </div>
-      <h1>Intelligent Model Routing<br>for Mission-Critical AI</h1>
-      <p class="hero-description">
-        OpenClaw Consulting engineers multi-provider AI architectures with automatic 
-        failover, capability-aware routing, and cost optimization. We build systems 
-        that never go down.
-      </p>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-value">24</div>
-          <div class="stat-label mono-label">Models Orchestrated</div>
+    <section class="hero">
+        <div class="container">
+            <span class="label fade-in">Enterprise AI Infrastructure</span>
+            <h1 class="fade-in">Deploy <span>OpenClaw</span> with Confidence</h1>
+            <p class="fade-in">We architect, secure, and maintain your private AI agent infrastructure. Your data, your models, your competitive advantage.</p>
+            <div class="hero-buttons fade-in">
+                <a href="#pricing" class="btn btn-primary">View Packages</a>
+                <a href="methodology.html" class="btn btn-secondary">Our Process</a>
+            </div>
         </div>
-        <div class="stat">
-          <div class="stat-value">7</div>
-          <div class="stat-label mono-label">Providers Unified</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value">99.9%</div>
-          <div class="stat-label mono-label">Uptime Guarantee</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Visual Break 1 -->
-  <div class="visual-break">
-    <div class="grid-pattern"></div>
-    <div class="tick-marks">
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <div class="coordinates">SEC:01 // REF:A7B2</div>
-  </div>
+    <!-- Real Artifact: Agent Exhaust Dashboard -->
+    <section class="artifact-section">
+        <div class="container">
+            <div class="artifact-header fade-in">
+                <span class="label">Real Artifact</span>
+                <h2>Agent Exhaust Dashboard</h2>
+            </div>
+            <div class="artifact-frame fade-in">
+                <img src="img/artifacts/dashboard-main.jpg" alt="Agent Exhaust Telemetry Dashboard showing 47K events, 1.3K active sessions, activity heatmaps, and model usage distribution">
+                <div class="artifact-caption">
+                    <span>SWARM_TELEMETRY_v2.4</span>
+                    <span>47.0K events · 1.3K sessions · 78.1% classification rate</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Services -->
-  <section id="services">
-    <div class="container">
-      <span class="mono-label">What We Build</span>
-      <h2 style="margin-top: 16px;">Enterprise AI Services</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">⚡</div>
-          <h3 class="service-title">Multi-Provider Routing</h3>
-          <p class="service-description">
-            Automatic failover across NVIDIA, Cerebras, Groq, Mistral, and local models. 
-            Your AI stays online even when providers go down.
-          </p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🧠</div>
-          <h3 class="service-title">Capability-Aware Dispatch</h3>
-          <p class="service-description">
-            Route reasoning tasks to reasoning models, coding to coders, vision to VLMs. 
-            No more one-size-fits-all.
-          </p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📊</div>
-          <h3 class="service-title">Cost Optimization</h3>
-          <p class="service-description">
-            Free-tier prioritization with intelligent overflow. Use local models when 
-            possible, premium when necessary.
-          </p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🔒</div>
-          <h3 class="service-title">On-Prem Fallback</h3>
-          <p class="service-description">
-            When cloud APIs hit limits, seamlessly fail over to local Ollama or 
-            LM Studio instances. Zero downtime.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- TMRC: Tri-Model Routing Cascade -->
+    <section class="tmrc-section">
+        <div class="container">
+            <div class="tmrc-header fade-in">
+                <span class="label">Tri-Model Routing Cascade</span>
+                <h2>Intelligent Model Fallback</h2>
+                <p>Dynamically routes workloads across 24 models and 7 providers. On error, fall back immediately—the chains exist for this purpose.</p>
+            </div>
+            <div class="tmrc-grid fade-in">
+                <!-- Reasoning Chain -->
+                <div class="tmrc-chain">
+                    <div class="chain-header">
+                        <span class="chain-icon">🧠</span>
+                        <span class="chain-name">Reasoning</span>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T1</span>
+                        <div class="tier-info">
+                            <div class="tier-model">DeepSeek V3.2</div>
+                            <div class="tier-meta">
+                                <span class="tag nvidia">NVIDIA</span>
+                                <span class="tag">128K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T2</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Qwen3-Next 80B</div>
+                            <div class="tier-meta">
+                                <span class="tag nvidia">NVIDIA</span>
+                                <span class="tag">262K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T3</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Nemotron Ultra 253B</div>
+                            <div class="tier-meta">
+                                <span class="tag nvidia">NVIDIA</span>
+                                <span class="tag">128K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T4</span>
+                        <div class="tier-info">
+                            <div class="tier-model">GPT-OSS 120B</div>
+                            <div class="tier-meta">
+                                <span class="tag cerebras">CEREBRAS</span>
+                                <span class="tag">8K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T5</span>
+                        <div class="tier-info">
+                            <div class="tier-model">GPT-OSS 120B</div>
+                            <div class="tier-meta">
+                                <span class="tag groq">GROQ</span>
+                                <span class="tag">8K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T6</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Qwen 32B</div>
+                            <div class="tier-meta">
+                                <span class="tag cerebras">CEREBRAS</span>
+                                <span class="tag">8K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier terminal">
+                        <span class="tier-num">T7</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Phi4 Reasoning+</div>
+                            <div class="tier-meta">
+                                <span class="tag ollama">OLLAMA</span>
+                                <span class="tag terminal">TERMINAL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- Visual Break 2 -->
-  <div class="visual-break">
-    <div class="grid-pattern"></div>
-    <div class="tick-marks">
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <div class="coordinates">SEC:02 // REF:C4E9</div>
-  </div>
+                <!-- Execution Chain -->
+                <div class="tmrc-chain">
+                    <div class="chain-header">
+                        <span class="chain-icon">⚡</span>
+                        <span class="chain-name">Execution</span>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T1</span>
+                        <div class="tier-info">
+                            <div class="tier-model">DeepSeek V3.2</div>
+                            <div class="tier-meta">
+                                <span class="tag nvidia">NVIDIA</span>
+                                <span class="tag">128K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T2</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Nemotron Super 49B</div>
+                            <div class="tier-meta">
+                                <span class="tag nvidia">NVIDIA</span>
+                                <span class="tag degraded">DEGRADED</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T3</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Kimi K2.5</div>
+                            <div class="tier-meta">
+                                <span class="tag nvidia">NVIDIA</span>
+                                <span class="tag degraded">DEGRADED</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T4</span>
+                        <div class="tier-info">
+                            <div class="tier-model">GPT-OSS 120B</div>
+                            <div class="tier-meta">
+                                <span class="tag cerebras">CEREBRAS</span>
+                                <span class="tag">8K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T5</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Qwen 2.5 14B MLX</div>
+                            <div class="tier-meta">
+                                <span class="tag lmstudio">LM STUDIO</span>
+                                <span class="tag">32K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier terminal">
+                        <span class="tier-num">T6</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Phi4 Reasoning+</div>
+                            <div class="tier-meta">
+                                <span class="tag ollama">OLLAMA</span>
+                                <span class="tag terminal">TERMINAL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- TMRC Section -->
-  <section id="router" class="tmrc">
-    <div class="container">
-      <div class="tmrc-header">
-        <span class="mono-label">Tri-Model Routing Cascade</span>
-        <h2>Capability Chains</h2>
-        <p class="tmrc-description">
-          Each task type routes through specialized chains. On failure, cascade to the 
-          next tier. Local models are terminal—never fail, always available.
-        </p>
-      </div>
+                <!-- Coding Chain -->
+                <div class="tmrc-chain">
+                    <div class="chain-header">
+                        <span class="chain-icon">💻</span>
+                        <span class="chain-name">Coding</span>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T1</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Devstral 2 123B</div>
+                            <div class="tier-meta">
+                                <span class="tag nvidia">NVIDIA</span>
+                                <span class="tag">128K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T2</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Devstral 2 123B</div>
+                            <div class="tier-meta">
+                                <span class="tag mistral">MISTRAL</span>
+                                <span class="tag">128K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T3</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Kimi K2.5</div>
+                            <div class="tier-meta">
+                                <span class="tag nvidia">NVIDIA</span>
+                                <span class="tag">128K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T4</span>
+                        <div class="tier-info">
+                            <div class="tier-model">GPT-OSS 120B</div>
+                            <div class="tier-meta">
+                                <span class="tag cerebras">CEREBRAS</span>
+                                <span class="tag">8K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T5</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Kimi K2</div>
+                            <div class="tier-meta">
+                                <span class="tag groq">GROQ</span>
+                                <span class="tag">128K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T6</span>
+                        <div class="tier-info">
+                            <div class="tier-model">GLM-4.7</div>
+                            <div class="tier-meta">
+                                <span class="tag cerebras">CEREBRAS</span>
+                                <span class="tag">32K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T7</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Devstral Small 24B</div>
+                            <div class="tier-meta">
+                                <span class="tag mistral">MISTRAL</span>
+                                <span class="tag">128K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier">
+                        <span class="tier-num">T8</span>
+                        <div class="tier-info">
+                            <div class="tier-model">Devstral Small 2</div>
+                            <div class="tier-meta">
+                                <span class="tag lmstudio">LM STUDIO</span>
+                                <span class="tag">256K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tier terminal">
+                        <span class="tier-num">T9</span>
+                        <div class="tier-info">
+                            <div class="tier-model">DeepSeek Coder 6.7B</div>
+                            <div class="tier-meta">
+                                <span class="tag ollama">OLLAMA</span>
+                                <span class="tag terminal">TERMINAL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="capability-chains">
-        <!-- Reasoning Chain -->
-        <div class="chain-card">
-          <div class="chain-header">
-            <div class="chain-title">
-              <span class="chain-icon">🧠</span>
-              <div>
-                <div class="chain-name">Reasoning / Deliberation</div>
-                <div class="chain-meta">7 tiers · 5 providers</div>
-              </div>
-            </div>
-            <div class="provider-dots">
-              <span class="provider-dot nvidia"></span>
-              <span class="provider-dot cerebras"></span>
-              <span class="provider-dot groq"></span>
-              <span class="provider-dot ollama"></span>
-            </div>
-          </div>
-          <div class="tier-list">
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T1</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">DeepSeek V3.2</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
+    <!-- Switching Logic -->
+    <section class="switching-section">
+        <div class="container">
+            <div class="label" style="text-align: center; margin-bottom: 32px;">Fallback Triggers</div>
+            <div class="switching-grid fade-in">
+                <div class="switch-rule">
+                    <span class="switch-trigger">HTTP 429</span>
+                    <span class="switch-arrow">→</span>
+                    <span class="switch-action">Next tier immediately</span>
                 </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T2</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Qwen3-Next 80B</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
+                <div class="switch-rule">
+                    <span class="switch-trigger">Timeout >15s</span>
+                    <span class="switch-arrow">→</span>
+                    <span class="switch-action">Next tier</span>
                 </div>
-                <div class="tier-specs"><span>ctx: 262K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T3</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Nemotron Ultra 253B</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
+                <div class="switch-rule">
+                    <span class="switch-trigger">Connection error</span>
+                    <span class="switch-arrow">→</span>
+                    <span class="switch-action">Next tier</span>
                 </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node cerebras">T4</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">GPT-OSS 120B</span>
-                  <span class="provider-badge cerebras"><span class="provider-badge-dot"></span>Cerebras</span>
+                <div class="switch-rule">
+                    <span class="switch-trigger">Context > limit</span>
+                    <span class="switch-arrow">→</span>
+                    <span class="switch-action">Long-Context chain</span>
                 </div>
-                <div class="tier-specs"><span>ctx: 8K</span><span>rate: 30 RPM, 14.4K/day</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node terminal">T7</div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Phi4 Reasoning+</span>
-                  <span class="provider-badge ollama"><span class="provider-badge-dot"></span>Ollama</span>
-                  <span class="tier-tag terminal">TERMINAL</span>
+                <div class="switch-rule">
+                    <span class="switch-trigger">>30 RPM NVIDIA</span>
+                    <span class="switch-arrow">→</span>
+                    <span class="switch-action">Pre-route Cerebras/Groq</span>
                 </div>
-                <div class="tier-specs"><span>ctx: 32K</span><span>rate: ∞ local</span><span style="color: #A78BFA;">● local</span></div>
-              </div>
+                <div class="switch-rule">
+                    <span class="switch-trigger">Vision detected</span>
+                    <span class="switch-arrow">→</span>
+                    <span class="switch-action">Force Vision chain</span>
+                </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Execution Chain -->
-        <div class="chain-card">
-          <div class="chain-header">
-            <div class="chain-title">
-              <span class="chain-icon">⚡</span>
-              <div>
-                <div class="chain-name">Execution / Tool Calling</div>
-                <div class="chain-meta">6 tiers · 4 providers</div>
-              </div>
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <span class="label fade-in">Our team brings experience from</span>
+            <div class="trust-grid fade-in">
+                <span class="trust-name">Google</span>
+                <span class="trust-name">Jane Street</span>
+                <span class="trust-name">Columbia</span>
+                <span class="trust-name">NYU</span>
+                <span class="trust-name">Stanford</span>
+                <span class="trust-name">McKinsey</span>
+                <span class="trust-name">BNY Mellon</span>
+                <span class="trust-name">J&J</span>
             </div>
-            <div class="provider-dots">
-              <span class="provider-dot nvidia"></span>
-              <span class="provider-dot cerebras"></span>
-              <span class="provider-dot ollama"></span>
-            </div>
-          </div>
-          <div class="tier-list">
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T1</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">DeepSeek V3.2</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
-                </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T2</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Nemotron Super 49B</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
-                  <span class="tier-tag degraded">⚠ DEGRADED</span>
-                </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T3</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Kimi K2.5</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
-                  <span class="tier-tag degraded">⚠ DEGRADED</span>
-                </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node terminal">T6</div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Phi4 Reasoning+</span>
-                  <span class="provider-badge ollama"><span class="provider-badge-dot"></span>Ollama</span>
-                  <span class="tier-tag terminal">TERMINAL</span>
-                </div>
-                <div class="tier-specs"><span>ctx: 32K</span><span>rate: ∞ local</span><span style="color: #A78BFA;">● local</span></div>
-              </div>
-            </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Coding Chain -->
-        <div class="chain-card">
-          <div class="chain-header">
-            <div class="chain-title">
-              <span class="chain-icon">💻</span>
-              <div>
-                <div class="chain-name">Coding</div>
-                <div class="chain-meta">9 tiers · 5 providers</div>
-              </div>
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-header fade-in">
+                <span class="label">Services</span>
+                <h2>Production Infrastructure</h2>
             </div>
-            <div class="provider-dots">
-              <span class="provider-dot nvidia"></span>
-              <span class="provider-dot mistral"></span>
-              <span class="provider-dot cerebras"></span>
-              <span class="provider-dot groq"></span>
-              <span class="provider-dot ollama"></span>
-            </div>
-          </div>
-          <div class="tier-list">
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T1</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Devstral 2 123B</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
+            <div class="features-grid fade-in">
+                <div class="feature">
+                    <h3>Absolute Discretion</h3>
+                    <p>Client confidentiality is table stakes. We never discuss client work publicly. NDAs are standard.</p>
                 </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node mistral">T2</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Devstral 2 123B</span>
-                  <span class="provider-badge mistral"><span class="provider-badge-dot"></span>Mistral</span>
+                <div class="feature">
+                    <h3>Security Hardening</h3>
+                    <p>Secret management, audit logging, and enterprise best practices for risk mitigation and compliance.</p>
                 </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 60 RPM (independent)</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T3</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Kimi K2.5</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
+                <div class="feature">
+                    <h3>Custom Integrations</h3>
+                    <p>Connect agents to private APIs, databases, and internal tools without exposing your network.</p>
                 </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node terminal">T9</div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">DeepSeek Coder 6.7B</span>
-                  <span class="provider-badge ollama"><span class="provider-badge-dot"></span>Ollama</span>
-                  <span class="tier-tag terminal">TERMINAL</span>
+                <div class="feature">
+                    <h3>Model Governance</h3>
+                    <p>Expert routing between local, private, and cloud models to balance performance, cost, and privacy.</p>
                 </div>
-                <div class="tier-specs"><span>ctx: 16K</span><span>rate: ∞ local</span><span style="color: #A78BFA;">● local</span></div>
-              </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Vision Chain -->
-        <div class="chain-card">
-          <div class="chain-header">
-            <div class="chain-title">
-              <span class="chain-icon">👁</span>
-              <div>
-                <div class="chain-name">Vision / Multimodal</div>
-                <div class="chain-meta">3 tiers · 1 provider</div>
-              </div>
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="pricing-header fade-in">
+                <span class="label">Implementation</span>
+                <h2>Engagement Packages</h2>
             </div>
-            <div class="provider-dots">
-              <span class="provider-dot nvidia"></span>
-            </div>
-          </div>
-          <div class="tier-list">
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T1</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Kimi K2.5</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
-                  <span class="tier-tag degraded">⚠ DEGRADED</span>
+            <div class="pricing-grid fade-in">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <p>Core setup for focused teams</p>
+                    <div class="price">$1,499 <span>setup</span></div>
+                    <ul class="pricing-features">
+                        <li>Standard OpenClaw Installation</li>
+                        <li>Basic Security Hardening</li>
+                        <li>3 Custom Integrations</li>
+                        <li>Team Training Session</li>
+                        <li>30-day Support Window</li>
+                    </ul>
+                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-secondary">Get Started</a>
                 </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T2</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Nemotron Nano 12B VL</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
+                <div class="pricing-card featured">
+                    <span class="featured-badge">Popular</span>
+                    <h3>Team</h3>
+                    <p>Full production orchestration</p>
+                    <div class="price">$4,999 <span>setup</span></div>
+                    <ul class="pricing-features">
+                        <li>Everything in Starter</li>
+                        <li>Multi-Agent Orchestration</li>
+                        <li>Unlimited Integrations</li>
+                        <li>Performance Optimization</li>
+                        <li>Priority 4h Response SLA</li>
+                        <li>$899/mo Managed Support</li>
+                    </ul>
+                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-primary">Start Deployment</a>
                 </div>
-                <div class="tier-specs"><span>ctx: 32K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node hardstop">✕</div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">TERMINAL</span>
-                  <span class="tier-tag hardstop">HARD STOP — NO TEXT FALLBACK</span>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <p>Bespoke infrastructure</p>
+                    <div class="price">Custom</div>
+                    <ul class="pricing-features">
+                        <li>Dedicated Architect</li>
+                        <li>Custom Skill Development</li>
+                        <li>Compliance Documentation</li>
+                        <li>On-site Training Available</li>
+                        <li>24/7 Priority Escalation</li>
+                    </ul>
+                    <a href="mailto:info@simplifiedclaw.com" class="btn btn-secondary">Contact Sales</a>
                 </div>
-                <div class="tier-specs"><span>Vision exhausted, return error</span></div>
-              </div>
             </div>
-          </div>
         </div>
+    </section>
 
-        <!-- Long Context Chain -->
-        <div class="chain-card">
-          <div class="chain-header">
-            <div class="chain-title">
-              <span class="chain-icon">📄</span>
-              <div>
-                <div class="chain-name">Long-Context Ingestion</div>
-                <div class="chain-meta">3 tiers · 2 providers</div>
-              </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="logo">
+                    <img src="icons/lobster-emoji.svg" alt="">
+                    SimplifiedClaw
+                </a>
+                <ul class="footer-links">
+                    <li><a href="security.html">Security</a></li>
+                    <li><a href="terms.html">Terms</a></li>
+                    <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
+                </ul>
+                <span class="footer-copy">© 2026</span>
             </div>
-            <div class="provider-dots">
-              <span class="provider-dot nvidia"></span>
-              <span class="provider-dot cerebras"></span>
-            </div>
-          </div>
-          <div class="tier-list">
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T1</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Nemotron 3 Nano 30B</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
-                </div>
-                <div class="tier-specs"><span>ctx: 1M</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node nvidia">T2</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Qwen3-Next 80B</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
-                </div>
-                <div class="tier-specs"><span>ctx: 262K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node terminal">T3</div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Compress → Cerebras</span>
-                  <span class="provider-badge cerebras"><span class="provider-badge-dot"></span>Cerebras</span>
-                  <span class="tier-tag terminal">TERMINAL</span>
-                </div>
-                <div class="tier-specs"><span>ctx: 8K</span><span>rate: 30 RPM</span></div>
-              </div>
-            </div>
-          </div>
         </div>
+    </footer>
 
-        <!-- Fast Chain -->
-        <div class="chain-card">
-          <div class="chain-header">
-            <div class="chain-title">
-              <span class="chain-icon">🏎</span>
-              <div>
-                <div class="chain-name">Fast / Low-Latency</div>
-                <div class="chain-meta">3 tiers · 3 providers</div>
-              </div>
-            </div>
-            <div class="provider-dots">
-              <span class="provider-dot ollama"></span>
-              <span class="provider-dot groq"></span>
-              <span class="provider-dot nvidia"></span>
-            </div>
-          </div>
-          <div class="tier-list">
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node ollama">T1</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">LLaMA 3.2 3B</span>
-                  <span class="provider-badge ollama"><span class="provider-badge-dot"></span>Ollama</span>
-                </div>
-                <div class="tier-specs"><span>ctx: 8K</span><span>rate: ∞ local</span><span style="color: #A78BFA;">● local</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node groq">T2</div>
-                <div class="tier-line"></div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">Groq LLaMA 70B</span>
-                  <span class="provider-badge groq"><span class="provider-badge-dot"></span>Groq</span>
-                </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 30 RPM, 1K/day</span></div>
-              </div>
-            </div>
-            <div class="tier">
-              <div class="tier-connector">
-                <div class="tier-node terminal">T3</div>
-              </div>
-              <div class="tier-content">
-                <div class="tier-model">
-                  <span class="tier-model-name">NVIDIA LLaMA 8B</span>
-                  <span class="provider-badge nvidia"><span class="provider-badge-dot"></span>NVIDIA</span>
-                  <span class="tier-tag terminal">TERMINAL</span>
-                </div>
-                <div class="tier-specs"><span>ctx: 128K</span><span>rate: 40 RPM shared</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Switching Logic -->
-      <div class="switching-logic">
-        <div class="switching-header">
-          <span style="font-size: 18px;">⚡</span>
-          <span class="switching-title">Switching Logic</span>
-        </div>
-        <div class="switching-rules">
-          <div class="switching-rule">
-            <span class="switching-trigger">HTTP 429</span>
-            <span class="switching-arrow">→</span>
-            <span class="switching-action">Next tier immediately</span>
-          </div>
-          <div class="switching-rule">
-            <span class="switching-trigger">Timeout >15s</span>
-            <span class="switching-arrow">→</span>
-            <span class="switching-action">Next tier</span>
-          </div>
-          <div class="switching-rule">
-            <span class="switching-trigger">Connection error</span>
-            <span class="switching-arrow">→</span>
-            <span class="switching-action">Next tier</span>
-          </div>
-          <div class="switching-rule">
-            <span class="switching-trigger">Context > limit</span>
-            <span class="switching-arrow">→</span>
-            <span class="switching-action">Long-Context chain</span>
-          </div>
-          <div class="switching-rule">
-            <span class="switching-trigger">Vision detected</span>
-            <span class="switching-arrow">→</span>
-            <span class="switching-action">Force Vision chain</span>
-          </div>
-          <div class="switching-rule">
-            <span class="switching-trigger">>30 RPM NVIDIA</span>
-            <span class="switching-arrow">→</span>
-            <span class="switching-action">Pre-route to Cerebras/Groq</span>
-          </div>
-          <div class="switching-rule">
-            <span class="switching-trigger">Vision exhausted</span>
-            <span class="switching-arrow">→</span>
-            <span class="switching-action">Return error (NO text sub)</span>
-          </div>
-        </div>
-        <div class="switching-warning">
-          <strong>RULE 5:</strong> On error, fall back immediately. Do not retry the same tier. 
-          Do not sit on the error. Do not wait for human input. The chains exist for this purpose.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Visual Break 3 -->
-  <div class="visual-break">
-    <div class="grid-pattern"></div>
-    <div class="tick-marks">
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-    <div class="coordinates">SEC:03 // REF:F1D8</div>
-  </div>
-
-  <!-- Architecture -->
-  <section id="architecture">
-    <div class="container">
-      <span class="mono-label">Infrastructure</span>
-      <h2 style="margin-top: 16px;">Provider Architecture</h2>
-      <p style="color: var(--text-secondary); max-width: 700px; margin-top: 16px;">
-        unified-model-router.md is constitutional law. The invariants ARE the router.
-      </p>
-      <div class="services-grid" style="margin-top: 48px;">
-        <div class="service-card" style="border-color: rgba(118, 185, 0, 0.25);">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-            <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--nvidia);"></span>
-            <span style="font-family: var(--font-mono); font-weight: 700; color: var(--nvidia);">NVIDIA</span>
-            <span class="mono-label" style="background: rgba(118, 185, 0, 0.1); padding: 2px 8px; border-radius: 4px; color: var(--nvidia);">PRIMARY</span>
-          </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; font-family: var(--font-mono); font-size: 10px;">
-            <div><span style="color: var(--text-muted);">RPM</span><br><strong>40 RPM</strong></div>
-            <div><span style="color: var(--text-muted);">Daily</span><br><strong>—</strong></div>
-            <div><span style="color: var(--text-muted);">Shared</span><br><strong>ALL</strong></div>
-          </div>
-          <p class="service-description" style="font-size: 0.8rem;">⚠ NOT UNCAPPED. Shared across all NVIDIA models.</p>
-        </div>
-        <div class="service-card" style="border-color: rgba(255, 107, 53, 0.25);">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-            <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--cerebras);"></span>
-            <span style="font-family: var(--font-mono); font-weight: 700; color: var(--cerebras);">Cerebras</span>
-            <span class="mono-label" style="background: rgba(255, 107, 53, 0.1); padding: 2px 8px; border-radius: 4px; color: var(--cerebras);">SECONDARY</span>
-          </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; font-family: var(--font-mono); font-size: 10px;">
-            <div><span style="color: var(--text-muted);">RPM</span><br><strong>30 RPM</strong></div>
-            <div><span style="color: var(--text-muted);">Daily</span><br><strong>14,400</strong></div>
-            <div><span style="color: var(--text-muted);">Shared</span><br><strong>All</strong></div>
-          </div>
-          <p class="service-description" style="font-size: 0.8rem;">1M tokens/day limit.</p>
-        </div>
-        <div class="service-card" style="border-color: rgba(245, 80, 54, 0.25);">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-            <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--groq);"></span>
-            <span style="font-family: var(--font-mono); font-weight: 700; color: var(--groq);">Groq</span>
-            <span class="mono-label" style="background: rgba(245, 80, 54, 0.1); padding: 2px 8px; border-radius: 4px; color: var(--groq);">TERTIARY</span>
-          </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; font-family: var(--font-mono); font-size: 10px;">
-            <div><span style="color: var(--text-muted);">RPM</span><br><strong>30 RPM</strong></div>
-            <div><span style="color: var(--text-muted);">Daily</span><br><strong>1,000</strong></div>
-            <div><span style="color: var(--text-muted);">Shared</span><br><strong>Per model</strong></div>
-          </div>
-          <p class="service-description" style="font-size: 0.8rem;">⚠ Daily cap is binding constraint.</p>
-        </div>
-        <div class="service-card" style="border-color: rgba(124, 141, 176, 0.25);">
-          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-            <span style="width: 10px; height: 10px; border-radius: 50%; background: var(--ollama);"></span>
-            <span style="font-family: var(--font-mono); font-weight: 700; color: var(--ollama);">Ollama</span>
-            <span class="mono-label" style="background: rgba(124, 141, 176, 0.1); padding: 2px 8px; border-radius: 4px; color: var(--ollama);">LOCAL</span>
-          </div>
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; font-family: var(--font-mono); font-size: 10px;">
-            <div><span style="color: var(--text-muted);">RPM</span><br><strong>∞</strong></div>
-            <div><span style="color: var(--text-muted);">Daily</span><br><strong>∞</strong></div>
-            <div><span style="color: var(--text-muted);">Shared</span><br><strong>Local</strong></div>
-          </div>
-          <p class="service-description" style="font-size: 0.8rem;">Models load on-demand. Terminal fallback.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer" id="contact">
-    <div class="container footer-inner">
-      <span class="footer-legal">unified-model-router.md · The invariants ARE the router</span>
-      <span class="footer-timestamp">Last verified: 2026-02-08 04:17 EST</span>
-    </div>
-  </footer>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
