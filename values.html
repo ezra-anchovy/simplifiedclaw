@@ -6,6 +6,7 @@
     <title>Values & Philosophy | SimplifiedClaw</title>
     <meta name="description" content="Our approach to AI deployment: AI is not a silver bullet. We're thought partners in deployment, not just contractors.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
@@ -55,6 +56,7 @@
             top: 0; left: 0; right: 0;
             background: rgba(9, 9, 11, 0.9);
             backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             z-index: 100;
             padding: 16px 0;
@@ -75,9 +77,11 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            letter-spacing: -0.02em;
         }
 
         .logo img { width: 28px; height: 28px; vertical-align: middle; }
+        .logo span { display: inline; }
 
         .nav-links {
             display: flex;
@@ -137,19 +141,19 @@
             color: var(--text-secondary);
         }
 
-        ul {
+        main ul {
             list-style: none;
             margin: 16px 0;
         }
 
-        ul li {
+        main ul li {
             padding-left: 24px;
             position: relative;
             margin-bottom: 12px;
             color: var(--text-secondary);
         }
 
-        ul li::before {
+        main ul li::before {
             content: "→";
             position: absolute;
             left: 0;
@@ -192,16 +196,17 @@
     <nav>
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="icons/twitter-v18-final.svg" alt="SimplifiedClaw Logo">
-                <span>Simplified</span><span style="color: var(--accent);">Claw</span>
+                <img src="icons/twitter-v18-final.svg" alt="SimplifiedClaw Logo" style="vertical-align: middle;">
+                Simplified <span style="color: var(--accent);">Claw</span>
             </a>
             <ul class="nav-links">
-                <li><a href="index.html">Platform</a></li>
+                <li><a href="what-is-openclaw.html">Platform</a></li>
                 <li><a href="methodology.html">Methodology</a></li>
                 <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="values.html">Values</a></li>
                 <li><a href="security.html">Security</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="https://calendly.com/ezra-anchovy" class="nav-cta">Book Consult</a></li>
+                <li><a href="index.html#pricing" class="nav-cta">Deploy Now</a></li>
             </ul>
         </div>
     </nav>
@@ -271,7 +276,7 @@
 
             <div style="text-align: center; margin-top: 64px;">
                 <p style="color: var(--text-secondary); margin-bottom: 24px;">Ready to talk?</p>
-                <a href="https://calendly.com/ezra-anchovy" style="display: inline-block; background: var(--accent); color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600;">Book a Consultation</a>
+                <a href="https://calendly.com/a-labs" style="display: inline-block; background: var(--accent); color: white; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 600;">Book a Consultation</a>
             </div>
         </div>
     </main>
@@ -279,8 +284,8 @@
     <footer>
         <div class="footer-content">
             <a href="index.html" class="logo">
-                <img src="icons/twitter-v18-final.svg" alt="SimplifiedClaw Logo">
-                <span>Simplified</span><span style="color: var(--accent);">Claw</span>
+                <img src="icons/twitter-v18-final.svg" alt="SimplifiedClaw Logo" style="vertical-align: middle;">
+                Simplified <span style="color: var(--accent);">Claw</span>
             </a>
             <ul class="footer-links">
                 <li><a href="security.html">Security</a></li>

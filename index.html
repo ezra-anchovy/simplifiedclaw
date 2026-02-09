@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SimplifiedClaw | Enterprise AI Agent Infrastructure</title>
-    <meta name="description" content="Enterprise AI agent infrastructure deployment. 4+ years of methodology expertise. We architect, secure, and scale your private AI systems with absolute discretion.">
+    <meta name="description" content="Enterprise AI agent infrastructure deployment. 10+ years of Agentic AI expertise from academia and Fortune 100. We architect, secure, and scale your private AI systems with absolute discretion.">
     <link rel="canonical" href="https://simplifiedclaw.com/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="SimplifiedClaw | Enterprise AI Agent Infrastructure">
-    <meta property="og:description" content="Enterprise AI agent infrastructure. 4+ years methodology expertise. Absolute discretion.">
+    <meta property="og:description" content="Enterprise AI agent infrastructure. 10+ years Agentic AI expertise from academia & Fortune 100. Absolute discretion.">
     <meta property="og:url" content="https://simplifiedclaw.com/">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         :root {
             --bg: #09090b;
@@ -92,7 +93,7 @@
         }
 
         section {
-            padding: 180px 0;
+            padding: 100px 0;
         }
 
         /* Navigation */
@@ -155,6 +156,36 @@
         .hero {
             padding: 200px 0 180px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(249, 115, 22, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -234,7 +265,7 @@
         /* Device Frame - Laptop */
         .device-laptop {
             position: relative;
-            padding: 2% 10% 6%;
+            padding: 2% 10% 2%;
             background: linear-gradient(135deg, #2a2a2e 0%, #1a1a1e 100%);
             border-radius: 16px 16px 0 0;
             box-shadow: 
@@ -809,7 +840,7 @@
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="icons/twitter-v18-final.svg" alt="SimplifiedClaw Logo" style="vertical-align: middle;">
-                <span>Simplified</span><span style="color: var(--accent);">Claw</span>
+                Simplified <span style="color: var(--accent);">Claw</span>
             </a>
             <ul class="nav-links">
                 <li><a href="what-is-openclaw.html">Platform</a></li>
@@ -824,12 +855,15 @@
     </nav>
 
     <section class="hero">
+        <video class="hero-video-bg" autoplay muted loop playsinline>
+            <source src="videos/hero.mp4" type="video/mp4">
+        </video>
         <div class="container">
             <span class="label fade-in">Enterprise AI Infrastructure</span>
             <h1 class="fade-in">Deploy <span>OpenClaw</span> with Confidence</h1>
-            <p class="fade-in">We architect, secure, and maintain your private AI agent infrastructure. Drawing on 4+ years of AI agent methodology expertise, we deliver your competitive advantage with absolute discretion.</p>
+            <p class="fade-in">We architect, secure, and maintain your private AI agent infrastructure. Drawing on 10+ years of Agentic AI expertise—from academic research to Fortune 100 deployments—we deliver your competitive advantage with absolute discretion.</p>
             <div class="hero-buttons fade-in">
-                <a href="https://calendly.com/ezra-anchovy" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
+                <a href="https://calendly.com/a-labs" class="btn btn-primary" target="_blank" rel="noopener">Book a Call</a>
                 <a href="#pricing" class="btn btn-secondary">View Packages</a>
                 <a href="methodology.html" class="btn btn-secondary">Our Process</a>
             </div>
@@ -841,8 +875,8 @@
                     <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--text-secondary); letter-spacing: 0.05em;">PRECISION VERIFIED</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px;">
-                    <img src="icons/twitter-v18-final.svg" alt="4+ Years Methodology" style="width: 20px; height: 20px;">
-                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--text-secondary); letter-spacing: 0.05em;">4+ YEARS METHODOLOGY</span>
+                    <img src="icons/twitter-v18-final.svg" alt="10+ Years Expertise" style="width: 20px; height: 20px;">
+                    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--text-secondary); letter-spacing: 0.05em;">10+ YEARS AGENTIC AI</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 6px;">
                     <img src="icons/twitter-v18-final.svg" alt="Enterprise Security" style="width: 20px; height: 20px;">
@@ -853,39 +887,30 @@
     </section>
 
     <!-- Trust Logos -->
-    <section class="logos-section" style="padding: 60px 0; background: var(--bg-subtle);">
+    <section class="logos-section" style="padding: 60px 0;">
         <div class="container">
-            <p style="text-align: center; font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 32px; letter-spacing: 0.05em;">OUR TEAM HAS WORKED WITH</p>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px;">
-                <div style="background: white; padding: 12px 20px; border-radius: 8px;">
-                    <img src="logos/AP/McKinsey-Logo-2" alt="McKinsey" style="height: 28px; display: block;">
+            <p style="text-align: center; font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 32px; letter-spacing: 0.05em;">WE BRING EXPERIENCE FROM</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 24px;">
+                <div style="background: white; padding: 16px 24px; border-radius: 8px; height: 56px; display: flex; align-items: center;">
+                    <img src="logos/AP/McKinsey-Logo-2.png" alt="McKinsey" style="height: 24px; width: auto; display: block;">
                 </div>
-                <div style="background: white; padding: 12px 20px; border-radius: 8px;">
-                    <img src="logos/AP/Jane_Street_2.png" alt="Jane Street" style="height: 24px; display: block;">
+                <div style="background: white; padding: 16px 24px; border-radius: 8px; height: 56px; display: flex; align-items: center;">
+                    <img src="logos/AP/Jane_Street_2.png" alt="Jane Street" style="height: 24px; width: auto; display: block;">
                 </div>
-                <div style="background: white; padding: 12px 20px; border-radius: 8px;">
-                    <img src="logos/AP/Columbia.png" alt="Columbia" style="height: 32px; display: block;">
+                <div style="background: white; padding: 16px 24px; border-radius: 8px; height: 56px; display: flex; align-items: center;">
+                    <img src="logos/AP/Stanford.png" alt="Stanford" style="height: 24px; width: auto; display: block;">
                 </div>
-                <div style="background: white; padding: 12px 20px; border-radius: 8px;">
-                    <img src="logos/AP/Stanford.png" alt="Stanford" style="height: 28px; display: block;">
+                <div style="background: white; padding: 16px 24px; border-radius: 8px; height: 56px; display: flex; align-items: center;">
+                    <img src="logos/AP/Columbia.png" alt="Columbia" style="height: 24px; width: auto; display: block;">
                 </div>
-                <div style="background: white; padding: 12px 20px; border-radius: 8px;">
-                    <img src="logos/AP/NYU-Logo.png" alt="NYU" style="height: 28px; display: block;">
-                </div>
-                <div style="background: white; padding: 12px 20px; border-radius: 8px;">
-                    <img src="logos/AP/Google" alt="Google" style="height: 28px; display: block;">
-                </div>
-                <div style="background: white; padding: 12px 20px; border-radius: 8px;">
-                    <img src="logos/AP/JnJ.png" alt="Johnson & Johnson" style="height: 28px; display: block;">
-                </div>
-                <div style="background: white; padding: 12px 20px; border-radius: 8px;">
-                    <img src="logos/AP/BNY_Mellon.svg.png" alt="BNY Mellon" style="height: 28px; display: block;">
+                <div style="background: white; padding: 16px 24px; border-radius: 8px; height: 56px; display: flex; align-items: center;">
+                    <img src="logos/AP/NYU-Logo.png" alt="NYU" style="height: 24px; width: auto; display: block;">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services (moved up) -->
+    <!-- Services -->
     <section class="features">
         <div class="container">
             <div class="features-header fade-in">
@@ -914,21 +939,38 @@
     </section>
 
     <!-- Real Artifact: Agent Exhaust Dashboard -->
-    <section class="artifact-section">
+    <section class="artifact-section" style="padding: 80px 0;">
         <div class="container">
-            <div class="artifact-header fade-in">
-                <span class="label">Real Artifact</span>
-                <h2>Agent Exhaust Dashboard</h2>
-            </div>
-            <div class="artifact-frame fade-in">
-                <div class="device-laptop">
-                    <div class="screen">
-                        <img src="img/artifacts/dashboard-v3-final.png" alt="Agent Exhaust Telemetry Dashboard">
-                    </div>
+            <div style="display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center;">
+                <!-- Left: Description -->
+                <div class="fade-in">
+                    <span class="label" style="color: var(--accent); display: block; margin-bottom: 16px;">Operational Visibility</span>
+                    <h2 style="margin-bottom: 24px;">Swarm Telemetry</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 32px; line-height: 1.8;">Complete visibility into your AI infrastructure. Every agent action, every model call, every token spent — tracked and visualized as it happens.</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.95rem;">
+                            <strong style="color: var(--accent);">Real-time telemetry</strong>
+                            <span style="display: block; color: var(--text-tertiary); font-size: 0.85rem; margin-top: 4px;">Live event streams with sub-second latency</span>
+                        </li>
+                        <li style="padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.95rem;">
+                            <strong style="color: var(--accent);">Multi-provider routing</strong>
+                            <span style="display: block; color: var(--text-tertiary); font-size: 0.85rem; margin-top: 4px;">Automatic failover across model providers</span>
+                        </li>
+                        <li style="padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.95rem;">
+                            <strong style="color: var(--accent);">Semantic classification</strong>
+                            <span style="display: block; color: var(--text-tertiary); font-size: 0.85rem; margin-top: 4px;">Auto-categorize work by theme and intent</span>
+                        </li>
+                        <li style="padding: 14px 0; color: var(--text); font-size: 0.95rem;">
+                            <strong style="color: var(--accent);">Cost analytics</strong>
+                            <span style="display: block; color: var(--text-tertiary); font-size: 0.85rem; margin-top: 4px;">Token spend tracking per model and task</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="artifact-caption">
-                    <span>SWARM TELEMETRY DASHBOARD</span>
-                    <span>52.4K events · 1.4K active sessions · 100% classification rate</span>
+                <!-- Right: Dashboard Image -->
+                <div class="fade-in">
+                    <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 25px 80px rgba(249, 115, 22, 0.15), 0 0 0 1px var(--border); width: 368px; height: 420px; margin: 0 auto;">
+                        <img src="img/artifacts/dashboard-v3-cropped.png" alt="Agent Exhaust Telemetry Dashboard" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;">
+                    </div>
                 </div>
             </div>
             
@@ -937,133 +979,96 @@
                 <p style="text-align: center; font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 32px; letter-spacing: 0.05em;">CAPABILITIES WE BRING</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">📊</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-chart-bar" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Event Telemetry</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Real-time swarm visibility</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">🔄</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-arrows-clockwise" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Fallback Cascades</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Automatic provider switching</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">🎯</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-target" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Task Routing</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Right model for each task</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">📈</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-trend-up" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Cost Analytics</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Token spend optimization</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">🔐</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-lock-key" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Secret Management</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Vault integration</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">🕸️</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-graph" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Agent Topology</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Swarm orchestration view</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">⚡</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-lightning" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Rate Limiting</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Proactive throttle detection</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">🧠</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-brain" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Theme Classification</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Semantic work categorization</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">📋</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-clipboard-text" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Audit Logging</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Complete event history</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">🔔</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-bell" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Alert Pipelines</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Threshold-based notifications</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">🌡️</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-thermometer" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Health Monitoring</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Provider status tracking</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px solid var(--border); padding: 16px; border-radius: 8px;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">🗓️</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-calendar" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text);">Scheduled Tasks</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">Cron-based automation</div>
                     </div>
                     <div style="background: var(--bg-elevated); border: 1px dashed var(--border); padding: 16px; border-radius: 8px; opacity: 0.5;">
-                        <div style="font-size: 1.25rem; margin-bottom: 8px;">🔮</div>
+                        <div style="font-size: 1.25rem; margin-bottom: 8px;"><i class="ph ph-sparkle" style="color: var(--accent);"></i></div>
                         <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-tertiary);">More Coming Soon</div>
                         <div style="font-size: 0.7rem; color: var(--text-tertiary);">We're always building new capabilities</div>
                     </div>
                 </div>
             </div>
             
-            <!-- Dashboard Visualization Samples - 6 decomposed views -->
-            <div style="margin-top: 64px;" class="fade-in">
-                <p style="text-align: center; font-size: 0.875rem; color: var(--text-tertiary); margin-bottom: 32px; letter-spacing: 0.05em;">DASHBOARD VIEWS — UNBLURRED SAMPLES</p>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
-                    <!-- Row 1: Activity Timeline, Theme Distribution, Theme Composition -->
-                    <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-                        <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; background: #0a0a0a;">
-                            <img src="img/charts/activity-timeline.png" alt="Activity Timeline" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
-                        </div>
-                        <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">Activity Timeline</div>
-                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">8-day event velocity with dual-axis sessions</div>
-                        </div>
-                    </div>
-                    <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-                        <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; background: #0a0a0a;">
-                            <img src="img/charts/theme-distribution.png" alt="Theme Distribution" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
-                        </div>
-                        <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">Theme Distribution</div>
-                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">Semantic classification donut</div>
-                        </div>
-                    </div>
-                    <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-                        <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; background: #0a0a0a;">
-                            <img src="img/charts/theme-composition.png" alt="Theme Composition" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
-                        </div>
-                        <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">Theme Composition</div>
-                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">Stacked work categories over time</div>
-                        </div>
-                    </div>
-                    <!-- Row 2: Activity Heatmap, User Engagement, Model Usage -->
-                    <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-                        <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; background: #0a0a0a;">
-                            <img src="img/charts/activity-heatmap.png" alt="Activity Heatmap" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
-                        </div>
-                        <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">Activity Heatmap</div>
-                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">GitHub-style activity by hour/day</div>
-                        </div>
-                    </div>
-                    <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-                        <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; background: #0a0a0a;">
-                            <img src="img/charts/user-heatmap.png" alt="User Engagement Heatmap" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
-                        </div>
-                        <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">User Engagement</div>
-                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">Direct interaction patterns (purple)</div>
-                        </div>
-                    </div>
-                    <div style="background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;">
-                        <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; background: #0a0a0a;">
-                            <img src="img/charts/model-usage.png" alt="Model Usage" style="max-width: 100%; max-height: 100%; object-fit: contain; display: block;">
-                        </div>
-                        <div style="padding: 12px 16px; border-top: 1px solid var(--border);">
-                            <div style="font-size: 0.75rem; font-weight: 600; color: var(--text);">Model Usage</div>
-                            <div style="font-size: 0.65rem; color: var(--text-tertiary);">Distribution across providers</div>
-                        </div>
-                    </div>
+            <!-- Dashboard Features List -->
+            <div style="margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;" class="fade-in">
+                <div>
+                    <p style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Telemetry Views</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem;"><i class="ph ph-trend-up" style="color: var(--accent);"></i> Activity Timeline — 8-day event velocity with dual-axis sessions</li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem;"><i class="ph ph-target" style="color: var(--accent);"></i> Theme Distribution — Semantic classification donut</li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem;"><i class="ph ph-chart-bar" style="color: var(--accent);"></i> Theme Composition — Stacked work categories over time</li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem;"><i class="ph ph-calendar" style="color: var(--accent);"></i> Activity Heatmap — GitHub-style activity by hour/day</li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem;"><i class="ph ph-user" style="color: var(--accent);"></i> User Engagement — Direct interaction patterns</li>
+                        <li style="padding: 12px 0; color: var(--text); font-size: 0.9rem;"><i class="ph ph-gear" style="color: var(--accent);"></i> Model Usage — Distribution across providers</li>
+                    </ul>
+                </div>
+                <div>
+                    <p style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Operational Insights</p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem;"><i class="ph ph-arrows-clockwise" style="color: var(--accent);"></i> Rate limit detection with provider rotation</li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem;"><i class="ph ph-currency-dollar" style="color: var(--accent);"></i> Token spend tracking per model/provider</li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem;"><i class="ph ph-graph" style="color: var(--accent);"></i> Agent topology with parent-child relationships</li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem;"><i class="ph ph-clipboard-text" style="color: var(--accent);"></i> Complete audit trail for compliance</li>
+                        <li style="padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem;"><i class="ph ph-bell" style="color: var(--accent);"></i> Threshold-based alerts to Slack/Email</li>
+                        <li style="padding: 12px 0; color: var(--text); font-size: 0.9rem;"><i class="ph ph-device-mobile" style="color: var(--accent);"></i> Responsive design for mobile monitoring</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1081,7 +1086,7 @@
                 <!-- Reasoning Chain -->
                 <div class="tmrc-chain">
                     <div class="chain-header">
-                        <span class="chain-icon">🧠</span>
+                        <span class="chain-icon"><i class="ph ph-brain" style="color: var(--accent);"></i></span>
                         <span class="chain-name">Reasoning</span>
                     </div>
                     <div class="tier">
@@ -1159,7 +1164,7 @@
                 <!-- Execution Chain -->
                 <div class="tmrc-chain">
                     <div class="chain-header">
-                        <span class="chain-icon">⚡</span>
+                        <span class="chain-icon"><i class="ph ph-lightning" style="color: var(--accent);"></i></span>
                         <span class="chain-name">Execution</span>
                     </div>
                     <div class="tier">
@@ -1227,7 +1232,7 @@
                 <!-- Coding Chain -->
                 <div class="tmrc-chain">
                     <div class="chain-header">
-                        <span class="chain-icon">💻</span>
+                        <span class="chain-icon"><i class="ph ph-code" style="color: var(--accent);"></i></span>
                         <span class="chain-name">Coding</span>
                     </div>
                     <div class="tier">
@@ -1364,25 +1369,13 @@
         </div>
     </section>
 
-    <!-- Trust Bar -->
-    <section class="trust-bar">
-        <div class="container">
-            <span class="label fade-in">Our team brings experience from</span>
-            <div class="trust-grid fade-in">
-                <span class="trust-name">Google</span>
-                <span class="trust-name">Jane Street</span>
-                <span class="trust-name">Columbia</span>
-                <span class="trust-name">NYU</span>
-                <span class="trust-name">Stanford</span>
-                <span class="trust-name">McKinsey</span>
-                <span class="trust-name">BNY Mellon</span>
-                <span class="trust-name">J&J</span>
-            </div>
-        </div>
-    </section>
+    <!-- Trust Bar removed as redundant -->
 
     <!-- Pricing -->
-    <section class="pricing" id="pricing">
+    <section class="pricing" id="pricing" style="position: relative; overflow: hidden;">
+        <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; opacity: 0.12;">
+            <source src="videos/pricing-bg.mp4" type="video/mp4">
+        </video>
         <div class="container">
             <div class="pricing-header fade-in">
                 <span class="label">Implementation</span>
@@ -1415,7 +1408,7 @@
                         <li>Team Training Session</li>
                         <li>30-day Support Window</li>
                     </ul>
-                    <a href="https://calendly.com/ezra-anchovy" class="btn btn-secondary" target="_blank" rel="noopener">Book a Call</a>
+                    <a href="https://calendly.com/a-labs" class="btn btn-secondary" target="_blank" rel="noopener">Book a Call</a>
                 </div>
                 <div class="pricing-card featured">
                     <span class="featured-badge">Popular</span>
@@ -1430,7 +1423,7 @@
                         <li>Priority 4h Response SLA</li>
                         <li>$899/mo Managed Support</li>
                     </ul>
-                    <a href="https://calendly.com/ezra-anchovy" class="btn btn-primary" target="_blank" rel="noopener">Schedule Consultation</a>
+                    <a href="https://calendly.com/a-labs" class="btn btn-primary" target="_blank" rel="noopener">Schedule Consultation</a>
                     <a href="mailto:info@simplifiedclaw.com" class="btn btn-secondary" style="margin-top: 8px;">Email Instead</a>
                 </div>
                 <div class="pricing-card">
@@ -1444,7 +1437,7 @@
                         <li>On-site Training Available</li>
                         <li>24/7 Priority Escalation</li>
                     </ul>
-                    <a href="https://calendly.com/ezra-anchovy" class="btn btn-secondary" target="_blank" rel="noopener">Schedule Discovery Call</a>
+                    <a href="https://calendly.com/a-labs" class="btn btn-secondary" target="_blank" rel="noopener">Schedule Discovery Call</a>
                 </div>
             </div>
         </div>
@@ -1455,12 +1448,12 @@
             <div class="footer-content">
                 <a href="index.html" class="logo">
                     <img src="icons/twitter-v18-final.svg" alt="SimplifiedClaw Logo" style="vertical-align: middle;">
-                    <span>Simplified</span><span style="color: var(--accent);">Claw</span>
+                    Simplified <span style="color: var(--accent);">Claw</span>
                 </a>
                 <ul class="footer-links">
                     <li><a href="security.html">Security</a></li>
                     <li><a href="terms.html">Terms</a></li>
-                    <li><a href="https://calendly.com/ezra-anchovy" target="_blank" rel="noopener">Schedule Call</a></li>
+                    <li><a href="https://calendly.com/a-labs" target="_blank" rel="noopener">Schedule Call</a></li>
                     <li><a href="mailto:info@simplifiedclaw.com">Contact</a></li>
                 </ul>
                 <span class="footer-copy">© 2026</span>

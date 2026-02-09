@@ -1,0 +1,33 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 
+    SimplifiedClaw Precision Overscan (V19)
+    - Full Square Background (Zero bleed risk)
+    - 10% Upscale for better circular framing
+  -->
+  <rect width="400" height="400" fill="#09090b" />
+  
+  <g transform="translate(200, 200) scale(1.1)">
+    <!-- C-Arc centered on 0,0 -->
+    <path d="M 80 -120 A 145 145 0 1 0 80 120" 
+          fill="none" 
+          stroke="#f97316" 
+          stroke-width="56" 
+          stroke-linecap="butt" 
+          transform="translate(-15, 0)" />
+          
+    <!-- C-Pincers -->
+    <path d="M 65 -120 L 120 -140 Q 135 -145 120 -110 L 65 -70 Z" fill="#f97316" transform="translate(-15, 0)" />
+    <path d="M 65 120 L 120 140 Q 135 145 120 110 L 65 70 Z" fill="#f97316" transform="translate(-15, 0)" />
+
+    <!-- S-Core centered -->
+    <g transform="translate(0, 0)">
+       <path d="M 35 -65 L -5 -65 A 30 30 0 0 0 -5 -5 L 5 -5 A 30 30 0 0 1 5 55 L -35 55" 
+             fill="none" 
+             stroke="white" 
+             stroke-width="52" 
+             stroke-linecap="butt" />
+       <path d="M 35 -89 L 65 -89 L 35 -45 Z" fill="white" />
+       <path d="M -35 79 L -65 79 L -35 35 Z" fill="white" />
+    </g>
+  </g>
+</svg>

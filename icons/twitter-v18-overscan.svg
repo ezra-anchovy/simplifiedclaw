@@ -1,0 +1,33 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 
+    SimplifiedClaw V18-Overscan: 
+    - Full Square Background to prevent Twitter white-bleed.
+    - Precision Centered Monogram.
+  -->
+  
+  <!-- Background: Full 400x400 Square (Ensures zero white edges on X) -->
+  <rect width="400" height="400" fill="#09090b" />
+  
+  <!-- "C" Arc (Claw) - Upscaled by 5% -->
+  <path d="M 285 75 A 165 165 0 1 0 285 325" 
+        fill="none" 
+        stroke="#f97316" 
+        stroke-width="54" 
+        stroke-linecap="butt" />
+
+  <!-- C-Pincers (Sharp, Tapered) -->
+  <path d="M 285 50 L 340 30 Q 355 25 340 60 L 285 100 Z" fill="#f97316" />
+  <path d="M 285 350 L 340 370 Q 355 375 340 340 L 285 300 Z" fill="#f97316" />
+        
+  <!-- "S" Core (White) - Centered and Sharpened -->
+  <g transform="translate(10, 5)">
+    <path d="M 235 135 L 195 135 A 30 30 0 0 0 195 195 L 205 195 A 30 30 0 0 1 205 255 L 165 255" 
+          fill="none" 
+          stroke="white" 
+          stroke-width="48" 
+          stroke-linecap="butt" />
+    <!-- S-Terminals -->
+    <path d="M 235 111 L 265 111 L 235 155 Z" fill="white" />
+    <path d="M 165 279 L 135 279 L 165 235 Z" fill="white" />
+  </g>
+</svg>
