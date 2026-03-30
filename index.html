@@ -852,14 +852,20 @@
       .footer-meta { flex-direction: column; gap: 10px; }
     }
     .trust-logo {
-      height: 40px;
+      height: 44px;
       width: auto;
       opacity: 0.45;
       transition: opacity 0.3s ease;
+      object-fit: contain;
     }
 
     .trust-logo:hover {
       opacity: 0.85;
+    }
+
+    /* Compensate for SVGs with built-in vertical padding */
+    .trust-logo-tall {
+      height: 72px;
     }
 
   </style>
@@ -930,10 +936,10 @@
       <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
         <img src="logos/janestreet.svg" alt="Jane Street" class="trust-logo">
         <img src="logos/columbia.svg" alt="Columbia" class="trust-logo">
-        <img src="logos/nyu.svg" alt="NYU" class="trust-logo">
-        <img src="logos/stanford.svg" alt="Stanford" class="trust-logo">
+        <img src="logos/nyu.svg" alt="NYU" class="trust-logo trust-logo-tall">
+        <img src="logos/stanford.svg" alt="Stanford" class="trust-logo trust-logo-tall">
         <img src="logos/mckinsey.svg" alt="McKinsey" class="trust-logo">
-        <img src="logos/bny.svg" alt="BNY Mellon" class="trust-logo">
+        <img src="logos/bny.svg" alt="BNY Mellon" class="trust-logo trust-logo-tall">
         <img src="logos/uchicago.svg" alt="UChicago" class="trust-logo">
       </div>
     </div>
